@@ -18,19 +18,19 @@ const features: FeatureProps[] = [
     title: "Seamless Team Management",
     description:
       "Effortlessly add players, coaches, and parents to your team. Manage your roster, track attendance, and keep everyone updated in real-time.",
-    image: "public/assets/player.png",
+    image: "./assets/player.png",
   },
   {
     title: "Simplified Scheduling",
     description:
       "Plan games, training sessions, and tournaments with ease. Share schedules with the whole team instantly, and ensure no one misses an event.",
-    image: "public/assets/calander.png",
+    image: "./assets/calander.png",
   },
   {
     title: "Efficient Fundraising Tools",
     description:
       "Raise funds for your team with built-in tools that streamline event promotion and track contributions, helping your club grow sustainably.",
-    image: "public/assets/donation.png",
+    image: "./assets/donation.png",
   },
 ];
 

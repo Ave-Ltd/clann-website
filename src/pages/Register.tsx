@@ -52,7 +52,7 @@ export const Register = () => {
             className="hover:scale-105 transition transform flex items-center"
           >
             <img
-              src={`public/assets/google_icons/GetItOnGooglePlay_Badge_Web_color_${locale}.png`}
+              src={`./assets/google_icons/GetItOnGooglePlay_Badge_Web_color_${locale}.png`}
               alt="Get it on Google Play"
               className="h-14 md:h-16 w-auto"
             />
@@ -66,7 +66,7 @@ export const Register = () => {
             className="hover:scale-105 transition transform flex items-center"
           >
             <img
-              src={`public/assets/apple_icons/Download_on_the_App_Store_Badge_${locale}_RGB_blk_100217.svg`}
+              src={`./assets/apple_icons/Download_on_the_App_Store_Badge_${locale}_RGB_blk_100217.svg`}
               alt="Download on the App Store"
               className="h-14 md:h-16 w-auto"
             />

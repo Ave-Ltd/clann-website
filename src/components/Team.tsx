@@ -24,7 +24,7 @@ interface SociaNetworkslProps {
 
 const teamList: TeamProps[] = [
   {
-    imageUrl: "public/assets/customuser1.jpg", // ✅ Fixed path
+    imageUrl: "./assets/customuser1.jpg", // ✅ Fixed path
     name: "Phil",
     position: "Business and Finance Manager",
     description:
@@ -41,7 +41,7 @@ const teamList: TeamProps[] = [
     ],
   },
   {
-    imageUrl: "public/assets/customuser1.jpg", // ✅ Fixed path
+    imageUrl: "./assets/customuser1.jpg", // ✅ Fixed path
     name: "Mick",
     position: "Lead of Technology",
     description:
@@ -58,7 +58,7 @@ const teamList: TeamProps[] = [
     ],
   },
   {
-    imageUrl: "public/assets/customuser1.jpg", // ✅ Fixed path
+    imageUrl: "./assets/customuser1.jpg", // ✅ Fixed path
     name: "Jamie",
     position: "Full Stack Developer",
     description:
