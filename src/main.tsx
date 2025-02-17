@@ -7,8 +7,8 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter> {/* ✅ Ensure Router is here, not in App.tsx */}
-      <ThemeContextProvider> {/* ✅ Wrap theme context inside Router */}
+    <BrowserRouter basename="/clann-website/"> {/* Ensure Router is here, not in App.tsx */}
+      <ThemeContextProvider> {/* Wrap theme context inside Router */}
         <App />
       </ThemeContextProvider>
     </BrowserRouter>

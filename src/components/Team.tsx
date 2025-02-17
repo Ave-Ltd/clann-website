@@ -8,7 +8,6 @@ import {
   CardTitle,
 } from "../ui/card";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
-import person from "../assets/customuser1.jpg"
 
 interface TeamProps {
   imageUrl: string;
@@ -25,7 +24,7 @@ interface SociaNetworkslProps {
 
 const teamList: TeamProps[] = [
   {
-    imageUrl: person,
+    imageUrl: "public/assets/customuser1.jpg", // ✅ Fixed path
     name: "Phil",
     position: "Business and Finance Manager",
     description:
@@ -42,7 +41,7 @@ const teamList: TeamProps[] = [
     ],
   },
   {
-    imageUrl: person,
+    imageUrl: "public/assets/customuser1.jpg", // ✅ Fixed path
     name: "Mick",
     position: "Lead of Technology",
     description:
@@ -59,7 +58,7 @@ const teamList: TeamProps[] = [
     ],
   },
   {
-    imageUrl: person,
+    imageUrl: "public/assets/customuser1.jpg", // ✅ Fixed path
     name: "Jamie",
     position: "Full Stack Developer",
     description:
@@ -82,20 +81,15 @@ export const Team = () => {
     switch (iconName) {
       case "Linkedin":
         return <Linkedin size="20" />;
-
       case "Facebook":
         return <Facebook size="20" />;
-
       case "Instagram":
         return <Instagram size="20" />;
     }
   };
 
   return (
-    <section
-      id="team"
-      className="container py-24 sm:py-32"
-    >
+    <section id="team" className="container py-24 sm:py-32">
       <h2 className="text-3xl md:text-4xl font-bold">
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
           Meet{" "}
@@ -104,18 +98,13 @@ export const Team = () => {
       </h2>
 
       <p className="mt-4 mb-10 text-xl text-muted-foreground">
-        The driving force behind Clann, our team is dedicated to simplifying team management and empowering clubs to thrive.
+        The driving force behind Clann, our team is dedicated to simplifying
+        team management and empowering clubs to thrive.
       </p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-10">
         {teamList.map(
-          ({
-            imageUrl,
-            name,
-            position,
-            description,
-            socialNetworks,
-          }: TeamProps) => (
+          ({ imageUrl, name, position, description, socialNetworks }: TeamProps) => (
             <Card
               key={name}
               className="bg-muted/50 relative mt-8 flex flex-col justify-center items-center"
@@ -127,9 +116,7 @@ export const Team = () => {
                   className="absolute -top-12 rounded-full w-24 h-24 aspect-square object-cover"
                 />
                 <CardTitle className="text-center">{name}</CardTitle>
-                <CardDescription className="text-primary">
-                  {position}
-                </CardDescription>
+                <CardDescription className="text-primary">{position}</CardDescription>
               </CardHeader>
 
               <CardContent className="text-center pb-2">

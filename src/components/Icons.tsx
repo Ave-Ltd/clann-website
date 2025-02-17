@@ -1,12 +1,8 @@
-import appLogo from "../assets/app_logo.png";
+import React from "react";
 
 export const LogoIcon = () => {
   return (
-    <img
-      src={appLogo} // Update this with your logo path
-      alt="Clann Logo"
-      className="w-10 h-10" // Adjust width & height as needed
-    />
+    <img src="public/assets/app_logo.png" alt="App Logo" width={50} height={50} />
   );
 };
 

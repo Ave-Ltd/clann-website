@@ -6,12 +6,12 @@ import { Investors } from "./pages/Investors";
 import "./App.css";
 
 // Authentication check
-const isAuthenticated = () => !!localStorage.getItem("user-auth-token");
+// const isAuthenticated = () => !!localStorage.getItem("user-auth-token");
 
 // Private Route Wrapper
-const PrivateRoute = ({ children }: { children: JSX.Element }) => {
-  return isAuthenticated() ? children : <Login />;
-};
+// const PrivateRoute = ({ children }: { children: JSX.Element }) => {
+//   return isAuthenticated() ? children : <Login />;
+// };
 
 function App() {
   return (

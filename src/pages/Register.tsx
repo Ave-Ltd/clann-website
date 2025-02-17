@@ -10,7 +10,7 @@ export const Register = () => {
     const browserLang = navigator.language || navigator.languages[0];
 
     // Map language codes to image filenames
-    const langMap: { [key: string]: string } = {
+    const langMap: Record<string, string> = {
       en: "English",
       fr: "French",
       de: "German",
@@ -52,7 +52,7 @@ export const Register = () => {
             className="hover:scale-105 transition transform flex items-center"
           >
             <img
-              src={`/src/assets/google_icons/GetItOnGooglePlay_Badge_Web_color_${locale}.png`}
+              src={`public/assets/google_icons/GetItOnGooglePlay_Badge_Web_color_${locale}.png`}
               alt="Get it on Google Play"
               className="h-14 md:h-16 w-auto"
             />
@@ -66,7 +66,7 @@ export const Register = () => {
             className="hover:scale-105 transition transform flex items-center"
           >
             <img
-              src={`/src/assets/apple_icons/Download_on_the_App_Store_Badge_${locale}_RGB_blk_100217.svg`}
+              src={`public/assets/apple_icons/Download_on_the_App_Store_Badge_${locale}_RGB_blk_100217.svg`}
               alt="Download on the App Store"
               className="h-14 md:h-16 w-auto"
             />

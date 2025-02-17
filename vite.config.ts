@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/clann-website/", // ✅ Add this for GitHub Pages support
+  base: "/clann-website/",
   plugins: [react()],
   resolve: {
     alias: {

@@ -1,6 +1,5 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { MagnifierIcon, WalletIcon, ChartIcon } from "./Icons";
-import services from "../assets/services.png";
 
 interface ServiceProps {
   title: string;
@@ -42,7 +41,9 @@ export const Services = () => {
           </h2>
 
           <p className="text-muted-foreground text-xl mt-4 mb-8">
-            At Clann, we provide tailored services to simplify team management, enhance communication, and empower clubs to reach their full potential.
+            At Clann, we provide tailored services to simplify team management,
+            enhance communication, and empower clubs to reach their full
+            potential.
           </p>
 
           <div className="flex flex-col gap-8">
@@ -65,7 +66,7 @@ export const Services = () => {
         </div>
 
         <img
-          src={services}
+          src="public/assets/services.png" // ✅ Fixed path
           className="w-[300px] md:w-[500px] lg:w-[600px] object-contain"
           alt="About services"
         />
