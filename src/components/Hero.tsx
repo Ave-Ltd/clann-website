@@ -11,18 +11,18 @@ export const Hero = () => {
       <div className="space-y-6">
         <h1 className="text-5xl md:text-6xl font-bold">
           <span className="inline bg-gradient-to-r from-[#F596D3] to-[#D247BF] text-transparent bg-clip-text">
-            Clann
+            The Future of Club & Organisation Management
           </span>
         </h1>
 
         <p className="text-xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
-          Powering grassroots teams, local clubs, and communities with seamless management and real-time communication.
+        Empowering clubs, teams, and organisations with cutting-edge tools, seamless operations, and new funding opportunities.
         </p>
 
         {/* Call-to-Action Buttons */}
         <div className="space-y-4 md:space-y-0 md:space-x-4">
           <Button className="w-full md:w-1/3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md" onClick={() => navigate("/register")}>
-            Get Started / Register
+            Learn more
           </Button>
 
           <Button
@@ -30,7 +30,7 @@ export const Hero = () => {
             className="w-full md:w-1/3 px-6 py-3 border border-gray-400 text-foreground hover:bg-gray-800 font-semibold rounded-lg shadow-md"
             onClick={() => navigate("/login")}
           >
-            Login
+            Partner access
           </Button>
         </div>
       </div>

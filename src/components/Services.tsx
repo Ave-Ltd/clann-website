@@ -9,28 +9,40 @@ interface ServiceProps {
 
 const serviceList: ServiceProps[] = [
   {
-    title: "Team Collaboration",
+    title: "Seamless Club & Organisation Management",
     description:
-      "Bring coaches, parents, and players together with streamlined communication and collaboration tools to keep everyone on the same page.",
+      "Everything in one place, simple and effective",
     icon: <ChartIcon />,
   },
   {
-    title: "Event Management",
+    title: "Scheduling & Communication",
     description:
-      "Plan games, training sessions, and tournaments with ease. Share schedules and updates instantly with the entire team.",
+      "Keep teams, members, and supporters connected effortlessly.",
     icon: <WalletIcon />,
   },
   {
-    title: "Fundraising Made Simple",
+    title: "Secure Membership & Event Payment",
     description:
-      "Boost your team's finances with built-in fundraising tools, making it easy to organize campaigns and track contributions.",
+      "Simplify finances with easy-to-use payment solutions.",
+    icon: <MagnifierIcon />,
+  },
+  {
+    title: "Community Engagement & Growth",
+    description:
+      "Strengthening relationships between organisations and their members",
+    icon: <MagnifierIcon />,
+  },
+  {
+    title: "Unlocking Financial Sustainability",
+    description:
+      "Helping clubs and organisations become more self-sufficient",
     icon: <MagnifierIcon />,
   },
 ];
 
 export const Services = () => {
   return (
-    <section className="container py-24 sm:py-32">
+    <section id="services" className="container py-24 sm:py-32">
       <div className="grid lg:grid-cols-[1fr,1fr] gap-8 place-items-center">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold">
@@ -67,7 +79,7 @@ export const Services = () => {
 
         <img
           src="./assets/services.png" // ✅ Fixed path
-          className="w-[300px] md:w-[500px] lg:w-[600px] object-contain"
+          className="w-[00px] md:w-[500px] lg:w-[600px] object-contain"
           alt="About services"
         />
       </div>

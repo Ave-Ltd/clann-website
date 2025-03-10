@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 interface SidebarProps {
   setActiveSection: (section: string) => void;
+  closeSidebar: () => void; // Added prop to close sidebar
 }
 
 const sections = [
@@ -14,7 +15,7 @@ const sections = [
   { id: "security", label: "Security", icon: <Lock className="w-5 h-5" /> },
 ];
 
-const InvestorSidebar = ({ setActiveSection }: SidebarProps) => {
+const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
   const [active, setActive] = useState("overview");
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     return localStorage.getItem("theme") === "dark";
@@ -36,19 +37,12 @@ const InvestorSidebar = ({ setActiveSection }: SidebarProps) => {
 
   return (
     <nav className="h-full bg-secondary text-foreground p-4 lg:border-r flex flex-col justify-between border-none !shadow-none">
-
-
-
-      
-      {/* Header Row with Dark Mode Toggle (Now Inline) */}
+      {/* Header Row with Dark Mode Toggle */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg lg:text-xl font-bold">Investor Dashboard</h2>
-        
+
         {/* Dark Mode Toggle */}
-        <button
-          onClick={toggleDarkMode}
-          className="p-2 rounded-md transition hover:bg-accent"
-        >
+        <button onClick={toggleDarkMode} className="p-2 rounded-md transition hover:bg-accent">
           {darkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5" />}
         </button>
       </div>
@@ -61,6 +55,7 @@ const InvestorSidebar = ({ setActiveSection }: SidebarProps) => {
             onClick={() => {
               setActive(id);
               setActiveSection(id);
+              if (window.innerWidth < 1024) closeSidebar(); // Close on mobile only
             }}
             className={`flex items-center gap-3 p-3 rounded-md cursor-pointer transition ${
               active === id ? "bg-primary text-white" : "hover:bg-accent"

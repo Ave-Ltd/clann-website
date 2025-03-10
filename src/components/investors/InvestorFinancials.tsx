@@ -23,14 +23,14 @@ const InvestorFinancials = () => {
       initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-6 bg-card shadow-lg rounded-lg"
+      className="p-6 bg-card shadow-lg rounded-lg w-full max-w-4xl mx-auto"
     >
       <h2 className="text-2xl font-bold mb-4">💰 Financial Insights</h2>
       <p className="text-muted-foreground">Revenue & funding breakdown</p>
 
       {/* Chart & Legend Container */}
-      <div className="flex justify-center items-center mt-6">
-        <ResponsiveContainer width="50%" height={300}>
+      <div className="flex flex-col md:flex-row justify-center items-center mt-6 gap-6">
+        <ResponsiveContainer width="100%" height={300} className="max-w-md">
           <PieChart>
             <Pie
               data={data}
@@ -54,18 +54,8 @@ const InvestorFinancials = () => {
                 />
               ))}
             </Pie>
-
             <Tooltip />
-            <Legend
-              layout="vertical"
-              align="right"
-              verticalAlign="middle"
-              formatter={(value, entry: { color?: string }) => (
-                <span className="text-sm font-medium" style={{ color: entry.color }}>
-                  {value}
-                </span>
-              )}
-            />
+            <Legend layout="horizontal" align="center" />
           </PieChart>
         </ResponsiveContainer>
       </div>
@@ -73,8 +63,8 @@ const InvestorFinancials = () => {
       {/* Animated Labels - Appear AFTER animation */}
       {showLabels && (
         <motion.div
-          initial={{ opacity: 0, x: 0, y: 0 }}
-          animate={{ opacity: 1, x: [0, -10, -20], y: [0, -10, -20] }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-4 text-center"
         >

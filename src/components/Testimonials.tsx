@@ -63,48 +63,52 @@ export const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="container py-24 sm:py-32"
+      className="container py-24 sm:py-32 relative overflow-hidden"
     >
       <h2 className="text-3xl md:text-4xl font-bold">
-        Discover Why
+        Discover Why{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          {" "}
-          Teams Love{" "}
-        </span>
+          Teams Love
+        </span>{" "}
         Clann
       </h2>
 
       <p className="text-xl text-muted-foreground pt-4 pb-8">
-        Hear from parents, coaches, and players who use Clann to simplify team management and strengthen their clubs.
+        Hear from parents, coaches, and players who use Clann to simplify team
+        management and strengthen their clubs.
       </p>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:block columns-2  lg:columns-3 lg:gap-6 mx-auto space-y-4 lg:space-y-6">
-        {testimonials.map(
-          ({ image, name, userName, comment }: TestimonialProps) => (
-            <Card
-              key={userName}
-              className="max-w-md md:break-inside-avoid overflow-hidden"
-            >
-              <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                <Avatar>
-                  <AvatarImage
-                    alt=""
-                    src={image}
-                  />
-                  <AvatarFallback>{name.charAt(0)}</AvatarFallback>
-                </Avatar>
+      {/* Scrolling Wrapper */}
+      <div className="relative w-full overflow-hidden">
+        <div className="flex gap-8 animate-scroll">
+          {/* Duplicate list for infinite effect */}
+          {[...testimonials, ...testimonials].map(
+            ({ image, name, userName, comment }: TestimonialProps, index) => (
+              <Card
+                key={index}
+                className="w-[320px] flex-none overflow-hidden"
+              >
+                <CardHeader className="flex flex-row items-center gap-4 pb-2">
+                  <Avatar>
+                    <AvatarImage alt={name} src={image} />
+                    <AvatarFallback>{name.charAt(0)}</AvatarFallback>
+                  </Avatar>
 
-                <div className="flex flex-col">
-                  <CardTitle className="text-lg">{name}</CardTitle>
-                  <CardDescription>{userName}</CardDescription>
-                </div>
-              </CardHeader>
+                  <div className="flex flex-col">
+                    <CardTitle className="text-lg">{name}</CardTitle>
+                    <CardDescription>{userName}</CardDescription>
+                  </div>
+                </CardHeader>
 
-              <CardContent>{comment}</CardContent>
-            </Card>
-          )
-        )}
+                <CardContent>{comment}</CardContent>
+              </Card>
+            )
+          )}
+        </div>
       </div>
     </section>
   );
 };
+
+
+

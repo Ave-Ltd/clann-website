@@ -8,23 +8,23 @@ interface SponsorProps {
 const sponsors: SponsorProps[] = [
   {
     icon: <Radar size={34} />,
-    name: "Scottish Youth Football Association",
+    name: "Scottish Enterprise",
   },
   {
     icon: <Radar size={34} />,
-    name: "Rugby League",
+    name: "Buisness Gateway",
   },
   {
     icon: <Radar size={34} />,
-    name: "Aberdeenshire Council",
+    name: "Techscaler",
   },
   {
     icon: <Radar size={34} />,
-    name: "Sports Scotland",
+    name: "Codebase",
   },
   {
     icon: <Radar size={34} />,
-    name: "Community Fund",
+    name: "Barclays Eagle Labs",
   },
 ];
 

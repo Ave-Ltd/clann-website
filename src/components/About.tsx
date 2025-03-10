@@ -20,13 +20,10 @@ export const About = () => {
               </h2>
               <p className="text-xl text-muted-foreground mt-4">
                 At Clann, we believe in empowering parents, coaches, and kids to stay organized and connected in their sports teams. 
-                Founded by a passionate team of developers—Phil, Mick, and myself—we created this platform to streamline game schedules, 
-                training sessions, and tournaments while making it easier to raise funds for your club.
               </p>
               <p className="text-xl text-muted-foreground mt-4">
-                Whether you're managing a single team or coordinating multiple events, Clann provides an intuitive solution to 
-                track everything. Our goal is to help sports communities thrive, all while simplifying the management process and 
-                giving coaches and parents more time to focus on what truly matters—the kids.
+              Managing a club or organisation shouldn’t be complicated. 
+              Clann.App provides the tools you need to operate efficiently, engage your community, and create long-term financial stability—all in one intuitive platform
               </p>
             </div>
             <Statistics />
