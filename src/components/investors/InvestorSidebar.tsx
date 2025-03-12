@@ -1,10 +1,10 @@
 import { useState } from "react"
 import {
   Users,
-  BarChart2,
-  CalendarCheck,
-  Lock,
-  Map,
+  // BarChart2,
+  // CalendarCheck,
+  // Lock,
+  // Map,
   LogOut,
   Moon,
   Sun,
@@ -23,16 +23,18 @@ interface SidebarProps {
 
 // Reordered sections array
 const sections = [
-  { id: "overview", label: "Overview", icon: <Users className="w-5 h-5" /> },
-  { id: "benefits", label: "Benefits", icon: <DollarSign className="w-5 h-5" /> },
-  { id: "roadmap", label: "Roadmap", icon: <Map className="w-5 h-5" /> },
-  { id: "passiveRevenue", label: "Passive Revenue", icon: <Coins className="w-5 h-5" /> },
-  { id: "financials", label: "Financials", icon: <CalendarCheck className="w-5 h-5" /> },
-  { id: "growth", label: "User Growth", icon: <BarChart2 className="w-5 h-5" /> },
-  { id: "security", label: "Security", icon: <Lock className="w-5 h-5" /> },
+  { id: "overview", label: "Overview", icon: <Users className="w-5 h-5" /> },  
+  { id: "aboutClann", label: "About Clann", icon: <Info className="w-5 h-5" /> },
+  { id: "benefits", label: "Club Benefits", icon: <DollarSign className="w-5 h-5" /> },
+  // { id: "roadmap", label: "Roadmap", icon: <Map className="w-5 h-5" /> },
+  { id: "passiveRevenue", label: "Club Revenue", icon: <Coins className="w-5 h-5" /> },
+  // { id: "financials", label: "Financials", icon: <CalendarCheck className="w-5 h-5" /> },
+  // { id: "growth", label: "User Growth", icon: <BarChart2 className="w-5 h-5" /> },
+  // { id: "security", label: "Security", icon: <Lock className="w-5 h-5" /> },
   { id: "endorsement", label: "Endorsement", icon: <Handshake className="w-5 h-5" /> },
-  { id: "aboutAve", label: "About Ave", icon: <Info className="w-5 h-5" /> },
+  { id: "aboutAve", label: "About us", icon: <Info className="w-5 h-5" /> },  
   { id: "faqs", label: "FAQs", icon: <HelpCircle className="w-5 h-5" /> },
+  { id: "contact", label: "Join the Clann", icon: <HelpCircle className="w-5 h-5" /> },
 ]
 
 const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
@@ -60,7 +62,7 @@ const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
     <nav className="h-full bg-secondary text-foreground p-4 lg:border-r flex flex-col justify-between border-none !shadow-none">
       {/* Header Row with Dark Mode Toggle */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg lg:text-xl font-bold">Investor Dashboard</h2>
+        <h2 className="text-lg lg:text-xl font-bold">SYFA Dashboard</h2>
         <button onClick={toggleDarkMode} className="p-2 rounded-md transition hover:bg-accent">
           {darkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5" />}
         </button>

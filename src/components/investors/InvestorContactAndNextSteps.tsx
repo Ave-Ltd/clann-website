@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ContactSection } from "@/components/ui/contact-us";
 
 const InvestorContactAndNextSteps = () => {
   return (
@@ -12,7 +13,7 @@ const InvestorContactAndNextSteps = () => {
       {/* Headline & Subheadline */}
       <div className="space-y-2">
         <h2 className="text-2xl md:text-3xl font-bold">
-          We’re Here to Talk – Let’s Connect
+          Let’s Connect!
         </h2>
         <p className="text-base md:text-lg text-muted-foreground">
           Have questions? Want to discuss further? Here’s how to reach us.
@@ -20,13 +21,13 @@ const InvestorContactAndNextSteps = () => {
       </div>
 
       {/* 1. Ways to Get in Touch */}
-      <div>
+      {/* <div>
         <h3 className="text-lg md:text-xl font-semibold mb-2">
           1. Ways to Get in Touch
         </h3>
         <ul className="list-disc list-inside ml-4 space-y-1">
           <li>
-            Ask a Question – If you have any queries, we’re happy to clarify.
+            Email us – If you have any queries, we’re happy to clarify.
           </li>
           <li>
             Schedule a Meeting – Arrange a discussion at a convenient time.
@@ -38,10 +39,10 @@ const InvestorContactAndNextSteps = () => {
             Register Interest – Let us know if you’d like to support or explore further opportunities.
           </li>
         </ul>
-      </div>
+      </div> */}
 
       {/* 2. Contact Details */}
-      <div>
+      {/* <div>
         <h3 className="text-lg md:text-xl font-semibold mb-2">
           2. Contact Details
         </h3>
@@ -51,23 +52,19 @@ const InvestorContactAndNextSteps = () => {
         <p>
           Phone: <span className="font-medium">+1234567890</span>
         </p>
-      </div>
+      </div> */}
 
       {/* 3. Call-to-Action Buttons */}
-      <div className="flex flex-wrap gap-4">
+      {/* <div className="flex flex-wrap gap-4">
         <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90">
-          Ask a Question
-        </button>
-        <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90">
-          Schedule a Meeting
-        </button>
-        <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90">
-          Schedule a Call
+          Email us
         </button>
         <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90">
           Register Interest
         </button>
-      </div>
+      </div> */}
+      <ContactSection />
+      
     </motion.div>
   );
 };

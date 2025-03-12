@@ -1,4 +1,4 @@
-import { Statistics } from "./Statistics";
+// import { Statistics } from "./Statistics";
 
 export const About = () => {
   return (
@@ -26,7 +26,7 @@ export const About = () => {
               Clann.App provides the tools you need to operate efficiently, engage your community, and create long-term financial stability—all in one intuitive platform
               </p>
             </div>
-            <Statistics />
+            {/* <Statistics /> */}
           </div>
         </div>
       </div>

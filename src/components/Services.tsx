@@ -47,15 +47,13 @@ export const Services = () => {
         <div>
           <h2 className="text-3xl md:text-4xl font-bold">
             <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-              Core{" "}
+              A simpler blah blah{" "}
             </span>
-            Services
+            
           </h2>
 
           <p className="text-muted-foreground text-xl mt-4 mb-8">
-            At Clann, we provide tailored services to simplify team management,
-            enhance communication, and empower clubs to reach their full
-            potential.
+            Brief info text see phils doc
           </p>
 
           <div className="flex flex-col gap-8">

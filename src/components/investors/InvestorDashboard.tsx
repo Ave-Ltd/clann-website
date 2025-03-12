@@ -11,6 +11,7 @@ import InvestorEndorsement from "./InvestorEndorsement"
 import InvestorAboutAve from "./InvestorAboutAve"
 import InvestorFAQs from "./InvestorFAQs"
 import InvestorContactAndNextSteps from "./InvestorContactAndNextSteps"
+import InvestorAboutClann from "./InvestorAboutClann"
 
 import {
   Sheet,
@@ -35,6 +36,8 @@ export const InvestorDashboard = () => {
     switch (activeSection) {
       case "roadmap":
         return <InvestorRoadmap />
+      case "aboutClann":
+        return <InvestorAboutClann />
       case "benefits":
         return <InvestorBenefits />
       case "growth":

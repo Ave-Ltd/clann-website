@@ -110,14 +110,14 @@ const InvestorEndorsement = () => {
       </div>
 
       {/* CTA */}
-      <div>
+      {/* <div>
         <a
           href="#about-ave" // Adjust to link to your "About Ave Ltd." or next section
           className="inline-block px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
         >
           The Team &amp; Vision Behind the Platform →
         </a>
-      </div>
+      </div> */}
     </motion.div>
   );
 };

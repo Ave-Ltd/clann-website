@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { MedalIcon, MapIcon, PlaneIcon, GiftIcon } from "./Icons";
+import { MedalIcon, MapIcon, PlaneIcon } from "./Icons";
 
 interface FeatureProps {
   icon: JSX.Element;
@@ -8,6 +8,12 @@ interface FeatureProps {
 }
 
 const features: FeatureProps[] = [
+  {
+    icon: <PlaneIcon />,
+    title: "Fundraising Simplified",
+    description:
+      "Boost your club's resources by utilizing our built-in fundraising tools. Promote events and track contributions in real-time.",
+  },
   {
     icon: <MedalIcon />,
     title: "Easy Team Setup",
@@ -20,18 +26,6 @@ const features: FeatureProps[] = [
     description:
       "Organize games, training sessions, and tournaments with ease. Share schedules instantly with parents and coaches through the app.",
   },
-  {
-    icon: <PlaneIcon />,
-    title: "Fundraising Simplified",
-    description:
-      "Boost your club's resources by utilizing our built-in fundraising tools. Promote events and track contributions in real-time.",
-  },
-  {
-    icon: <GiftIcon />,
-    title: "Engaging Gamification",
-    description:
-      "Motivate players and teams with reward-based features, leaderboards, and achievements to keep everyone inspired and focused.",
-  },
 ];
 
 export const HowItWorks = () => {
@@ -41,14 +35,14 @@ export const HowItWorks = () => {
       className="container text-center py-24 sm:py-32"
     >
       <h2 className="text-3xl md:text-4xl font-bold ">
-        How It{" "}
+        Unlocking New growth and funding{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Works{" "}
+          oportunities{" "}
         </span>
       </h2>
       <p className="md:w-3/4 mx-auto mt-4 mb-8 text-xl text-muted-foreground">
-        Discover how Clann can simplify team management, enhance communication, 
-        and help raise funds to support your team’s success.
+        General overview from Section 3 (phils doc)
+        Every club needs....
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

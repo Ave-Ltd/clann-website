@@ -10,7 +10,7 @@ export const Hero = () => {
       {/* Left Content */}
       <div className="space-y-6">
         <h1 className="text-5xl md:text-6xl font-bold">
-          <span className="inline bg-gradient-to-r from-[#F596D3] to-[#D247BF] text-transparent bg-clip-text">
+          <span className="inline bg-gradient-to-r from-[#d35faa] to-[#3d0135] text-transparent bg-clip-text">
             The Future of Club & Organisation Management
           </span>
         </h1>
@@ -36,22 +36,33 @@ export const Hero = () => {
       </div>
 
       {/* Feature Cards */}
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 w-full max-w-lg lg:max-w-xl">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-3 w-full max-w-lg lg:max-w-xl">
         {[
+          {
+            icon: <Users className="w-12 h-12 text-primary" />,
+            title: "Fundraising",
+            description: "Fundaraising stuff.",
+          },
           {
             icon: <Users className="w-12 h-12 text-primary" />,
             title: "Team Management",
             description: "Easily add, remove, and organize team members.",
           },
           {
+            icon: <CalendarCheck className="w-12 h-12 text-primary" />,
+            title: "Event Scheduling",
+            description: "Plan matches, training sessions, and other events effortlessly.",
+          },
+          {
             icon: <MessageSquare className="w-12 h-12 text-primary" />,
             title: "Real-Time Chat",
             description: "Communicate with teammates instantly via group or private chat.",
           },
+          
           {
-            icon: <CalendarCheck className="w-12 h-12 text-primary" />,
-            title: "Event Scheduling",
-            description: "Plan matches, training sessions, and other events effortlessly.",
+            icon: <Lock className="w-12 h-12 text-primary" />,
+            title: "Secure Access",
+            description: "Keep your team's data safe with secure authentication.",
           },
           {
             icon: <Lock className="w-12 h-12 text-primary" />,
