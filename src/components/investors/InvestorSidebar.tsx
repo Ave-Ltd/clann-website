@@ -1,18 +1,16 @@
 import { useState } from "react"
 import {
+  LayoutDashboard,
+  BookOpen,
+  Gift,
+  TrendingUp,
+  ThumbsUp,
   Users,
-  // BarChart2,
-  // CalendarCheck,
-  // Lock,
-  // Map,
+  HelpCircle,
+  UserPlus,
   LogOut,
   Moon,
   Sun,
-  DollarSign,
-  Coins,
-  Handshake,
-  Info,
-  HelpCircle,
 } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 
@@ -21,24 +19,19 @@ interface SidebarProps {
   closeSidebar: () => void
 }
 
-// Reordered sections array
+// Updated sections with improved icons
 const sections = [
-  { id: "overview", label: "Overview", icon: <Users className="w-5 h-5" /> },  
-  { id: "aboutClann", label: "About Clann", icon: <Info className="w-5 h-5" /> },
-  { id: "benefits", label: "Club Benefits", icon: <DollarSign className="w-5 h-5" /> },
-  // { id: "roadmap", label: "Roadmap", icon: <Map className="w-5 h-5" /> },
-  { id: "passiveRevenue", label: "Club Revenue", icon: <Coins className="w-5 h-5" /> },
-  // { id: "financials", label: "Financials", icon: <CalendarCheck className="w-5 h-5" /> },
-  // { id: "growth", label: "User Growth", icon: <BarChart2 className="w-5 h-5" /> },
-  // { id: "security", label: "Security", icon: <Lock className="w-5 h-5" /> },
-  { id: "endorsement", label: "Endorsement", icon: <Handshake className="w-5 h-5" /> },
-  { id: "aboutAve", label: "About us", icon: <Info className="w-5 h-5" /> },  
+  { id: "overview", label: "Overview", icon: <LayoutDashboard className="w-5 h-5" /> },
+  { id: "aboutClann", label: "About Clann", icon: <BookOpen className="w-5 h-5" /> },
+  { id: "benefits", label: "Club Benefits", icon: <Gift className="w-5 h-5" /> },
+  { id: "passiveRevenue", label: "Club Revenue", icon: <TrendingUp className="w-5 h-5" /> },
+  { id: "endorsement", label: "Endorsement", icon: <ThumbsUp className="w-5 h-5" /> },
+  { id: "aboutAve", label: "About us", icon: <Users className="w-5 h-5" /> },
   { id: "faqs", label: "FAQs", icon: <HelpCircle className="w-5 h-5" /> },
-  { id: "contact", label: "Join the Clann", icon: <HelpCircle className="w-5 h-5" /> },
+  { id: "contact", label: "Join the Clann", icon: <UserPlus className="w-5 h-5" /> },
 ]
 
 const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
-  // Local state for active nav highlight
   const [localActive, setLocalActive] = useState<string>("overview")
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     return localStorage.getItem("theme") === "dark"
