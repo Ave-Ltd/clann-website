@@ -6,42 +6,89 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 
-interface FAQProps {
-  question: string;
-  answer: string;
-  value: string;
-}
-
-const FAQList: FAQProps[] = [
+const FAQList = [
   {
-    question: "What is Clann.App?",
-    answer:
-      "Clann.App is a modern club and organisation management platform designed to simplify operations, improve communication, and support long-term financial sustainability.",
+    question: "Who can access Clann.App?",
+    answer: (
+      <>
+        Clann.App is open to <strong>all clubs</strong> across different sports and activities.
+        <ul className="mt-2 list-disc list-inside">
+          <li>Initially, clubs within <strong>endorsed networks</strong> will receive free access.</li>
+          <li>As the platform expands, additional club types will be onboarded, with pricing models determined based on scale and partnerships.</li>
+        </ul>
+      </>
+    ),
     value: "item-1",
   },
   {
-    question: "Who can use Clann.App?",
-    answer:
-      "Clann.App is built for clubs, teams, and organisations across all sectors—sports, community groups, charities, and more. Whether you manage a local football club or a membership-based organisation, Clann.App provides the tools you need.",
+    question: "Why is Clann.App free for endorsed clubs?",
+    answer: (
+      <>
+        To ensure <strong>widespread adoption</strong> and <strong>demonstrate impact</strong>, we are:
+        <ul className="mt-2 list-disc list-inside">
+          <li>Providing <strong>free access</strong> to clubs within endorsed networks.</li>
+          <li>Allowing all clubs to join, with pricing models evolving as we scale.</li>
+          <li>Funding development through <strong>affiliate cashback, marketplace transactions, and optional premium features</strong>, rather than upfront fees.</li>
+        </ul>
+      </>
+    ),
     value: "item-2",
   },
   {
-    question: "Is Clann.App free to use?",
-    answer:
-      "Yes, Clann.App is completely free for clubs and organisations within our associated and endorsed networks. These groups receive full access to all features at no cost. For other organisations, access options may vary—contact us to learn more.",
+    question: "How does Clann.App ensure financial transparency?",
+    answer: (
+      <>
+        We operate on a <strong>clear and structured revenue model</strong>:
+        <ul className="mt-2 list-disc list-inside">
+          <li>Clubs retain at least <strong>75% of all revenue</strong> generated through Clann.App.</li>
+          <li>No hidden fees or surprise charges—all transactions and earnings are trackable in each club’s dashboard.</li>
+          <li><strong>Full financial transparency</strong> ensures clubs know exactly how much they are earning and where funds are allocated.</li>
+        </ul>
+      </>
+    ),
     value: "item-3",
   },
   {
-    question: "How does Clann.App help clubs grow financially?",
-    answer:
-      "Clann.App provides smart financial solutions that help clubs build long-term sustainability. Our technology-driven approach allows clubs to benefit naturally, without adding extra admin work or fundraising pressure.",
+    question: "How does Clann.App compare to other club management platforms?",
+    answer: (
+      <>
+        Unlike traditional club management software, Clann.App:
+        <ul className="mt-2 list-disc list-inside">
+          <li>Combines club management tools with <strong>passive fundraising opportunities</strong>.</li>
+          <li>Does not charge <strong>mandatory subscription fees</strong> for endorsed networks.</li>
+          <li>Generates revenue for clubs, rather than just processing payments.</li>
+        </ul>
+        <p className="mt-2">Competitors like <strong>Spond, Heja, and TeamSnap</strong> provide useful tools but <strong>do not create financial sustainability for clubs</strong>.</p>
+      </>
+    ),
     value: "item-4",
   },
   {
-    question: "How can my club get started with Clann.App?",
-    answer:
-      "Getting started is easy! Simply contact us to discuss how Clann.App can support your organisation and explore your access options.",
+    question: "How is user and payment data protected?",
+    answer: (
+      <>
+        Security and privacy are a top priority:
+        <ul className="mt-2 list-disc list-inside">
+          <li><strong>GDPR-compliant</strong> with strict data protection policies.</li>
+          <li>No financial or payment details are stored by Clann.App—transactions are handled via <strong>secure third-party processors</strong>.</li>
+          <li>No data is sold or shared with advertisers—Clann.App is built for clubs, not for selling user information.</li>
+        </ul>
+      </>
+    ),
     value: "item-5",
+  },
+  {
+    question: "What happens if a club decides to stop using Clann.App?",
+    answer: (
+      <>
+        <ul className="mt-2 list-disc list-inside">
+          <li>Clubs can <strong>withdraw their funds at any time</strong>—no lock-ins or restrictions.</li>
+          <li>All data remains the <strong>property of the club</strong> and can be exported upon request.</li>
+          <li>If a club chooses to stop using the platform, there are <strong>no penalties or financial implications</strong>.</li>
+        </ul>
+      </>
+    ),
+    value: "item-6",
   },
 ];
 
@@ -55,8 +102,8 @@ const InvestorFAQs = () => {
       id="faqs"
     >
       <div className="space-y-2">
-        <h2 className="text-2xl md:text-3xl font-bold">
-          Frequently Asked Questions
+        <h2 className="text-2xl md:text-3xl font-bold text-primary">
+          Your Questions Answered
         </h2>
         <p className="text-base md:text-lg text-muted-foreground">
           Clear answers to ensure confidence in the platform and its benefits.
@@ -64,7 +111,7 @@ const InvestorFAQs = () => {
       </div>
 
       <Accordion type="single" collapsible className="w-full AccordionRoot">
-        {FAQList.map(({ question, answer, value }: FAQProps) => (
+        {FAQList.map(({ question, answer, value }) => (
           <AccordionItem key={value} value={value} className="mb-4">
             <AccordionTrigger className="text-left no-underline hover:no-underline">
               {question}

@@ -9,115 +9,116 @@ const InvestorEndorsement = () => {
       className="p-6 bg-card shadow-lg rounded-lg space-y-8"
       id="endorsement"
     >
-      {/* Headline & Subheadline */}
-      <div className="space-y-2">
-        <h2 className="text-2xl md:text-3xl font-bold">
-          A Technology Solution Aligned with SYFA’s Mission
-        </h2>
-        <p className="text-base md:text-lg text-muted-foreground">
-          More than just club management—this is about building stronger clubs, communities, 
-          and a better future for grassroots football.
-        </p>
-      </div>
+      {/* Section Headings */}
+      <h2 className="text-2xl md:text-3xl font-bold">
+        A Technology Solution Aligned with SYFA’s Mission
+      </h2>
+      <p className="text-base md:text-lg text-muted-foreground">
+        More than just club management—this is about building stronger clubs, communities, and a better future for grassroots football.
+      </p>
 
-      {/* 1. Why We Are Doing This */}
-      <div>
-        <h3 className="text-lg md:text-xl font-semibold mb-2">
-          1. Why We Are Doing This
+      {/* Why We Are Doing This */}
+      <div className="bg-secondary p-4 rounded-lg shadow-md">
+        <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
+          Why We Are Doing This
         </h3>
-        <p className="mb-2">
-          Clann.App exists to give clubs control over their own future—ensuring long-term financial 
-          stability while easing the burden on volunteers and administrators.
-        </p>
-        <p className="mb-2">
-          We refuse to accept that communities should struggle or that children should grow up in places 
-          they feel disconnected from.
-        </p>
-        <p className="mb-2">
-          Yes, we see challenges—but we also see solutions.
-        </p>
-        <p>
-          By building this platform and ensuring it is used in the right way, we have the opportunity 
-          to make a real impact—for clubs, for communities, and for the next generation.
-        </p>
+        <div className="space-y-3">
+          {[ 
+            "Clann.App exists to give clubs control over their future—ensuring long-term financial stability while easing the burden on volunteers and administrators.",
+            "We refuse to accept that communities should struggle or that children should grow up disconnected from the clubs that shape them.",
+            "Yes, we see challenges—but we also see solutions.",
+            "By building this platform and ensuring it is used in the right way, we have the opportunity to create real impact—for clubs, for communities, and for the next generation."
+          ].map((reason, index) => (
+            <div key={index} className="flex items-start gap-2">
+              <span className="w-2 h-2 bg-primary rounded-full mt-2"></span>
+              <p>{reason}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* 2. Why SYFA’s Support Matters */}
-      <div>
-        <h3 className="text-lg md:text-xl font-semibold mb-2">
-          2. Why SYFA’s Support Matters
+      {/* Why SYFA’s Support Matters */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-secondary p-4 rounded-lg shadow-md">
+          <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
+            Why SYFA’s Support Matters
+          </h3>
+          <div className="space-y-3">
+            {[ 
+              "SYFA plays a vital role in the success of grassroots football by providing essential governance and resources.",
+              "Our platform is designed to complement these efforts by offering:",
+              "A fully integrated management system – Reducing admin and improving club operations.",
+              "Financial sustainability tools – Helping clubs generate funding effortlessly.",
+              "Better engagement & communication – Keeping clubs connected and organised."
+            ].map((benefit, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <span className="w-2 h-2 bg-primary rounded-full mt-2"></span>
+                <p>{benefit}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* What We Are Seeking */}
+        <div className="bg-secondary p-4 rounded-lg shadow-md">
+          <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
+            What We Are Seeking
+          </h3>
+          <div className="space-y-3">
+            {[ 
+              "Endorsement & Recognition – Validating Clann.App as a recommended tool for clubs.",
+              "Awareness & Introduction – Helping clubs understand how this solution benefits them.",
+              "Adoption Support – Encouraging clubs to explore and integrate the platform into their management systems."
+            ].map((support, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <span className="w-2 h-2 bg-primary rounded-full mt-2"></span>
+                <p>{support}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* How This Benefits SYFA & Its Clubs */}
+      <div className="bg-secondary p-4 rounded-lg shadow-md">
+        <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
+          How This Benefits SYFA & Its Clubs
         </h3>
-        <p className="mb-2">
-          SYFA plays a vital role in the success of grassroots football, supporting clubs with essential 
-          resources and governance. Our platform is designed to complement these efforts by providing clubs with:
-        </p>
-        <ul className="list-disc list-inside ml-4 space-y-1">
-          <li>A fully integrated management system – Reducing admin and improving club operations.</li>
-          <li>New financial sustainability tools – Helping clubs generate funding effortlessly.</li>
-          <li>Better engagement &amp; communication – Keeping clubs connected and organised.</li>
-        </ul>
-        <p className="mt-2">
-          We are not asking SYFA for financial investment or operational involvement. We are simply asking SYFA 
-          to support a vision that ensures clubs remain strong for the future.
-        </p>
-        <p className="mt-2">
-          We are seeking:
-        </p>
-        <ul className="list-disc list-inside ml-4 space-y-1">
-          <li><strong>Endorsement &amp; Recognition</strong> – To validate the platform as a recommended tool for clubs.</li>
-          <li><strong>Awareness &amp; Introduction</strong> – To help clubs understand how this solution supports them.</li>
-          <li><strong>Adoption Support</strong> – Encouraging clubs to explore and integrate this into their management systems.</li>
-        </ul>
+        <div className="space-y-3">
+          {[ 
+            "Providing tools that make club management easier, reducing the burden on volunteers.",
+            "Introducing passive funding methods that ensure clubs remain financially stable.",
+            "Strengthening football communities by allowing clubs to focus on sport, not admin."
+          ].map((benefit, index) => (
+            <div key={index} className="flex items-start gap-2">
+              <span className="w-2 h-2 bg-primary rounded-full mt-2"></span>
+              <p>{benefit}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* 3. How This Benefits SYFA & Its Clubs */}
-      <div>
-        <h3 className="text-lg md:text-xl font-semibold mb-2">
-          3. How This Benefits SYFA & Its Clubs
+      {/* Long-Term Vision & Next Steps */}
+      <div className="bg-secondary p-4 rounded-lg shadow-md">
+        <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
+          Long-Term Vision & Next Steps
         </h3>
-        <p className="mb-2">
-          SYFA has always been focused on the long-term health of grassroots football. This platform supports 
-          that mission by:
-        </p>
-        <ul className="list-disc list-inside ml-4 space-y-1">
-          <li>Providing tools that make club management easier, reducing the burden on volunteers.</li>
-          <li>Introducing passive funding methods that ensure long-term financial sustainability.</li>
-          <li>Strengthening football communities by allowing clubs to focus on sport—not admin.</li>
-        </ul>
+        <div className="space-y-3">
+          {[ 
+            "The future of Scottish football depends on strong, sustainable clubs, not clubs struggling to survive year after year.",
+            "By ensuring clubs have the right tools, we can:",
+            "Empower clubs to operate more efficiently.",
+            "Enable financial sustainability through passive fundraising.",
+            "Support SYFA’s continued leadership in grassroots football development.",
+            "This is about more than technology—it’s about creating a stronger future for Scottish football, for our children, and for the communities we live in."
+          ].map((vision, index) => (
+            <div key={index} className="flex items-start gap-2">
+              <span className="w-2 h-2 bg-primary rounded-full mt-2"></span>
+              <p>{vision}</p>
+            </div>
+          ))}
+        </div>
       </div>
-
-      {/* 4. Long-Term Vision & Next Steps */}
-      <div>
-        <h3 className="text-lg md:text-xl font-semibold mb-2">
-          4. Long-Term Vision &amp; Next Steps
-        </h3>
-        <p className="mb-2">
-          The future of Scottish football will be defined by strong, sustainable clubs—not ones that 
-          struggle to survive year after year.
-        </p>
-        <p className="mb-2">
-          By ensuring clubs have the right tools, we can:
-        </p>
-        <ul className="list-disc list-inside ml-4 space-y-1">
-          <li>Empower clubs to operate more efficiently.</li>
-          <li>Enable clubs to generate sustainable funding.</li>
-          <li>Support SYFA’s continued leadership in grassroots football development.</li>
-        </ul>
-        <p>
-          This is about more than technology. It’s about building a stronger future for Scottish football, 
-          for our children, and for the communities we live in.
-        </p>
-      </div>
-
-      {/* CTA */}
-      {/* <div>
-        <a
-          href="#about-ave" // Adjust to link to your "About Ave Ltd." or next section
-          className="inline-block px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
-        >
-          The Team &amp; Vision Behind the Platform →
-        </a>
-      </div> */}
     </motion.div>
   );
 };

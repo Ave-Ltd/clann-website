@@ -18,61 +18,74 @@ const InvestorBenefits = () => {
       </p>
 
       {/* Key Benefits */}
-      <div className="space-y-6">
-        {/* Benefit 1: Less Administrative Work */}
-        <div>
-          <h3 className="text-lg md:text-xl font-semibold mb-2">
-            1. Less Administrative Work – More Time for Football
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Less Admin, More Football */}
+        <div className="bg-secondary p-4 rounded-lg shadow-md">
+          <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
+            Less Admin, More Football
           </h3>
-          <ul className="list-disc list-inside space-y-1 ml-4">
-            <li>Automated scheduling, RSVP tracking, and team management.</li>
-            <li>Integrated communication tools reduce admin burden.</li>
-            <li>One platform for everything—no need for multiple apps.</li>
-          </ul>
+          <div className="space-y-3">
+            {[ 
+              "Automated scheduling, RSVP tracking, and team management.",
+              "Integrated communication tools reduce admin workload.",
+              "One platform for everything—no need for multiple apps."
+            ].map((benefit, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <span className="w-2 h-2 bg-primary rounded-full mt-2"></span>
+                <p>{benefit}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        {/* Benefit 2: Stronger Community Engagement */}
-        <div>
-          <h3 className="text-lg md:text-xl font-semibold mb-2">
-            2. Stronger Community Engagement
+
+        {/* Stronger Community Engagement */}
+        <div className="bg-secondary p-4 rounded-lg shadow-md">
+          <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
+            Stronger Community Engagement
           </h3>
-          <ul className="list-disc list-inside space-y-1 ml-4">
-            <li>Club Feed & Messaging keep players, parents, and staff informed.</li>
-            <li>Event management tools make training and matches easier to coordinate.</li>
-            <li>Improved participation tracking helps clubs stay organised.</li>
-          </ul>
+          <div className="space-y-3">
+            {[ 
+              "Club feed and messaging keep players, parents, and staff informed.",
+              "Event management tools simplify training and match coordination.",
+              "Improved participation tracking helps clubs stay organised."
+            ].map((benefit, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <span className="w-2 h-2 bg-primary rounded-full mt-2"></span>
+                <p>{benefit}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        {/* Benefit 3: Financial Sustainability & Growth */}
-        <div>
-          <h3 className="text-lg md:text-xl font-semibold mb-2">
-            3. Financial Sustainability & Growth
+
+        {/* Financial Sustainability and Growth */}
+        <div className="bg-secondary p-4 rounded-lg shadow-md">
+          <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
+            Financial Sustainability and Growth
           </h3>
-          <ul className="list-disc list-inside space-y-1 ml-4">
-            <li>Fundraising built into club operations (no extra work required).</li>
-            <li>Planned cashback and revenue tools provide a sustainable income stream.</li>
-            <li>Potential to reduce club fees and reinvest in facilities and development.</li>
-          </ul>
+          <div className="space-y-3">
+            {[ 
+              "Fundraising is built into club operations—no extra effort required.",
+              "Planned cashback and revenue tools provide a sustainable income stream.",
+              "Potential to reduce club fees and reinvest in facilities and development."
+            ].map((benefit, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <span className="w-2 h-2 bg-primary rounded-full mt-2"></span>
+                <p>{benefit}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Building a Stronger Future */}
-      <div className="space-y-4">
-        <h3 className="text-lg md:text-xl font-semibold">
+      <div className="bg-secondary p-4 rounded-lg shadow-md">
+        <h3 className="text-lg md:text-xl font-semibold mb-3 text-primary">
           Building a Stronger Future for SYFA Clubs
         </h3>
         <p className="text-base md:text-lg text-muted-foreground">
-          This platform is built to help clubs focus on football, not admin. By streamlining operations and unlocking financial opportunities, clubs can save time, reduce costs, and create a stronger future for grassroots football.
+          This platform helps clubs focus on football, not admin. By streamlining operations and unlocking financial opportunities, clubs can save time, reduce costs, and create a stronger future for grassroots football.
         </p>
       </div>
-
-      {/* CTA */}
-      {/* <div>
-        <a
-          href="#financials" // Adjust this if needed to point to the Passive Revenue & Club Financial Growth section
-          className="inline-block px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
-        >
-          See How Clubs Can Secure Financial Stability →
-        </a>
-      </div> */}
     </motion.div>
   );
 };
