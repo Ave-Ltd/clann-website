@@ -7,49 +7,67 @@ import {
 
 interface FAQProps {
   question: string;
-  answer: string;
+  answer: JSX.Element;
   value: string;
 }
 
 const FAQList: FAQProps[] = [
   {
-    question: "Is Clann free to use?",
-    answer:
-      "Yes, Clann offers a free plan with essential features for managing your team. Premium plans are available for advanced functionality.",
+    question: "What is Clann.App?",
+    answer: (
+      <>
+        Clann.App is a modern{" "}
+        <span className="font-semibold">club and organisation management platform</span> designed to simplify operations, improve communication, and support{" "}
+        <span className="font-semibold">long-term financial sustainability</span>.
+      </>
+    ),
     value: "item-1",
   },
   {
-    question: "Can I manage multiple teams on Clann?",
-    answer:
-      "Absolutely! Clann allows you to manage multiple teams, schedules, and events all in one place.",
+    question: "Who can use Clann.App?",
+    answer: (
+      <>
+        Clann.App is built for{" "}
+        <span className="font-semibold">clubs, teams, and organisations</span> across all sectors—<span className="font-semibold">sports, community groups, charities</span>, and more. Whether you manage a local football club or a membership-based organisation, Clann.App provides the tools you need.
+      </>
+    ),
     value: "item-2",
   },
   {
-    question: "How does Clann help with fundraising?",
-    answer:
-      "Clann includes built-in fundraising tools to organize campaigns, track contributions, and help your team meet its goals.",
+    question: "Is Clann.App free to use?",
+    answer: (
+      <>
+        Yes, Clann.App is <span className="font-semibold">completely free</span> for clubs and organisations within our <span className="font-semibold">associated and endorsed networks</span>. These groups receive full access to all features at no cost. For other organisations, access options may vary—{" "}
+        <span className="font-semibold">contact us</span> to learn more.
+      </>
+    ),
     value: "item-3",
   },
   {
-    question: "Is Clann secure for storing team data?",
-    answer:
-      "Yes, Clann prioritizes security by using industry-standard encryption to ensure your team data remains safe and confidential.",
+    question: "How does Clann.App help clubs grow financially?",
+    answer: (
+      <>
+        Clann.App provides <span className="font-semibold">smart financial solutions</span> that help clubs build{" "}
+        <span className="font-semibold">long-term sustainability</span>. Our{" "}
+        <span className="font-semibold">technology-driven approach</span> allows clubs to benefit naturally, without adding extra admin work or fundraising pressure.
+      </>
+    ),
     value: "item-4",
   },
   {
-    question: "Can parents and players communicate through Clann?",
-    answer:
-      "Yes, Clann provides messaging and notification features to streamline communication between coaches, parents, and players.",
+    question: "How can my club get started with Clann.App?",
+    answer: (
+      <>
+        Getting started is easy! Simply <span className="font-semibold">contact us</span> to discuss how Clann.App can support your organisation and explore your access options.
+      </>
+    ),
     value: "item-5",
   },
-]
+];
 
 export const FAQ = () => {
   return (
-    <section
-      id="faq"
-      className="container py-24 sm:py-32"
-    >
+    <section id="faq" className="container py-24 sm:py-32">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">
         Frequently Asked{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
@@ -57,22 +75,13 @@ export const FAQ = () => {
         </span>
       </h2>
 
-      <Accordion
-        type="single"
-        collapsible
-        className="w-full AccordionRoot"
-      >
+      <Accordion type="single" collapsible className="w-full AccordionRoot">
         {FAQList.map(({ question, answer, value }: FAQProps) => (
-          <AccordionItem
-            key={value}
-            value={value}
-            className="mb-4"
-          >
-            <AccordionTrigger className="text-left">
-              {question}
-            </AccordionTrigger>
-
-            <AccordionContent>{answer}</AccordionContent>
+          <AccordionItem key={value} value={value} className="mb-4">
+            <AccordionTrigger className="text-left">{question}</AccordionTrigger>
+            <AccordionContent>
+              <p className="text-base text-muted-foreground">{answer}</p>
+            </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>

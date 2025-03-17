@@ -47,13 +47,13 @@ export const Services = () => {
         <div>
           <h2 className="text-3xl md:text-4xl font-bold">
             <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-              A simpler blah blah{" "}
+              A Smarter, Simpler Way to Manage & Grow Clubs & Organisations{" "}
             </span>
-            
+
           </h2>
 
           <p className="text-muted-foreground text-xl mt-4 mb-8">
-            Brief info text see phils doc
+            Managing a club or organisation shouldn’t be complicated. Clann.App provides the tools you need to operate efficiently, engage your community, and create long-term financial stability — all in one intuitive platform.
           </p>
 
           <div className="flex flex-col gap-8">
@@ -76,7 +76,7 @@ export const Services = () => {
         </div>
 
         <img
-          src="./assets/services.png" // ✅ Fixed path
+          src="./assets/services.png"
           className="w-[00px] md:w-[500px] lg:w-[600px] object-contain"
           alt="About services"
         />

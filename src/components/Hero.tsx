@@ -22,7 +22,7 @@ export const Hero = () => {
         {/* Call-to-Action Buttons */}
         <div className="space-y-4 md:space-y-0 md:space-x-4">
           <Button className="w-full md:w-1/3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md" onClick={() => navigate("/register")}>
-            Learn more
+            Download the app
           </Button>
 
           <Button

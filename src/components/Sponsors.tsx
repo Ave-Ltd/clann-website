@@ -1,29 +1,30 @@
 import { Radar } from "lucide-react";
+import "../styles/sponsors.css"; // Import the external CSS file
 
 interface SponsorProps {
-  icon: JSX.Element;
+  logo: string; // Placeholder for the sponsor's logo
   name: string;
 }
 
 const sponsors: SponsorProps[] = [
   {
-    icon: <Radar size={34} />,
+    logo: "./assets/scottish-enterprise.png",
     name: "Scottish Enterprise",
   },
   {
-    icon: <Radar size={34} />,
-    name: "Buisness Gateway",
+    logo: "./assets/business-gateway.png",
+    name: "Business Gateway",
   },
   {
-    icon: <Radar size={34} />,
+    logo: "./assets/techscaler.png",
     name: "Techscaler",
   },
   {
-    icon: <Radar size={34} />,
+    logo: "./assets/codebase.png",
     name: "Codebase",
   },
   {
-    icon: <Radar size={34} />,
+    logo: "./assets/barclays-eagle-labs.png",
     name: "Barclays Eagle Labs",
   },
 ];
@@ -37,15 +38,24 @@ export const Sponsors = () => {
 
       {/* Scrolling Wrapper */}
       <div className="relative w-full overflow-hidden">
-        <div className="flex gap-8 animate-scroll">
+        <div className="animate-scroll flex gap-8">
           {/* Duplicate list for infinite effect */}
-          {[...sponsors, ...sponsors].map(({ icon, name }, index) => (
+          {[...sponsors, ...sponsors].map(({ logo, name }, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 text-muted-foreground/60 whitespace-nowrap"
+              className="flex flex-col items-center justify-center min-w-[150px] md:min-w-[200px] lg:min-w-[250px] p-4 bg-card shadow-md rounded-lg transition-transform hover:scale-105"
             >
-              <span>{icon}</span>
-              <h3 className="text-lg font-bold">{name}</h3>
+              {/* Sponsor Logo */}
+              <div className="w-16 h-16 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+                {logo ? (
+                  <img src={logo} alt={name} className="w-full h-full object-contain" />
+                ) : (
+                  <Radar size={34} className="text-muted-foreground" />
+                )}
+              </div>
+
+              {/* Sponsor Name */}
+              <h3 className="text-lg font-semibold text-center mt-3">{name}</h3>
             </div>
           ))}
         </div>
