@@ -13,13 +13,13 @@ import {
   Sun,
 } from "lucide-react"
 import { useNavigate } from "react-router-dom"
+import { useTheme } from "../../context/useTheme" // Use the central hook instead of within this component itself
 
 interface SidebarProps {
   setActiveSection: (section: string) => void
   closeSidebar: () => void
 }
 
-// Updated sections with improved icons
 const sections = [
   { id: "overview", label: "Overview", icon: <LayoutDashboard className="w-5 h-5" /> },
   { id: "aboutClann", label: "About Clann", icon: <BookOpen className="w-5 h-5" /> },
@@ -33,10 +33,7 @@ const sections = [
 
 const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
   const [localActive, setLocalActive] = useState<string>("overview")
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    return localStorage.getItem("theme") === "dark"
-  })
-
+  const { theme, setTheme } = useTheme()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -45,10 +42,7 @@ const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
   }
 
   const toggleDarkMode = () => {
-    const newMode = !darkMode
-    setDarkMode(newMode)
-    document.documentElement.classList.toggle("dark", newMode)
-    localStorage.setItem("theme", newMode ? "dark" : "light")
+    setTheme(theme === "dark" ? "light" : "dark")
   }
 
   return (
@@ -57,7 +51,7 @@ const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg lg:text-xl font-bold">SYFA Dashboard</h2>
         <button onClick={toggleDarkMode} className="p-2 rounded-md transition hover:bg-accent">
-          {darkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5" />}
+          {theme === "dark" ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5" />}
         </button>
       </div>
 

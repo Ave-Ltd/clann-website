@@ -1,26 +1,28 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
-// Define the context type
 interface ThemeContextType {
   theme: string;
   setTheme: (theme: string) => void;
 }
 
-// Create a properly typed ThemeContext
-const ThemeContext = createContext<ThemeContextType>({
+export const ThemeContext = createContext<ThemeContextType>({
   theme: "light",
-  setTheme: () => {}, // This will be overridden in the provider
+  setTheme: () => {},
 });
 
-export const useTheme = () => useContext(ThemeContext);
-
 export function ThemeContextProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<string>(
-    () => localStorage.getItem("vite-ui-theme") || "system"
-  );
+  const [theme, setThemeState] = useState<string>(() => {
+    if (typeof window === "undefined") return "light";
+    return localStorage.getItem("vite-ui-theme") || "system";
+  });
+
+  const setTheme = (newTheme: string) => {
+    setThemeState(newTheme);
+    localStorage.setItem("vite-ui-theme", newTheme);
+  };
 
   useEffect(() => {
-    const root = window.document.documentElement;
+    const root = document.documentElement;
     root.classList.remove("light", "dark");
 
     const appliedTheme =
@@ -30,9 +32,7 @@ export function ThemeContextProvider({ children }: { children: React.ReactNode }
           : "light"
         : theme;
 
-    console.log("Applied theme:", appliedTheme); // Debugging
     root.classList.add(appliedTheme);
-    localStorage.setItem("vite-ui-theme", theme);
   }, [theme]);
 
   return (
