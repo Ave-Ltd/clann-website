@@ -1,0 +1,280 @@
+.heroSection {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .heroShapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .shapeOne {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 80%));
+    opacity: 0.1;
+  }
+  
+  .shapeTwo {
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+    opacity: 0.1;
+  }
+  
+  .heroContent {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .heroText {
+    max-width: 36rem;
+  }
+  
+  .heroTitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1.5rem;
+  }
+  
+  .heroTitle span {
+    color: hsl(var(--primary));
+  }
+  
+  .heroSubtitle {
+    font-size: 1.25rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 2.5rem;
+  }
+  
+  .heroButtons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .primaryBtn {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .primaryBtn:hover {
+    background-color: hsl(var(--primary-hover));
+  }
+  
+  .secondaryBtn {
+    background-color: transparent;
+    border: 2px solid hsl(var(--primary));
+    color: hsl(var(--primary));
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .secondaryBtn:hover {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+  
+  .heroImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mobileMockup {
+    position: relative;
+    width: 250px;
+    height: 500px;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 80%));
+    border-radius: 30px;
+    box-shadow: var(--shadow-lg);
+    transform: rotate(10deg);
+    transition: var(--transition);
+    overflow: hidden;
+  }
+  
+  .mobileMockup:hover {
+    transform: rotate(0deg) translateY(-20px);
+    box-shadow: var(--shadow-lg), 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mobileNotch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 20px;
+    background-color: hsl(var(--foreground));
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    opacity: 0.8;
+    z-index: 10;
+  }
+  
+  .mobileScreen {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    right: 15px;
+    bottom: 20px;
+    background-color: hsl(var(--background));
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+  
+  .mobileFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid hsl(var(--foreground));
+    border-radius: 30px;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Partner Carousel */
+  .partners {
+    margin-top: 2rem;
+  }
+  
+  .partnerCarousel {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 60px;
+    margin-top: 1rem;
+    overflow: hidden;
+  }
+  
+  .carouselTrack {
+    display: flex;
+    width: max-content;
+    animation: scroll 12s linear infinite;
+  }
+  
+  .carouselItem {
+    min-width: 120px;
+    height: 60px;
+    margin: 0 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    opacity: 0.4;
+  }
+  
+  .carouselItem:nth-child(3) {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-650px);
+    }
+  }
+  
+  /* Feature Grid & Cards */
+  .featureGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+  
+  .featureCard {
+    background: hsl(var(--card));
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .featureCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .featureCard h3 {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: hsl(var(--foreground));
+  }
+  
+  .featureCard p {
+    font-size: 0.9rem;
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .icon {
+    width: 48px;
+    height: 48px;
+    color: hsl(var(--primary));
+    margin: 0 auto;
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+    .heroContent {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  
+    .heroImage {
+      order: -1;
+    }
+  
+    .heroTitle {
+      font-size: 2.5rem;
+    }
+  }
+  

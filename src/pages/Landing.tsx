@@ -1,6 +1,5 @@
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
-import { Sponsors } from "../components/Sponsors";
 import { HowItWorks } from "../components/HowItWorks";
 import { Services } from "../components/Services";
 import { FAQ } from "../components/FAQ";
@@ -19,22 +18,9 @@ export const Landing = () => {
   return (
     <>
       <Navbar />
-      {/* Hero section */}
       <Hero />
-      <Sponsors />
-      {/* Who we are & what we do section */}
-      {/* <About /> */}
-      {/* Team to be used in the Investors page? */}
-      {/* <Team /> */}
       <Services />
-      {/* Features section potentially just a duplicate of services */}
-      {/* <Features />       */}
       <HowItWorks />      
-                 
-      {/* <Pricing /> */}
-      {/* <Newsletter /> */}
-      {/* <Testimonials /> */}
-      {/* <Cta /> */}
       <ContactSection /> 
       <FAQ />
       <Footer />

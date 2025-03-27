@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { MedalIcon, MapIcon, PlaneIcon } from "./Icons";
+import styles from "../styles/HowItWorks.module.css";
+import { Medal, Map, Plane } from "lucide-react";
 
 interface FeatureProps {
   icon: JSX.Element;
@@ -9,57 +9,53 @@ interface FeatureProps {
 
 const features: FeatureProps[] = [
   {
-    icon: <PlaneIcon />,
+    icon: <Plane className={styles.icon} />,
     title: "No Additional Work Required",
     description:
-      "Funding should enhance operations, not add complexity. Clubs benefit without extra admin work for volunteers or organisers.",
+      "Funding should enhance operations, not add complexity or admin burden.",
   },
   {
-    icon: <MedalIcon />,
-    title: "Designed for Stability",
+    icon: <Medal className={styles.icon} />,
+    title: "Built for Long-Term Stability",
     description:
-      "Our approach focuses on long-term financial sustainability rather than short-term gains, ensuring lasting support for your club.",
+      "We prioritise lasting financial sustainability over quick wins.",
   },
   {
-    icon: <MapIcon />,
+    icon: <Map className={styles.icon} />,
     title: "Seamless & Effortless",
     description:
-      "Clubs and organisations benefit naturally through their normal activities, without needing to change how they operate.",
+      "Clubs and organisations benefit naturally through their everyday actions.",
   },
 ];
 
 export const HowItWorks = () => {
   return (
-    <section id="howItWorks" className="container text-center py-24 sm:py-32">
-      {/* Headline */}
-      <h2 className="text-3xl md:text-4xl font-bold">
-        Unlocking New Growth & Funding{" "}
-        <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Opportunities
-        </span>
-      </h2>
+    <section id="howItWorks" className={styles.section}>
+      <div className={styles.textCenter}>
+        <p className={styles.subtitle}>Passive Fundraising</p>
+        <h2 className={styles.heading}>
+          Unlocking New Growth & Funding <span>Opportunities</span>
+        </h2>
+        <p className={styles.description}>
+          Every club and organisation needs financial stability. We believe modern technology can create new,
+          sustainable funding opportunities—without adding extra workload to volunteers, committees, or organisers.
+        </p>
+      </div>
 
-      {/* General Overview */}
-      <p className="md:w-3/4 mx-auto mt-4 mb-8 text-xl text-muted-foreground">
-        Every club and organisation needs financial stability. We believe{" "}
-        <span className="font-semibold">modern technology</span> can create{" "}
-        <span className="font-semibold">new, sustainable funding opportunities</span>—
-        without adding extra workload to volunteers, committees, or organisers.
-      </p>
-
-      {/* Feature Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {features.map(({ icon, title, description }: FeatureProps) => (
-          <Card key={title} className="bg-muted/50">
-            <CardHeader>
-              <CardTitle className="grid gap-4 place-items-center">
-                {icon}
-                <span className="text-lg md:text-xl font-bold">{title}</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-muted-foreground">{description}</CardContent>
-          </Card>
+      <div className={styles.cardGrid}>
+        {features.map(({ icon, title, description }) => (
+          <div key={title} className={styles.card}>
+            {icon}
+            <h3 className={styles.cardTitle}>{title}</h3>
+            <p className={styles.cardDesc}>{description}</p>
+          </div>
         ))}
+      </div>
+
+      <div className={styles.buttonWrapper}>
+        <a href="#contact" className={styles.button}>
+          Find Out More
+        </a>
       </div>
     </section>
   );
