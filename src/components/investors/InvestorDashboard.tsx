@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import InvestorSidebar from "./InvestorSidebar"
 import InvestorRoadmap from "./InvestorRoadmap"
 import InvestorOverview from "./InvestorOverview"
@@ -24,10 +24,25 @@ import { Menu } from "lucide-react"
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 
 export const InvestorDashboard = () => {
-  // Active section is stored in state
   const [activeSection, setActiveSection] = useState("overview")
+  const sectionRef = useRef<HTMLDivElement | null>(null)
 
-  // This function matches the (section: string) => void signature
+  // Allow programmatic section switching via CustomEvent
+  useEffect(() => {
+    if (!sectionRef.current) return
+    const el = sectionRef.current
+  
+    const handleSectionSwitch = (e: Event) => {
+      const customEvent = e as CustomEvent<string>
+      const next = customEvent.detail
+      if (typeof next === "string") setActiveSection(next)
+    }
+  
+    el.addEventListener("switch-section", handleSectionSwitch)
+    return () => el.removeEventListener("switch-section", handleSectionSwitch)
+  }, [])
+  
+
   const handleSetActiveSection = (section: string) => {
     setActiveSection(section)
   }
@@ -62,7 +77,7 @@ export const InvestorDashboard = () => {
   }
 
   return (
-    <div className="relative h-screen bg-background text-foreground">
+    <div id="investor-dashboard-section-trigger" ref={sectionRef}>
       {/* Desktop Pinned Sidebar */}
       <div className="hidden lg:block fixed inset-y-0 left-0 w-64 z-50">
         <InvestorSidebar
@@ -91,7 +106,6 @@ export const InvestorDashboard = () => {
               </SheetDescription>
             </VisuallyHidden>
 
-            {/* Same fix here: pass handleSetActiveSection */}
             <InvestorSidebar
               setActiveSection={handleSetActiveSection}
               closeSidebar={() => {}}

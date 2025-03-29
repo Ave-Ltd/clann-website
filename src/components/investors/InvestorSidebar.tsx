@@ -24,9 +24,10 @@ const sections = [
   { id: "overview", label: "Overview", icon: <LayoutDashboard className="w-5 h-5" /> },
   { id: "aboutClann", label: "About Clann", icon: <BookOpen className="w-5 h-5" /> },
   { id: "benefits", label: "Club Benefits", icon: <Gift className="w-5 h-5" /> },
+  { id: "memberBenefits", label: "Member Benefits", icon: <Gift className="w-5 h-5" /> },
   { id: "passiveRevenue", label: "Club Revenue", icon: <TrendingUp className="w-5 h-5" /> },
-  { id: "endorsement", label: "Endorsement", icon: <ThumbsUp className="w-5 h-5" /> },
   { id: "aboutAve", label: "About us", icon: <Users className="w-5 h-5" /> },
+  { id: "endorsement", label: "Endorsement", icon: <ThumbsUp className="w-5 h-5" /> },
   { id: "faqs", label: "FAQs", icon: <HelpCircle className="w-5 h-5" /> },
   { id: "contact", label: "Join the Clann", icon: <UserPlus className="w-5 h-5" /> },
 ]
