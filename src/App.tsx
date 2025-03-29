@@ -3,6 +3,7 @@ import { Landing } from "./pages/Landing";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Investors } from "./pages/Investors";
+import { Clubs } from "./pages/Clubs";
 import "./App.css";
 
 // Authentication check
@@ -27,6 +28,8 @@ function App() {
       {/* <Route path="/investors" element={<PrivateRoute><Investors /></PrivateRoute>} /> */}
       {/* Investors Page no auth for dev */}
       <Route path="/investors" element={<Investors />} />
+      {/* Individual Clubs Page no auth for dev */}
+      <Route path="/club" element={<Clubs />} />
     </Routes>
   );
 }
