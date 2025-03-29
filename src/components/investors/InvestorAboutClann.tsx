@@ -7,7 +7,13 @@ import {
   ClipboardList,
 } from "lucide-react";
 
-const liveFeatures = [
+interface Feature {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+const liveFeatures: Feature[] = [
   {
     icon: "📱",
     title: "App and Browser Extension",
@@ -40,7 +46,7 @@ const liveFeatures = [
   },
 ];
 
-const demoFeatures = [
+const demoFeatures: Feature[] = [
   {
     icon: "💬",
     title: "Live Messaging",
@@ -68,7 +74,7 @@ const demoFeatures = [
   },
 ];
 
-const futureFeatures = [
+const futureFeatures: Feature[] = [
   {
     icon: "👕",
     title: "Club Shop & Merchandise Hub",
@@ -86,7 +92,7 @@ const futureFeatures = [
   },
 ];
 
-const statusTable = [
+const statusTable: [string, string][] = [
   ["Create & Manage Clubs & Teams", "Live"],
   ["Invite & Manage Members", "Live"],
   ["Club Feed & Communications", "Live"],
@@ -102,31 +108,37 @@ const statusTable = [
   ["Club Growth Analytics", "Planned"],
 ];
 
-const renderFeatureCard = (feature: any, status: string) => (
-  <div
-    key={feature.title}
-    className="bg-card border-l-4 p-4 rounded-lg shadow-md"
-  >
-    <div className="text-3xl mb-2">{feature.icon}</div>
-    <h3 className="text-lg font-semibold text-primary">{feature.title}</h3>
-    <p className="text-muted-foreground text-sm">{feature.desc}</p>
-    <span
-      className={`inline-block mt-2 text-xs font-semibold px-3 py-1 rounded-full ${
-        status === "Live"
-          ? "bg-green-100 text-green-700"
-          : status === "In development"
-          ? "bg-yellow-100 text-yellow-800"
-          : "bg-blue-100 text-blue-800"
-      }`}
+const renderFeatureCard = (feature: Feature, status: string) => {
+  const badgeColor =
+    status === "Live"
+      ? "bg-green-100 text-green-700"
+      : status === "In development" || status === "Demo"
+      ? "bg-yellow-100 text-yellow-800"
+      : "bg-blue-100 text-blue-800";
+
+  const label =
+    status === "Live"
+      ? "Live Now"
+      : status === "In development" || status === "Demo"
+      ? "Interactive Demo"
+      : "Planned";
+
+  return (
+    <div
+      key={feature.title}
+      className="bg-card border-l-4 p-4 rounded-lg shadow-md"
     >
-      {status === "Live"
-        ? "Live Now"
-        : status === "Demo"
-        ? "Interactive Demo"
-        : "Planned"}
-    </span>
-  </div>
-);
+      <div className="text-3xl mb-2">{feature.icon}</div>
+      <h3 className="text-lg font-semibold text-primary">{feature.title}</h3>
+      <p className="text-muted-foreground text-sm">{feature.desc}</p>
+      <span
+        className={`inline-block mt-2 text-xs font-semibold px-3 py-1 rounded-full ${badgeColor}`}
+      >
+        {label}
+      </span>
+    </div>
+  );
+};
 
 const InvestorAboutClann = () => {
   return (
@@ -137,12 +149,20 @@ const InvestorAboutClann = () => {
       className="p-6 bg-card shadow-lg rounded-lg space-y-12"
       id="aboutClann"
     >
+      {/* Page Heading */}
+      <div>
+        <h1 className="text-3xl font-bold text-primary mb-2">About Clann</h1>
+        <div className="h-1 w-24 bg-yellow-400 rounded"></div>
+      </div>
+
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
         <h2 className="text-3xl font-bold mb-2">
           A Complete Club & Organisation Management Platform
         </h2>
-        <p className="text-white/90">Live, Interactive, and Built for the Future.</p>
+        <p className="text-white/90">
+          Live, Interactive, and Built for the Future.
+        </p>
       </div>
 
       {/* Platform Overview */}
@@ -152,7 +172,13 @@ const InvestorAboutClann = () => {
           Platform Overview
         </div>
         <p className="text-muted-foreground">
-          Clann is a modern, all-in-one management platform designed to support grassroots clubs and organisations. From football and rugby to martial arts and youth groups, the platform streamlines admin, simplifies communication, and unlocks new revenue through passive fundraising and integrated tools. This section outlines which features are currently live, available for demo, or in development. Explore how Clann can help your club reduce admin, save time, and create sustainable income.
+          Clann is a modern, all-in-one management platform designed to support
+          grassroots clubs and organisations. From football and rugby to martial
+          arts and youth groups, the platform streamlines admin, simplifies
+          communication, and unlocks new revenue through passive fundraising and
+          integrated tools. This section outlines which features are currently
+          live, available for demo, or in development. Explore how Clann can
+          help your club reduce admin, save time, and create sustainable income.
         </p>
       </div>
 
@@ -214,7 +240,7 @@ const InvestorAboutClann = () => {
                     className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
                       status === "Live"
                         ? "bg-green-100 text-green-700"
-                        : status === "Demo"
+                        : status === "In development"
                         ? "bg-yellow-100 text-yellow-800"
                         : "bg-blue-100 text-blue-800"
                     }`}
