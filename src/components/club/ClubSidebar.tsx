@@ -4,7 +4,6 @@ import {
   BookOpen,
   Gift,
   TrendingUp,
-  ThumbsUp,
   Users,
   HelpCircle,
   UserPlus,
@@ -27,7 +26,6 @@ const sections = [
   { id: "memberBenefits", label: "Member Benefits", icon: <Gift className="w-5 h-5" /> },
   { id: "passiveRevenue", label: "Passive Revenue", icon: <TrendingUp className="w-5 h-5" /> },
   { id: "aboutAve", label: "About us", icon: <Users className="w-5 h-5" /> },
-  { id: "endorsement", label: "Endorsement", icon: <ThumbsUp className="w-5 h-5" /> },
   { id: "faqs", label: "FAQs", icon: <HelpCircle className="w-5 h-5" /> },
   { id: "contact", label: "Join the Clann", icon: <UserPlus className="w-5 h-5" /> },
 ]
