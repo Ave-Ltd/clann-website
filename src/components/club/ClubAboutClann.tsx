@@ -16,31 +16,31 @@ interface Feature {
 const liveFeatures: Feature[] = [
   {
     icon: "📱",
-    title: "App and Browser Extension",
+    title: "App & Browser Extension",
     desc: "Seamless access across all devices, allowing management on the go or from your computer.",
   },
   {
-    icon: "🧑‍🤝‍🧑",
+    icon: "👥",
     title: "Create & Manage Clubs & Teams",
     desc: "Set up and oversee teams efficiently with comprehensive management tools.",
   },
   {
-    icon: "👥",
+    icon: "📅",
     title: "Member & Player Management",
     desc: "Invite, approve, and organise members with intuitive tools designed for club administrators.",
   },
   {
-    icon: "📅",
+    icon: "🛡️",
     title: "Event Scheduling & RSVP Management",
     desc: "Coordinate training, matches, and club events with built-in attendance tracking.",
   },
   {
-    icon: "🛡️",
+    icon: "📢",
     title: "Parent/Guardian Controls",
     desc: "Manage children's participation and permissions with secure, family-friendly controls.",
   },
   {
-    icon: "📢",
+    icon: "🎯",
     title: "Club Feed & Communications",
     desc: "Keep members informed and engaged with news, updates, and important notifications.",
   },
@@ -53,17 +53,17 @@ const demoFeatures: Feature[] = [
     desc: "Real-time chat for club members, teams, and groups to enhance communication.",
   },
   {
-    icon: "💳",
+    icon: "🔗",
     title: "Integrated Payment Handling",
     desc: "Designed to streamline membership and event transactions with secure processing.",
   },
   {
     icon: "🪙",
-    title: "Advanced Fundraising & Passive Revenue",
+    title: "Advanced Fundraising & Passive Revenuen",
     desc: "Innovative club-specific revenue generation models including cashback conversion to gift cards.",
   },
   {
-    icon: "🔗",
+    icon: "🏪",
     title: "Card Linking & Cashback System",
     desc: "Showcasing how users generate club revenue through everyday spending at partner retailers.",
   },
@@ -76,17 +76,17 @@ const demoFeatures: Feature[] = [
 
 const futureFeatures: Feature[] = [
   {
-    icon: "👕",
+    icon: "💳",
     title: "Club Shop & Merchandise Hub",
     desc: "Selling apparel, kits, and branded items directly through the platform.",
   },
   {
-    icon: "👛",
+    icon: "📊",
     title: "Expanded Financial Tools",
     desc: "Enhancing payment and club finance management with advanced reporting.",
   },
   {
-    icon: "📊",
+    icon: "🛍️",
     title: "Club Growth Analytics",
     desc: "Providing clubs with financial and performance tracking tools for data-driven decisions.",
   },
@@ -155,30 +155,26 @@ const ClubAboutClann = () => {
         <div className="h-1 w-24 bg-yellow-400 rounded"></div>
       </div>
 
-      {/* Hero Section */}
+      {/* Hero */}
       <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
-        <h2 className="text-3xl font-bold mb-2">
-          A Complete Club & Organisation Management Platform
-        </h2>
-        <p className="text-white/90">
-          Live, Interactive, and Built for the Future.
-        </p>
+        <h2 className="text-3xl font-bold mb-2">A Complete Club & Organisation Management Platform</h2>
+        <p className="text-white/90">Live, Interactive, and Built for the Future.</p>
       </div>
 
-      {/* Platform Overview */}
+      {/* Overview */}
       <div className="space-y-4">
         <div className="flex items-center gap-2 text-primary font-bold text-xl">
           <Star className="w-6 h-6 text-yellow-400" />
           Platform Overview
         </div>
         <p className="text-muted-foreground">
-          Clann is a modern, all-in-one management platform designed to support
-          grassroots clubs and organisations. From football and rugby to martial
-          arts and youth groups, the platform streamlines admin, simplifies
-          communication, and unlocks new revenue through passive fundraising and
-          integrated tools. This section outlines which features are currently
-          live, available for demo, or in development. Explore how Clann can
-          help your club reduce admin, save time, and create sustainable income.
+        Clann is a modern, all-in-one management platform built to support sports clubs, 
+        private academies, and community organisations. 
+        From grassroots teams and martial arts clubs to private training groups and local 
+        community setups, Clann simplifies admin, improves communication, and unlocks new revenue 
+        through passive fundraising and integrated tools. This section outlines which features 
+        are currently live, available for demo, or in development. Explore how Clann can help your 
+        club save time, reduce admin, and generate sustainable income.
         </p>
       </div>
 
@@ -215,7 +211,7 @@ const ClubAboutClann = () => {
         </div>
       </div>
 
-      {/* Feature Table */}
+      {/* Status Table */}
       <div className="space-y-4">
         <div className="flex items-center gap-2 text-xl font-bold text-primary">
           <ClipboardList className="w-6 h-6 text-yellow-400" />

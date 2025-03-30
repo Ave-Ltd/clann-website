@@ -30,7 +30,7 @@ const ClubOverview = () => {
         <div className="h-1 w-24 bg-yellow-400 mx-auto rounded-full" />
       </div>
 
-      {/* IMPACT CARDS */}
+      {/* IMPACT COUNTER */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
         {[
           {
@@ -92,7 +92,7 @@ const ClubOverview = () => {
         </div>
       </div>
 
-      {/* REVENUE BENEFITS */}
+      {/* REVENUE BREAKDOWN */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card p-6 rounded-lg border-l-4 border-yellow-400 shadow-sm">
           <h3 className="text-primary font-semibold text-lg flex items-center gap-2">

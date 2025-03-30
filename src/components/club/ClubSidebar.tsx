@@ -50,7 +50,7 @@ const ClubSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
     <nav className="h-full bg-secondary text-foreground p-4 lg:border-r flex flex-col justify-between border-none !shadow-none">
       {/* Header Row with Dark Mode Toggle */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg lg:text-xl font-bold">SYFA Dashboard</h2>
+        <h2 className="text-lg lg:text-xl font-bold">Club Dashboard</h2>
         <button onClick={toggleDarkMode} className="p-2 rounded-md transition hover:bg-accent">
           {theme === "dark" ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5" />}
         </button>
