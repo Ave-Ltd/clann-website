@@ -6,6 +6,7 @@ import ClubGrowth from "./ClubGrowth"
 import ClubFinancials from "./ClubFinancials"
 import ClubSecurity from "./ClubSecurity"
 import ClubBenefits from "./ClubBenefits"
+import ClubMemberBenefits from "./ClubMemberBenefits"
 import ClubPassiveRevenue from "./ClubPassiveRevenue"
 import ClubEndorsement from "./ClubEndorsement"
 import ClubAboutAve from "./ClubAboutAve"
@@ -55,6 +56,8 @@ export const ClubDashboard = () => {
         return <ClubAboutClann />
       case "benefits":
         return <ClubBenefits />
+        case "memberBenefits":
+        return <ClubMemberBenefits />
       case "growth":
         return <ClubGrowth />
       case "financials":
