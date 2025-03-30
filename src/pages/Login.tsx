@@ -1,15 +1,26 @@
 import { Button } from "../components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = () => {
-    // ✅ Mock authentication - store a fake token
-    localStorage.setItem("user-auth-token", "mock-token");
+    // Reset error
+    setError("");
 
-    // ✅ Redirect to Investors Dashboard (for dev testing)
-    navigate("/investors");
+    if (email === "investor" && password === "password1") {
+      localStorage.setItem("user-auth-token", "mock-investor-token");
+      navigate("/investors");
+    } else if (email === "club" && password === "password1") {
+      localStorage.setItem("user-auth-token", "mock-club-token");
+      navigate("/club");
+    } else {
+      setError("Invalid mock credentials. Try 'investor/password1' or 'club/password1'.");
+    }
   };
 
   return (
@@ -17,20 +28,24 @@ export const Login = () => {
       <h1 className="text-4xl font-bold">Login</h1>
       <p className="text-muted-foreground mt-2">Access your Clann account</p>
 
-      {/* Form Placeholder */}
       <div className="mt-6">
         <input
-          type="email"
-          placeholder="Email"
+          type="text"
+          placeholder="Username"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="block w-1/2 mx-auto p-2 border rounded-md focus:outline-none"
         />
         <input
           type="password"
           placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="block w-1/2 mx-auto p-2 border rounded-md mt-4 focus:outline-none"
         />
 
-        {/* ✅ Mock Login Button - Navigates to Investors Page */}
+        {error && <p className="text-red-500 mt-3">{error}</p>}
+
         <Button className="mt-6 w-1/2" onClick={handleLogin}>
           Login
         </Button>
@@ -42,7 +57,6 @@ export const Login = () => {
           </span>
         </p>
 
-        {/* ✅ Back to Home Button */}
         <Button 
           className="mt-6 w-1/2" 
           variant="outline"
