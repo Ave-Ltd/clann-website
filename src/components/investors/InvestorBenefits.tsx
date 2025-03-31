@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useAssociation } from "../../context/AssociationContext";
 
 const InvestorBenefits = () => {
+  const { config } = useAssociation();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -14,6 +17,7 @@ const InvestorBenefits = () => {
         <h1 className="text-3xl font-bold text-primary mb-2">Club Benefits</h1>
         <div className="h-1 w-24 bg-yellow-400 rounded"></div>
       </div>
+
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
         <div className="absolute top-0 right-0 w-36 h-36 bg-white/10 rounded-full -mt-20 -mr-20 z-0" />
@@ -31,7 +35,6 @@ const InvestorBenefits = () => {
       {/* Key Benefits Section */}
       <div className="space-y-6">
         <h2 className="text-2xl font-semibold text-primary flex items-center gap-2">
-          {/* No icon to keep it clean and Lucide-safe */}
           Key Benefits
         </h2>
 
@@ -42,7 +45,9 @@ const InvestorBenefits = () => {
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 font-bold">
               ⏱
             </div>
-            <h3 className="text-lg font-semibold text-primary mb-3">Less Admin, More Football</h3>
+            <h3 className="text-lg font-semibold text-primary mb-3">
+              Less Admin, More {config?.sportNameBenefit}
+            </h3>
             <ul className="space-y-3 text-sm">
               {[
                 "Automated scheduling, RSVP tracking, and club management",
@@ -84,7 +89,9 @@ const InvestorBenefits = () => {
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 font-bold">
               💰
             </div>
-            <h3 className="text-lg font-semibold text-primary mb-3">Financial Sustainability and Growth</h3>
+            <h3 className="text-lg font-semibold text-primary mb-3">
+              Financial Sustainability and Growth
+            </h3>
             <ul className="space-y-3 text-sm">
               {[
                 "Fundraising is built into club operations—no extra effort required",
@@ -104,11 +111,11 @@ const InvestorBenefits = () => {
       {/* Feature Highlight Section */}
       <div className="bg-card p-6 rounded-lg shadow-md space-y-4">
         <h3 className="text-lg md:text-xl font-semibold text-primary">
-          Building a Stronger Future for SYFA Clubs
+          Building a Stronger Future for {config?.orgName} Clubs
         </h3>
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-          This platform helps clubs focus on football, not admin. By streamlining operations and unlocking
-          financial opportunities, clubs can save time, reduce costs, and create a stronger future for grassroots football.
+          This platform helps clubs focus on {config?.sportName?.toLowerCase()}, not admin. By streamlining operations and unlocking
+          financial opportunities, clubs can save time, reduce costs, and create a stronger future for {config?.clubSpecifc?.toLowerCase()}.
         </p>
       </div>
     </motion.div>

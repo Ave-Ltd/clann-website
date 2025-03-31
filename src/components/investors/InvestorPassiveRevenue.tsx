@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
+import { useAssociation } from "../../context/AssociationContext";
 
 const InvestorPassiveRevenue = () => {
+
+  const { key, config } = useAssociation();
+
+  const mainGroup =
+    key === "kickboxing"
+      ? config?.["orgPeople/WkcCustom"]
+      : config?.["orgPeople/WkcCustom"] || "Players";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -31,10 +40,16 @@ const InvestorPassiveRevenue = () => {
       {/* Intro Section */}
       <div className="bg-card p-6 rounded-lg shadow-md">
         <h2 className="text-xl font-semibold text-primary mb-3">
-          Supporting, Not Replacing SYFA Grants & Funding
+          Supporting, Not Replacing  {config?.orgShortName} Grants & Funding
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          SYFA funding remains a vital part of club growth and development. Clann is designed to complement these efforts by offering a sustainable, community-powered income stream—enabling existing funding to go further and support long-term progress.
+          {key === "kickboxing" ? (
+            config?.["orgShortName/WkcCustom"]
+          ) : (
+            <>
+              {config?.orgShortName} funding remains a vital part of club growth and development. Clann is designed to complement these efforts by offering a sustainable, community-powered income stream—enabling existing funding to go further and support long-term progress.
+            </>
+          )}
         </p>
       </div>
 
@@ -95,7 +110,7 @@ const InvestorPassiveRevenue = () => {
           {[
             {
               title: "Club Members",
-              list: ["Players", "Coaches", "Volunteers"],
+              list: [mainGroup, "Coaches", "Volunteers"],
               icon: "🧍"
             },
             {

@@ -1,11 +1,10 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import config from "../data/associationConfig.json"; // You'll create this next
+import rawConfig from "../data/associationConfig.json";
 
-type AssociationData = {
-  associationName: string;
-  primaryColor: string;
-  logo: string;
-};
+export type AssociationData = Record<string, string>; // flexible for dynamic fields
+
+// 👇 FIX: explicitly type the config JSON
+const config: Record<string, AssociationData> = rawConfig;
 
 const AssociationContext = createContext<{
   key: string | null;

@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
+import { useAssociation } from "../../context/AssociationContext";
 
 const InvestorEndorsement = () => {
+
+  const { key, config } = useAssociation();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -11,7 +15,7 @@ const InvestorEndorsement = () => {
     >
       {/* Section Heading */}
       <div>
-        <h1 className="text-3xl font-bold text-primary mb-2">SYFA Endorsement</h1>
+        <h1 className="text-3xl font-bold text-primary mb-2">{config?.sportName} Endorsement</h1>
         <div className="h-1 w-24 bg-yellow-400 rounded"></div>
       </div>
 
@@ -20,10 +24,10 @@ const InvestorEndorsement = () => {
         <div className="absolute top-0 right-0 w-36 h-36 bg-white/10 rounded-full -mt-20 -mr-20 z-0" />
         <div className="relative z-10 space-y-4">
           <h2 className="text-3xl font-bold">
-            A Technology Solution Aligned with SYFA’s Mission
+            A Technology Solution Aligned with {config?.orgShortName}'s Mission
           </h2>
           <p className="text-base md:text-lg text-white/90 max-w-3xl leading-relaxed">
-            More than just club management — this is about building stronger clubs, communities, and a better future for grassroots football.
+            More than just club management — this is about building stronger clubs, communities, and a better future for grassroots {config?.sportNameBenefit}
           </p>
         </div>
       </div>
@@ -41,9 +45,9 @@ const InvestorEndorsement = () => {
 
       {/* Why SYFA's Support Matters */}
       <div className="bg-card p-6 rounded-lg shadow-md space-y-6">
-        <h2 className="text-xl font-semibold text-primary">Why SYFA’s Support Matters</h2>
+        <h2 className="text-xl font-semibold text-primary">Why {config?.orgShortName}'s Support Matters</h2>
         <p className="text-muted-foreground">
-          The SYFA plays a vital role in the success of grassroots football by providing essential governance and resources. Our platform is designed to complement these efforts by offering:
+          The {config?.orgShortName}'s plays a vital role in the success of {config?.clubSpecific} by providing essential governance and resources. Our platform is designed to complement these efforts by offering:
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -73,7 +77,7 @@ const InvestorEndorsement = () => {
         </div>
 
         <p className="text-muted-foreground">
-          We are not asking SYFA for financial investment or operational involvement; instead, we seek SYFA’s endorsement to validate our vision and promote widespread adoption.
+          We are not asking {config?.orgShortName}'s for financial investment or operational involvement; instead, we seek {config?.orgShortName}'s endorsement to validate our vision and promote widespread adoption.
         </p>
       </div>
 
@@ -110,17 +114,19 @@ const InvestorEndorsement = () => {
       {/* How This Benefits SYFA & Its Clubs */}
       <div className="bg-card p-6 rounded-lg shadow-md space-y-4">
         <h2 className="text-xl font-semibold text-primary">
-          How This Benefits SYFA & Its Clubs
+          How This Benefits {config?.orgShortName}'s & Its Clubs
         </h2>
         <p className="text-muted-foreground">
-          SYFA has always been committed to the long-term health of grassroots football. Clann strengthens this mission by:
+          {config?.orgShortName} has always been committed to the long-term health of{" "}
+          {key === "kickboxing" ? "" : "grassroots "}
+          {config?.sportNameBenefit?.toLowerCase()}. Clann strengthens this mission by:
         </p>
 
         <ul className="space-y-3">
           {[
             "Providing tools that simplify club management and reduce administrative workload.",
             "Introducing passive funding methods that ensure clubs remain financially stable.",
-            "Allowing clubs to focus on football rather than administrative challenges."
+            `Allowing clubs to focus on ${config?.clubSpecifc} rather than administrative challenges.`
           ].map((point, index) => (
             <li key={index} className="flex items-start gap-2">
               <span className="text-green-500 mt-1">✔</span>
@@ -137,7 +143,7 @@ const InvestorEndorsement = () => {
         {[
           {
             title: "Empower Clubs with Better Tools",
-            desc: "The future of Scottish football depends on strong, sustainable clubs — not on clubs struggling to survive year after year."
+            desc: `The future of ${config?.sportName} depends on strong, sustainable clubs — not on clubs struggling to survive year after year.`
           },
           {
             title: "Drive Financial Sustainability",
@@ -145,7 +151,9 @@ const InvestorEndorsement = () => {
           },
           {
             title: "Build a Stronger Future Together",
-            desc: "With SYFA support, we can collectively strengthen grassroots football for our children, our communities, and our future."
+            desc: `With ${config?.orgShortName} support, we can collectively strengthen ${key === "kickboxing" ? "" : "grassroots "
+              }${config?.sportNameBenefit} for our children, our communities, and our future.`
+
           }
         ].map((step, idx) => (
           <div key={idx} className="flex items-start gap-4">

@@ -9,8 +9,11 @@ import {
   Star,
   CircleDot,
 } from "lucide-react";
+import { useAssociation } from "../../context/AssociationContext";
 
 const InvestorOverview = () => {
+  const { config } = useAssociation();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -22,7 +25,7 @@ const InvestorOverview = () => {
       {/* HERO SECTION */}
       <div className="text-center space-y-3">
         <h1 className="text-3xl md:text-4xl font-bold text-primary">
-          Revolutionising Club Management for Every Type of Club
+          Revolutionising Club Management for {config?.sportName}
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground">
           Empowering clubs and communities through innovation, efficiency, and sustainable fundraising.
@@ -34,16 +37,16 @@ const InvestorOverview = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
         {[
           {
-            amount: "£260 / year",
-            label: "UK Avg. Cashback per Person",
+            amount: config?.registeredPlayers || "—",
+            label: "Registered Players",
           },
           {
-            amount: "£50–130+ / year",
-            label: "Club Revenue per Active Clann User",
+            amount: config?.parentsCount || "—",
+            label: "Estimated Parents/Guardians",
           },
           {
-            amount: "£9,000 / year",
-            label: "Avg. Club Earnings with 100 Active Users",
+            amount: config?.revenueRange || "—",
+            label: "Potential Annual Club Revenue",
           },
         ].map(({ amount, label }, idx) => (
           <div
@@ -92,6 +95,28 @@ const InvestorOverview = () => {
         </div>
       </div>
 
+      {/* MARKET OPPORTUNITY */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-card p-6 rounded-lg border-l-4 border-yellow-400 shadow-sm">
+          <h3 className="text-primary font-semibold text-lg flex items-center gap-2">
+            <ShieldCheck className="w-5 h-5" /> Interested Clubs
+          </h3>
+          <div className="text-xl font-bold mt-3">
+            {config?.["interestedClubs,ClubGrowth"] || "—"}
+          </div>
+          <p className="text-muted-foreground mt-2">{config?.clubProgress || ""}</p>
+        </div>
+        <div className="bg-card p-6 rounded-lg border-l-4 border-blue-500 shadow-sm">
+          <h3 className="text-primary font-semibold text-lg flex items-center gap-2">
+            <User className="w-5 h-5" /> Interested Teams
+          </h3>
+          <div className="text-xl font-bold mt-3">
+            {config?.["interestedTeams,TeamGrowth"] || "—"}
+          </div>
+          <p className="text-muted-foreground mt-2">{config?.teamProgress || ""}</p>
+        </div>
+      </div>
+
       {/* REVENUE BENEFITS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card p-6 rounded-lg border-l-4 border-yellow-400 shadow-sm">
@@ -103,7 +128,7 @@ const InvestorOverview = () => {
             Clubs earn a share of platform revenue from each participating member.
           </p>
           <p className="text-xs italic text-muted-foreground mt-2">
-            Based on revenue from adult users. Not generated from youth participants.
+            {config?.custom || ""}
           </p>
         </div>
         <div className="bg-card p-6 rounded-lg border-l-4 border-blue-500 shadow-sm">
@@ -127,7 +152,7 @@ const InvestorOverview = () => {
           {[
             {
               title: "First and Only Platform",
-              desc: "The first and only platform built to modernise club management at every level.",
+              desc: `The first and only platform built to modernise ${config?.sportName?.toLowerCase()} club management.`,
             },
             {
               title: "Simplified Operations",

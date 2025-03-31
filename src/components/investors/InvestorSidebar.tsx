@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import {
   LayoutDashboard,
   BookOpen,
@@ -11,13 +11,14 @@ import {
   LogOut,
   Moon,
   Sun,
-} from "lucide-react"
-import { useNavigate } from "react-router-dom"
-import { useTheme } from "../../context/useTheme" // Use the central hook instead of within this component itself
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../context/useTheme";
+import { useAssociation } from "../../context/AssociationContext"; // 👈 Add this line
 
 interface SidebarProps {
-  setActiveSection: (section: string) => void
-  closeSidebar: () => void
+  setActiveSection: (section: string) => void;
+  closeSidebar: () => void;
 }
 
 const sections = [
@@ -30,27 +31,30 @@ const sections = [
   { id: "endorsement", label: "Endorsement", icon: <ThumbsUp className="w-5 h-5" /> },
   { id: "faqs", label: "FAQs", icon: <HelpCircle className="w-5 h-5" /> },
   { id: "contact", label: "Join the Clann", icon: <UserPlus className="w-5 h-5" /> },
-]
+];
 
 const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
-  const [localActive, setLocalActive] = useState<string>("overview")
-  const { theme, setTheme } = useTheme()
-  const navigate = useNavigate()
+  const [localActive, setLocalActive] = useState<string>("overview");
+  const { theme, setTheme } = useTheme();
+  const { config } = useAssociation(); // 👈 Access the association config
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("user-auth-token")
-    navigate("/login")
-  }
+    localStorage.removeItem("user-auth-token");
+    navigate("/login");
+  };
 
   const toggleDarkMode = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
     <nav className="h-full bg-secondary text-foreground p-4 lg:border-r flex flex-col justify-between border-none !shadow-none">
       {/* Header Row with Dark Mode Toggle */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg lg:text-xl font-bold">SYFA Dashboard</h2>
+        <h2 className="text-lg lg:text-xl font-bold">
+          {config?.orgShortName || "Investor Dashboard"}
+        </h2>
         <button onClick={toggleDarkMode} className="p-2 rounded-md transition hover:bg-accent">
           {theme === "dark" ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5" />}
         </button>
@@ -62,9 +66,9 @@ const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
           <li
             key={id}
             onClick={() => {
-              setLocalActive(id)
-              setActiveSection(id)
-              if (window.innerWidth < 1024) closeSidebar()
+              setLocalActive(id);
+              setActiveSection(id);
+              if (window.innerWidth < 1024) closeSidebar();
             }}
             className={`flex items-center gap-3 p-3 rounded-md cursor-pointer transition ${
               localActive === id ? "bg-primary text-white" : "hover:bg-accent"
@@ -85,7 +89,7 @@ const InvestorSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
         Logout
       </button>
     </nav>
-  )
-}
+  );
+};
 
-export default InvestorSidebar
+export default InvestorSidebar;
