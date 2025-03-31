@@ -1,26 +1,61 @@
 import { Button } from "../components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useAssociation } from "../context/AssociationContext";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const { setRole } = useAuth();
+  const { setAssociation } = useAssociation();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [selectedRole, setSelectedRole] = useState("");
 
   const handleLogin = () => {
-    // Reset error
     setError("");
 
-    if (email === "investor" && password === "password1") {
-      localStorage.setItem("user-auth-token", "mock-investor-token");
-      navigate("/investors");
-    } else if (email === "club" && password === "password1") {
+    if (email === "club" && password === "password1") {
       localStorage.setItem("user-auth-token", "mock-club-token");
+      setRole("club");
       navigate("/club");
+    } else if (email === "football" && password === "password1") {
+      localStorage.setItem("user-auth-token", "mock-football-token");
+      setRole("football");
+      setAssociation("football");
+      navigate("/investors");
+    } else if (email === "rugby" && password === "password1") {
+      localStorage.setItem("user-auth-token", "mock-rugby-token");
+      setRole("rugby");
+      setAssociation("rugby");
+      navigate("/investors");
+    } else if (email === "kickboxing" && password === "password1") {
+      localStorage.setItem("user-auth-token", "mock-kickboxing-token");
+      setRole("kickboxing");
+      setAssociation("kickboxing");
+      navigate("/investors");
     } else {
-      setError("Invalid mock credentials. Try 'investor/password1' or 'club/password1'.");
+      setError(
+        "Invalid mock credentials. Try: club/password1, football/password1, rugby/password1, or kickboxing/password1."
+      );
     }
+  };
+
+  const handleRoleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const role = e.target.value;
+    setSelectedRole(role);
+
+    if (role === "club") {
+      setEmail("club");
+    } else if (["football", "rugby", "kickboxing"].includes(role)) {
+      setEmail(role);
+    } else {
+      setEmail("");
+    }
+
+    setPassword("password1");
   };
 
   return (
@@ -29,6 +64,21 @@ export const Login = () => {
       <p className="text-muted-foreground mt-2">Access your Clann account</p>
 
       <div className="mt-6">
+        <div className="block w-1/2 mx-auto mb-4">
+          <label className="block mb-2 text-sm font-medium text-left">Select mock user</label>
+          <select
+            value={selectedRole}
+            onChange={handleRoleSelect}
+            className="w-full p-2 border rounded-md focus:outline-none"
+          >
+            <option value="">-- Choose a role --</option>
+            <option value="club">Club</option>
+            <option value="football">Football Investor</option>
+            <option value="rugby">Rugby Investor</option>
+            <option value="kickboxing">Kickboxing Investor</option>
+          </select>
+        </div>
+
         <input
           type="text"
           placeholder="Username"
@@ -52,13 +102,16 @@ export const Login = () => {
 
         <p className="mt-4">
           Don't have an account?{" "}
-          <span className="text-primary cursor-pointer" onClick={() => navigate("/register")}>
+          <span
+            className="text-primary cursor-pointer"
+            onClick={() => navigate("/register")}
+          >
             Register here
           </span>
         </p>
 
-        <Button 
-          className="mt-6 w-1/2" 
+        <Button
+          className="mt-6 w-1/2"
           variant="outline"
           onClick={() => navigate("/")}
         >

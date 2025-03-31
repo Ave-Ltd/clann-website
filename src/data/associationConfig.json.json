@@ -1,0 +1,18 @@
+{
+    "football": {
+      "associationName": "Scottish Youth Football",
+      "primaryColor": "#1E88E5",
+      "logo": "/logos/football.png"
+    },
+    "rugby": {
+      "associationName": "Scottish Youth Rugby",
+      "primaryColor": "#43A047",
+      "logo": "/logos/rugby.png"
+    },
+    "kickboxing": {
+      "associationName": "Kickboxing Scotland",
+      "primaryColor": "#E53935",
+      "logo": "/logos/kickboxing.png"
+    }
+  }
+  
