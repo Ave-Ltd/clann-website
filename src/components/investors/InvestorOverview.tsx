@@ -23,14 +23,14 @@ const InvestorOverview = () => {
       id="overview"
     >
       {/* HERO SECTION */}
-      <div className="text-center space-y-3">
+      <div className="space-y-3">
         <h1 className="text-3xl md:text-4xl font-bold text-primary">
           Revolutionising Club Management for {config?.sportName}
         </h1>
+        <div className="h-1 w-24 bg-yellow-400 rounded" />
         <p className="text-lg md:text-xl text-muted-foreground">
           Empowering clubs and communities through innovation, efficiency, and sustainable fundraising.
         </p>
-        <div className="h-1 w-24 bg-yellow-400 mx-auto rounded-full" />
       </div>
 
       {/* IMPACT CARDS */}
@@ -102,7 +102,7 @@ const InvestorOverview = () => {
             <ShieldCheck className="w-5 h-5" /> Interested Clubs
           </h3>
           <div className="text-xl font-bold mt-3">
-            {config?.["interestedClubs,ClubGrowth"] || "—"}
+            {config?.interestedClubsClubGrowth || "—"}
           </div>
           <p className="text-muted-foreground mt-2">{config?.clubProgress || ""}</p>
         </div>
@@ -111,7 +111,7 @@ const InvestorOverview = () => {
             <User className="w-5 h-5" /> Interested Teams
           </h3>
           <div className="text-xl font-bold mt-3">
-            {config?.["interestedTeams,TeamGrowth"] || "—"}
+            {config?.interestedTeamsTeamGrowth || "—"}
           </div>
           <p className="text-muted-foreground mt-2">{config?.teamProgress || ""}</p>
         </div>
