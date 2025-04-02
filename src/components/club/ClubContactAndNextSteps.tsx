@@ -13,15 +13,15 @@ const ClubAndNextSteps = () => {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-primary mb-2">Join the Clann</h1>
-        <div className="h-1 w-24 bg-yellow-400 rounded" />
+        <div className="h-1 w-24 bg-accent rounded" />
       </div>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-36 h-36 bg-white/10 rounded-full -mt-20 -mr-20 z-0" />
+      <div className="bg-gradient-to-br from-primary to-primary-accessible text-primary-foreground p-8 rounded-xl shadow-lg relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-36 h-36 bg-primary-foreground/10 rounded-full -mt-20 -mr-20 z-0" />
         <div className="relative z-10 space-y-4">
           <h2 className="text-2xl font-bold">Register your interest or find out more — join Clann today.</h2>
-          <p className="text-base text-white/90">
+          <p className="text-base text-primary-foreground/90">
             Be part of something bigger—help shape the future for Scottish grassroots football.
           </p>
         </div>
@@ -30,9 +30,9 @@ const ClubAndNextSteps = () => {
       {/* Join Section Grid */}
       <div className="grid md:grid-cols-2 gap-8">
         {/* Info Column */}
-        <div className="bg-secondary p-6 rounded-lg shadow-md border-l-4 border-primary">
+        <div className="bg-card p-6 rounded-lg shadow-md border-l-4 border-primary">
           <h2 className="text-xl font-bold text-primary flex items-center gap-2 mb-4">
-            <i className="fas fa-users text-yellow-400" />
+            <i className="fas fa-users text-accent" />
             How You Can Get Involved
           </h2>
           <p className="text-muted-foreground mb-6">
@@ -67,7 +67,7 @@ const ClubAndNextSteps = () => {
         {/* Contact Form from shared ContactSection component */}
         <div className="bg-card p-6 rounded-lg shadow-md border border-border">
           <h2 className="text-xl font-bold text-primary flex items-center gap-2 mb-4">
-            <i className="fas fa-paper-plane text-yellow-400" />
+            <i className="fas fa-paper-plane text-accent" />
             Register Your Interest
           </h2>
           <ContactSection />
