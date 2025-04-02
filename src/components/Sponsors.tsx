@@ -8,23 +8,23 @@ interface SponsorProps {
 
 const sponsors: SponsorProps[] = [
   {
-    logo: "./assets/scottish-enterprise.png",
+    logo: "./src/assets/scottish-enterprise.png",
     name: "Scottish Enterprise",
   },
   {
-    logo: "./assets/business-gateway.png",
+    logo: "./src/assets/business-gateway.png",
     name: "Business Gateway",
   },
   {
-    logo: "./assets/techscaler.png",
+    logo: "./src/assets/techscaler.png",
     name: "Techscaler",
   },
   {
-    logo: "./assets/codebase.png",
+    logo: "./src/assets/codebase.png",
     name: "Codebase",
   },
   {
-    logo: "./assets/barclays-eagle-labs.png",
+    logo: "./src/assets/barclays-eagle-labs.png",
     name: "Barclays Eagle Labs",
   },
 ];

@@ -1,5 +1,5 @@
 export const LogoIcon = () => {
-  return <img src="./assets/app_logo.png" alt="App Logo" width={50} height={50} />;
+  return <img src="./src/assets/app_logo.png" alt="App Logo" width={50} height={50} />;
 };
 
 

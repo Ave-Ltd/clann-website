@@ -7,11 +7,7 @@ export const ScrollToTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 400) {
-        setShowTopBtn(true);
-      } else {
-        setShowTopBtn(false);
-      }
+      setShowTopBtn(window.scrollY > 400);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -19,11 +15,7 @@ export const ScrollToTop = () => {
   }, []);
 
   const goToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -31,10 +23,24 @@ export const ScrollToTop = () => {
       {showTopBtn && (
         <Button
           onClick={goToTop}
-          className="fixed bottom-4 right-4 p-3 rounded-full bg-primary shadow-md flex items-center justify-center"
           size="icon"
+          className="
+            fixed z-50 
+            bottom-4 right-4 
+            sm:bottom-5 sm:right-5 
+            md:bottom-6 md:right-6
+            p-3 
+            rounded-full 
+            bg-primary 
+            text-white 
+            shadow-lg 
+            flex items-center justify-center 
+            transition-transform 
+            hover:scale-105
+          "
+          aria-label="Scroll to top"
         >
-          <ArrowUpToLine className="h-8 w-8" /> {/* Icon size increased */}
+          <ArrowUpToLine className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
         </Button>
       )}
     </>

@@ -61,45 +61,45 @@ export const Services = () => {
       </div>
 
       <div className={styles.cardWrapper}>
-        {/* Top Row */}
-        <div className={`${styles.card} ${styles.cardTopLeft}`}>
+        {/* Row 1 */}
+        <div className={`${styles.card} ${styles.cardGroup1}`}>
           {serviceList[0].icon}
           <h3 className={styles.cardTitle}>{serviceList[0].title}</h3>
           <p className={styles.cardDesc}>{serviceList[0].description}</p>
         </div>
-        <div className={`${styles.ghostCard} ${styles.cardTopRight}`} />
+        <div className={`${styles.ghostCard} ${styles.ghostGroup1}`} />
 
-        {/* Middle Row */}
-        <div className={`${styles.ghostCard} ${styles.cardMiddleLeft}`} />
-        <div className={`${styles.card} ${styles.cardMiddleRight}`}>
+        {/* Row 2 */}
+        <div className={`${styles.ghostCard} ${styles.ghostGroup2}`} />
+        <div className={`${styles.card} ${styles.cardGroup2}`}>
           {serviceList[1].icon}
           <h3 className={styles.cardTitle}>{serviceList[1].title}</h3>
           <p className={styles.cardDesc}>{serviceList[1].description}</p>
         </div>
 
-        {/* Bottom Row 1 */}
-        <div className={`${styles.card} ${styles.cardBottomLeft}`}>
+        {/* Row 3 */}
+        <div className={`${styles.card} ${styles.cardGroup3}`}>
           {serviceList[2].icon}
           <h3 className={styles.cardTitle}>{serviceList[2].title}</h3>
           <p className={styles.cardDesc}>{serviceList[2].description}</p>
         </div>
-        <div className={`${styles.ghostCard} ${styles.cardBottomRight}`} />
+        <div className={`${styles.ghostCard} ${styles.ghostGroup3}`} />
 
-        {/* Bottom Row 2 */}
-        <div className={`${styles.ghostCard} ${styles.cardFinalLeft}`} />
-        <div className={`${styles.card} ${styles.cardFinalRight}`}>
+        {/* Row 4 */}
+        <div className={`${styles.ghostCard} ${styles.ghostGroup4}`} />
+        <div className={`${styles.card} ${styles.cardGroup4}`}>
           {serviceList[3].icon}
           <h3 className={styles.cardTitle}>{serviceList[3].title}</h3>
           <p className={styles.cardDesc}>{serviceList[3].description}</p>
         </div>
 
-        {/* Final Row (Ghost + Card) */}
-        <div className={`${styles.ghostCard} ${styles.cardFinalLeft}`} />
-        <div className={`${styles.card} ${styles.cardFinalRight}`}>
+        {/* Row 5 */}
+        <div className={`${styles.card} ${styles.cardGroup5}`}>
           {serviceList[4].icon}
           <h3 className={styles.cardTitle}>{serviceList[4].title}</h3>
           <p className={styles.cardDesc}>{serviceList[4].description}</p>
         </div>
+        <div className={`${styles.ghostCard} ${styles.ghostGroup5}`} />
       </div>
     </section>
   );
