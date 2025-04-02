@@ -43,6 +43,8 @@
     "revenueRange": "TBC",
     "interestedClubsClubGrowth": "WKC Interested Clubs Value",
     "clubProgress": "% of Intersted WKC Clubs Value",
+    "interestedTeamsTeamGrowth": "WKC Interested Clubs Value",
+    "teamProgress": "% of Intersted WKC Clubs Value",
     "custom": "Based on revenue from adult users. Not generated from youth participants",
     "sportNameBenefit": "Kickboxing",
     "orgName": "WKC",

@@ -31,17 +31,17 @@ export const ClubDashboard = () => {
   useEffect(() => {
     if (!sectionRef.current) return
     const el = sectionRef.current
-  
+
     const handleSectionSwitch = (e: Event) => {
       const customEvent = e as CustomEvent<string>
       const next = customEvent.detail
       if (typeof next === "string") setActiveSection(next)
     }
-  
+
     el.addEventListener("switch-section", handleSectionSwitch)
     return () => el.removeEventListener("switch-section", handleSectionSwitch)
   }, [])
-  
+
 
   const handleSetActiveSection = (section: string) => {
     setActiveSection(section)
@@ -55,7 +55,7 @@ export const ClubDashboard = () => {
         return <ClubAboutClann />
       case "benefits":
         return <ClubBenefits />
-        case "memberBenefits":
+      case "memberBenefits":
         return <ClubMemberBenefits />
       case "growth":
         return <ClubGrowth />
@@ -82,7 +82,7 @@ export const ClubDashboard = () => {
       <div className="hidden lg:block fixed inset-y-0 left-0 w-64 z-50">
         <ClubSidebar
           setActiveSection={handleSetActiveSection}
-          closeSidebar={() => {}}
+          closeSidebar={() => { }}
         />
       </div>
 
@@ -108,7 +108,7 @@ export const ClubDashboard = () => {
 
             <ClubSidebar
               setActiveSection={handleSetActiveSection}
-              closeSidebar={() => {}}
+              closeSidebar={() => { }}
             />
           </SheetContent>
         </Sheet>

@@ -6,6 +6,7 @@ import InvestorGrowth from "./InvestorGrowth"
 import InvestorFinancials from "./InvestorFinancials"
 import InvestorSecurity from "./InvestorSecurity"
 import InvestorBenefits from "./InvestorBenefits"
+import InvestorMemberBenefits from "./InvestorMemberBenefits";
 import InvestorPassiveRevenue from "./InvestorPassiveRevenue"
 import InvestorEndorsement from "./InvestorEndorsement"
 import InvestorAboutAve from "./InvestorAboutAve"
@@ -31,17 +32,17 @@ export const InvestorDashboard = () => {
   useEffect(() => {
     if (!sectionRef.current) return
     const el = sectionRef.current
-  
+
     const handleSectionSwitch = (e: Event) => {
       const customEvent = e as CustomEvent<string>
       const next = customEvent.detail
       if (typeof next === "string") setActiveSection(next)
     }
-  
+
     el.addEventListener("switch-section", handleSectionSwitch)
     return () => el.removeEventListener("switch-section", handleSectionSwitch)
   }, [])
-  
+
 
   const handleSetActiveSection = (section: string) => {
     setActiveSection(section)
@@ -55,6 +56,8 @@ export const InvestorDashboard = () => {
         return <InvestorAboutClann />
       case "benefits":
         return <InvestorBenefits />
+      case "memberBenefits":
+        return <InvestorMemberBenefits />
       case "growth":
         return <InvestorGrowth />
       case "financials":
@@ -82,7 +85,7 @@ export const InvestorDashboard = () => {
       <div className="hidden lg:block fixed inset-y-0 left-0 w-64 z-50">
         <InvestorSidebar
           setActiveSection={handleSetActiveSection}
-          closeSidebar={() => {}}
+          closeSidebar={() => { }}
         />
       </div>
 
@@ -108,7 +111,7 @@ export const InvestorDashboard = () => {
 
             <InvestorSidebar
               setActiveSection={handleSetActiveSection}
-              closeSidebar={() => {}}
+              closeSidebar={() => { }}
             />
           </SheetContent>
         </Sheet>

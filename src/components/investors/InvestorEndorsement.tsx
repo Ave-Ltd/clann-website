@@ -43,7 +43,7 @@ const InvestorEndorsement = () => {
         </p>
       </div>
 
-      {/* Why SYFA's Support Matters */}
+      {/* Why Associations's Support Matters */}
       <div className="bg-card p-6 rounded-lg shadow-md space-y-6">
         <h2 className="text-xl font-semibold text-primary">Why {config?.orgShortName}'s Support Matters</h2>
         <p className="text-muted-foreground">
@@ -111,7 +111,7 @@ const InvestorEndorsement = () => {
         ))}
       </div>
 
-      {/* How This Benefits SYFA & Its Clubs */}
+      {/* How This Benefits Associations & Its Clubs */}
       <div className="bg-card p-6 rounded-lg shadow-md space-y-4">
         <h2 className="text-xl font-semibold text-primary">
           How This Benefits {config?.orgShortName}'s & Its Clubs
