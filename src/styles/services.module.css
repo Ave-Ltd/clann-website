@@ -39,15 +39,25 @@
 }
 
 .cardWrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   max-width: 900px;
   margin: 0 auto;
-  position: relative;
+}
+
+.cardRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   background-color: hsl(var(--card));
   border-radius: 1.25rem;
   padding: 2rem;
@@ -56,6 +66,7 @@
   text-align: center;
   z-index: 2;
   transition: transform 0.3s ease;
+  min-height: 100px;
 }
 
 .card:hover {
@@ -80,9 +91,21 @@
   height: 280px;
   border-radius: 1.25rem;
   background: linear-gradient(to bottom right, #ccc, #e2e2e2);
-  opacity: 0.25;
+  opacity: 0.6;
+  position: relative;
+  overflow: hidden;
 }
 
+/* New: GIF styling inside ghostCard */
+.ghostImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* <- was cover before */
+  border-radius: 1.25rem;
+  opacity: 1;
+}
+
+/* Icon size */
 .icon {
   width: 2.25rem;
   height: 2.25rem;
@@ -90,51 +113,18 @@
   color: hsl(var(--primary));
 }
 
-/* Grid positions for desktop */
-.cardGroup1 { grid-column: 1; grid-row: 1; }
-.ghostGroup1 { grid-column: 2; grid-row: 1; }
+/* Hide ghost cards on mobile */
+.desktopOnly {
+  display: block;
+}
 
-.ghostGroup2 { grid-column: 1; grid-row: 2; }
-.cardGroup2 { grid-column: 2; grid-row: 2; }
-
-.cardGroup3 { grid-column: 1; grid-row: 3; }
-.ghostGroup3 { grid-column: 2; grid-row: 3; }
-
-.ghostGroup4 { grid-column: 1; grid-row: 4; }
-.cardGroup4 { grid-column: 2; grid-row: 4; }
-
-.cardGroup5 { grid-column: 1; grid-row: 5; }
-.ghostGroup5 { grid-column: 2; grid-row: 5; }
-
-/* Mobile Fixes */
 @media (max-width: 768px) {
-  .cardWrapper {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .cardRow {
+    display: flex;
+    flex-direction: column;
   }
 
-  .cardGroup1,
-  .ghostGroup1,
-  .cardGroup2,
-  .ghostGroup2,
-  .cardGroup3,
-  .ghostGroup3,
-  .cardGroup4,
-  .ghostGroup4,
-  .cardGroup5,
-  .ghostGroup5 {
-    grid-column: 1 !important;
-  }
-
-  .ghostCard {
-    display: block;
-    height: 200px;
-    opacity: 0.25;
-    background: linear-gradient(to bottom right, #ccc, #e2e2e2);
-    border-radius: 1.25rem;
-  }
-
-  .card {
-    margin: 0;
+  .desktopOnly {
+    display: none !important;
   }
 }
