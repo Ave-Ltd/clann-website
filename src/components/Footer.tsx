@@ -1,4 +1,5 @@
 import { LogoIcon } from "./Icons";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -114,6 +115,15 @@ export const Footer = () => {
               FAQ
             </a>
           </div>
+
+          <div>
+            <Link
+              to="/credits"
+              className="opacity-60 hover:opacity-100"
+            >
+              Credits
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-col gap-2">
@@ -156,7 +166,7 @@ export const Footer = () => {
           <a
             rel="noreferrer noopener"
             target="_blank"
-            href="https://www.linkedin.com//"
+            href="https://www.linkedin.com/"
             className="text-primary transition-all border-primary hover:border-b-2"
           >
             Jamie King

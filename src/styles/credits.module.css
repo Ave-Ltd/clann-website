@@ -1,0 +1,54 @@
+.creditsSection {
+    padding: 4rem 1rem;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .creditsTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .creditsSubtitle {
+    text-align: center;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 2rem;
+  }
+  
+  .creditsList {
+    list-style: none;
+    padding: 0;
+    line-height: 1.75rem;
+  }
+  
+  .creditsList li {
+    margin-bottom: 1rem;
+  }
+  
+  .creditsList a {
+    color: hsl(var(--primary));
+    text-decoration: underline;
+  }
+  
+  .backButton {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 2rem;
+  }
+  
+  .backButton:hover {
+    background-color: hsl(var(--primary-hover));
+  }
