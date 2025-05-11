@@ -6,9 +6,9 @@ interface FormData {
   fullName: string;
   email: string;
   organisation: string;
-  subject: string;
   message: string;
   newsletter: boolean;
+  followup: boolean;
 }
 
 type StringFieldKeys = {
@@ -20,18 +20,18 @@ export const ContactSection: React.FC = () => {
     fullName: "",
     email: "",
     organisation: "",
-    subject: "General Inquiry",
     message: "",
     newsletter: false,
+    followup: false,
   });
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // ✅ NEW
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, type, value } = e.target;
     const fieldValue = type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
@@ -100,9 +100,9 @@ export const ContactSection: React.FC = () => {
         fullName: "",
         email: "",
         organisation: "",
-        subject: "General Inquiry",
         message: "",
         newsletter: false,
+        followup: false,
       });
     } catch (error) {
       console.error("EmailJS Error:", error);
@@ -116,66 +116,72 @@ export const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="container py-24 sm:py-32">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-[hsl(var(--primary-accessible))] mb-8">
-        Let’s Connect & Build the Future Together
-      </h2>
+      <div className="max-w-2xl mx-auto text-center mb-10">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
+          Let’s Connect & Build the Future Together
+        </h2>
+        <p className="text-muted-foreground text-lg">
+          Clann.App is transforming how clubs and organisations operate—seamlessly, efficiently, and sustainably. <br />
+          Whether you’re looking for better management tools or long-term financial solutions, we’d love to discuss how we can help.
+        </p>
+      </div>
 
       <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6">
         {[ 
           { id: "fullName", label: "Full Name", type: "text" },
           { id: "email", label: "Email", type: "email" },
-          { id: "organisation", label: "Organisation/Club Name (if applicable)", type: "text" },
+          { id: "organisation", label: "Organisation/Club Name (optional)", type: "text" },
         ].map(({ id, label, type }) => (
           <div key={id}>
-            <label htmlFor={id} className="block text-sm font-medium text-foreground">
-              {label}
-            </label>
             <input
               type={type}
               id={id}
               name={id}
+              placeholder={label}
               value={formData[id as StringFieldKeys]}
               onChange={handleChange}
               required={id !== "organisation"}
-              className="mt-1 block w-full border border-border rounded-md p-2 bg-input text-foreground focus:ring-2 focus:ring-[hsl(var(--primary))] focus:outline-none"
+              className="w-full border border-border rounded-md p-3 bg-input text-foreground focus:ring-2 focus:ring-[hsl(var(--primary))] focus:outline-none placeholder:text-muted-foreground"
             />
           </div>
         ))}
 
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-foreground">
-            Subject
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Message"
+          value={formData.message}
+          onChange={handleChange}
+          required
+          rows={5}
+          className="w-full border border-border rounded-md p-3 bg-input text-foreground focus:ring-2 focus:ring-[hsl(var(--primary))] focus:outline-none placeholder:text-muted-foreground"
+        />
+
+        {/* Checkboxes */}
+        <div className="space-y-4">
+          <label className="flex items-center space-x-2 text-sm">
+            <input
+              type="checkbox"
+              name="newsletter"
+              checked={formData.newsletter}
+              onChange={handleChange}
+              className="accent-[hsl(var(--primary))]"
+            />
+            <span>Sign me up for updates & platform news</span>
           </label>
-          <select
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            className="mt-1 block w-full border border-border rounded-md p-2 bg-input text-foreground focus:ring-2 focus:ring-[hsl(var(--primary))] focus:outline-none"
-          >
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Partnership">Partnership</option>
-            <option value="Technical Support">Technical Support</option>
-            <option value="Investment Opportunity">Investment Opportunity</option>
-          </select>
+
+          <label className="flex items-center space-x-2 text-sm">
+            <input
+              type="checkbox"
+              name="followup"
+              checked={formData.followup}
+              onChange={handleChange}
+              className="accent-[hsl(var(--primary))]"
+            />
+            <span>I’d like to request a follow-up meeting</span>
+          </label>
         </div>
 
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-foreground">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows={4}
-            className="mt-1 block w-full border border-border rounded-md p-2 bg-input text-foreground focus:ring-2 focus:ring-[hsl(var(--primary))] focus:outline-none"
-          />
-        </div>
-
-        {/* Submit button with loader */}
         <button
           type="submit"
           disabled={isLoading}
@@ -210,16 +216,8 @@ export const ContactSection: React.FC = () => {
               Sending...
             </span>
           ) : (
-            "Send Message"
+            "Submit"
           )}
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setModalOpen(true)}
-          className="mt-4 w-full py-2 px-4 bg-muted text-foreground rounded-md hover:bg-muted-foreground transition"
-        >
-          Test Success Modal
         </button>
       </form>
 

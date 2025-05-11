@@ -15,6 +15,8 @@ import {
 import { Menu } from "lucide-react";
 import ModeToggle from "./mode-toggle";
 import { LogoIcon } from "./Icons";
+import heroStyles from "../styles/Hero.module.css";
+import { useNavigate } from "react-router-dom";
 
 interface RouteProps {
   href: string;
@@ -31,12 +33,13 @@ const routeList: RouteProps[] = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background border-b-[1px]">
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between items-center">
-          
+
           {/* LOGO & TITLE - Ensuring it aligns centrally */}
           <NavigationMenuItem className="flex items-center gap-2">
             <a href="/" className="flex items-center space-x-2">
@@ -56,8 +59,14 @@ export const Navbar = () => {
             ))}
           </nav>
 
-          {/* LIGHT/DARK MODE TOGGLE (Only for large screens) */}
-          <div className="hidden lg:flex items-center">
+          {/* CLUB DASHBOARD BUTTON + LIGHT/DARK MODE TOGGLE (Large screens only) */}
+          <div className="hidden lg:flex items-center gap-4">
+            <button
+              className={heroStyles.secondaryBtn}
+              onClick={() => navigate("/login")}
+            >
+              Club Dashboard <i className="fas fa-lock" />
+            </button>
             <ModeToggle />
           </div>
 

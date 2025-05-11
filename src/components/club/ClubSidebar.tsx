@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   LayoutDashboard,
   BookOpen,
-  Gift,
   TrendingUp,
   Users,
   HelpCircle,
@@ -10,6 +9,8 @@ import {
   LogOut,
   Moon,
   Sun,
+  Award,         // ⬅️ New import
+  BadgeCheck
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/useTheme";
@@ -22,8 +23,8 @@ interface SidebarProps {
 const sections = [
   { id: "overview", label: "Overview", icon: <LayoutDashboard className="w-5 h-5" /> },
   { id: "aboutClann", label: "About Clann", icon: <BookOpen className="w-5 h-5" /> },
-  { id: "benefits", label: "Club Benefits", icon: <Gift className="w-5 h-5" /> },
-  { id: "memberBenefits", label: "Member Benefits", icon: <Gift className="w-5 h-5" /> },
+  { id: "benefits", label: "Club Benefits", icon: <Award className="w-5 h-5" /> },
+  { id: "memberBenefits", label: "Member Benefits", icon: <BadgeCheck className="w-5 h-5" /> },
   { id: "passiveRevenue", label: "Passive Revenue", icon: <TrendingUp className="w-5 h-5" /> },
   { id: "aboutAve", label: "About us", icon: <Users className="w-5 h-5" /> },
   { id: "faqs", label: "FAQs", icon: <HelpCircle className="w-5 h-5" /> },
