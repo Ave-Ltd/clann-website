@@ -5,7 +5,8 @@ import { Features } from "../components/Features";
 import { FAQ } from "../components/FAQ";
 import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
-import { ContactSection } from "@/components/ui/contact-us";
+import { RegisterInterest } from "@/components/RegisterInterest";
+// import { ContactSection } from "@/components/ui/contact-us";
 // import { Cta } from "../components/Cta";
 // import { Testimonials } from "../components/Testimonials";
 // import { About } from "../components/About";
@@ -21,7 +22,8 @@ export const Landing = () => {
       <Hero />
       <Features />
       <HowItWorks />      
-      <ContactSection /> 
+      <RegisterInterest />
+      {/* <ContactSection />  */}
       <FAQ />
       <Footer />
       <ScrollToTop />
