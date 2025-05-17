@@ -1,9 +1,8 @@
 .heroSection {
   position: relative;
-  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 8rem 0 4rem;
+  padding: 6rem 0 3rem; /* reduced top/bottom padding */
   overflow: hidden;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
@@ -55,19 +54,21 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 4rem;
+  gap: 3rem;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .heroText {
   max-width: 36rem;
+  flex: 1;
 }
 
 .heroTitle {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: hsl(var(--foreground));
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .heroTitle span {
@@ -75,15 +76,15 @@
 }
 
 .heroSubtitle {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: hsl(var(--muted-foreground));
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .heroButtons {
   display: flex;
   gap: 1rem;
-  margin-bottom: 3rem;
+  flex-wrap: wrap;
 }
 
 .primaryBtn {
@@ -99,6 +100,7 @@
 
 .primaryBtn:hover {
   background-color: hsl(var(--primary-hover));
+  color: hsl(var(--primary-foreground));
 }
 
 .secondaryBtn {
@@ -122,20 +124,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   padding: 1rem;
   z-index: 1;
 }
 
 .heroImageResponsive {
   width: 100%;
-  max-width: 650px;
-  max-height: 100vh;
+  max-width: 600px;
+  height: auto;
+  max-height: 480px;
   object-fit: contain;
   display: block;
 }
 
-/* Mobile background hero image */
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .heroSection {
     padding: 4rem 1rem 2rem;
@@ -143,36 +145,36 @@
   }
 
   .heroContent {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch; /* important */
-  gap: 4rem;
-  width: 100%;
-}
-  .heroImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%; /* now it will match .heroText height */
-}
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-.heroImageResponsive {
-  height: 100%;         /* will match parent height */
-  width: auto;          /* maintain aspect ratio */
-  max-height: 100%;     /* prevents overflow */
-  object-fit: contain;
-  display: block;
-}
+  .heroText {
+    max-width: 100%;
+  }
 
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .heroImage {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .heroImageResponsive {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
   }
 }
 
+/* Partners Carousel & Feature Grid kept intact (unchanged) */
 .partners {
   margin-top: 2rem;
 }

@@ -1,32 +1,31 @@
 import styles from "../styles/Hero.module.css";
-import { useNavigate } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
-import { Supporters } from "./Supporters";
 import heroImage from "/src/assets/hero-image.png";
 
 export const Hero = () => {
-  const navigate = useNavigate();
-
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [imageHeight, setImageHeight] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-  const updateImageHeight = () => {
-    if (textRef.current && imageRef.current) {
-      const textHeight = textRef.current.offsetHeight;
-      setImageHeight(textHeight * 1.25); // Increase image height by 15%
-    }
-  };
-
+    const updateImageHeight = () => {
+      if (textRef.current && imageRef.current) {
+        const textHeight = textRef.current.offsetHeight;
+        setImageHeight(textHeight * 1.1); // Slightly smaller ratio
+      }
+    };
 
     updateImageHeight();
     window.addEventListener("resize", updateImageHeight);
-
-    return () => {
-      window.removeEventListener("resize", updateImageHeight);
-    };
+    return () => window.removeEventListener("resize", updateImageHeight);
   }, []);
+
+  const scrollToRegisterInterest = () => {
+    const section = document.getElementById("registerinterest");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section id="home" className={styles.heroSection}>
@@ -46,16 +45,20 @@ export const Hero = () => {
             <div className={styles.heroButtons}>
               <button
                 className={styles.primaryBtn}
+                onClick={scrollToRegisterInterest}
+              >
+                Register Interest
+              </button>
+
+              {/* Future: Uncomment when app is live */}
+              {/*
+              <button
+                className={styles.secondaryBtn}
                 onClick={() => navigate("/register")}
               >
                 Download the app <i className="fas fa-arrow-right" />
               </button>
-              <button
-                className={styles.secondaryBtn}
-                onClick={() => navigate("/login")}
-              >
-                Explore Club Funding <i className="fas fa-lock" />
-              </button>
+              */}
             </div>
           </div>
 
@@ -69,8 +72,6 @@ export const Hero = () => {
             />
           </div>
         </div>
-
-        <Supporters />
       </div>
     </section>
   );

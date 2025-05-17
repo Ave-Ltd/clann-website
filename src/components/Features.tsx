@@ -1,17 +1,19 @@
 import styles from "../styles/Services.module.css";
 import {
   CalendarCheck,
-  Settings,
   MessageSquare,
+  Wallet,
+  LockKeyhole,
+  Bell,
   ShieldCheck,
-  Users,
 } from "lucide-react";
 
 import calendarGif from "../assets/gifs/calendar.gif";
-import moneyGif from "../assets/gifs/money.gif";
-import profitGif from "../assets/gifs/profit.gif";
-import socialGif from "../assets/gifs/social-engagement.gif";
-import taskGif from "../assets/gifs/task-management.gif";
+import messageGif from "../assets/gifs/social-engagement.gif";
+import walletGif from "../assets/gifs/money.gif";
+import roleGif from "../assets/gifs/task-management.gif";
+import notifyGif from "../assets/gifs/profit.gif";
+import secureGif from "../assets/gifs/calendar.gif";
 
 interface ServiceProps {
   title: string;
@@ -22,38 +24,40 @@ interface ServiceProps {
 
 const serviceList: ServiceProps[] = [
   {
-    title: "Seamless Management",
-    description:
-      "Streamline operations with our all-in-one dashboard, saving time and improving consistency.",
-    icon: <Settings className={styles.icon} />,
-    gif: taskGif,
-  },
-  {
-    title: "Scheduling & Communication",
-    description:
-      "Stay connected with built-in scheduling, updates, and integrated messaging tools.",
+    title: "Smart Scheduling",
+    description: "Create and manage training, matches, or events — all visible in one place.",
     icon: <CalendarCheck className={styles.icon} />,
     gif: calendarGif,
   },
   {
-    title: "Secure Membership & Event Payment",
-    description: "Simplify finances with easy-to-use payment solutions.",
-    icon: <ShieldCheck className={styles.icon} />,
-    gif: moneyGif,
-  },
-  {
-    title: "Community Engagement & Growth",
-    description:
-      "Strengthen relationships between organisations and their members.",
-    icon: <Users className={styles.icon} />,
-    gif: socialGif,
-  },
-  {
-    title: "Unlocking Financial Sustainability",
-    description:
-      "Helping clubs and organisations become more self-sufficient.",
+    title: "Built-in Messaging",
+    description: "No more chasing messages across apps — keep it all in Clann.",
     icon: <MessageSquare className={styles.icon} />,
-    gif: profitGif,
+    gif: messageGif,
+  },
+  {
+    title: "Club Wallet",
+    description: "Track earnings, view balances, and withdraw funds with full transparency.",
+    icon: <Wallet className={styles.icon} />,
+    gif: walletGif,
+  },
+  {
+    title: "Role-Based Access",
+    description: "Staff, members, parents — everyone sees only what they need.",
+    icon: <LockKeyhole className={styles.icon} />,
+    gif: roleGif,
+  },
+  {
+    title: "Automated Notifications",
+    description: "Send the right updates to the right people — from payments to sessions, changes, and reminders.",
+    icon: <Bell className={styles.icon} />,
+    gif: notifyGif,
+  },
+  {
+    title: "Secure Payments",
+    description: "Collect fees, event payments, or subscriptions safely and efficiently.",
+    icon: <ShieldCheck className={styles.icon} />,
+    gif: secureGif,
   },
 ];
 

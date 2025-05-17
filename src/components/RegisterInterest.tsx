@@ -64,7 +64,7 @@ export const RegisterInterest: React.FC = () => {
   };
 
   return (
-    <section className="container py-16 sm:py-24">
+    <section id="registerinterest" className="container py-16 sm:py-24">
       <div className="max-w-2xl mx-auto text-center space-y-6">
         <h2 className="text-2xl sm:text-3xl font-bold">
           Want to Stay in the Loop?

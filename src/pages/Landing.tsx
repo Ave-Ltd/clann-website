@@ -1,11 +1,13 @@
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
-import { HowItWorks } from "../components/HowItWorks";
 import { Features } from "../components/Features";
 import { FAQ } from "../components/FAQ";
 import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { RegisterInterest } from "@/components/RegisterInterest";
+import { Supporters } from "@/components/Supporters";
+import { WhyClann } from "@/components/WhyClann";
+import { PassiveFundraising } from "@/components/PassiveFundraising";
 // import { ContactSection } from "@/components/ui/contact-us";
 // import { Cta } from "../components/Cta";
 // import { Testimonials } from "../components/Testimonials";
@@ -20,8 +22,10 @@ export const Landing = () => {
     <>
       <Navbar />
       <Hero />
+      <WhyClann />
+      <Supporters />
       <Features />
-      <HowItWorks />      
+      <PassiveFundraising />      
       <RegisterInterest />
       {/* <ContactSection />  */}
       <FAQ />

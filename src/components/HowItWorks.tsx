@@ -53,7 +53,7 @@ export const HowItWorks = () => {
       </div>
 
       <div className={styles.buttonWrapper}>
-        <a href="#contact" className={styles.button}>
+        <a href="#registerinterest" className={styles.button}>
           Find Out More
         </a>
       </div>
