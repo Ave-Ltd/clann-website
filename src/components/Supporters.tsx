@@ -3,7 +3,7 @@ export const Supporters = () => {
     <section id="supporters" className="container py-24 text-center">
       {/* Why we built Clann */}
       <div className="max-w-3xl mx-auto mb-16 space-y-5">
-        <h2 className="text-3xl md:text-4xl font-semibold">Why we built Clann</h2>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">Why we built Clann</h2>
 
         <p className="text-lg md:text-xl text-muted-foreground">
           <strong>Clubs don’t need another admin tool.</strong> You’ve already got apps for scheduling and messaging.

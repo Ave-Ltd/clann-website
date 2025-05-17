@@ -16,6 +16,7 @@ import { Menu } from "lucide-react";
 import ModeToggle from "./mode-toggle";
 import { LogoIcon } from "./Icons";
 import { useNavigate } from "react-router-dom";
+import styles from "../styles/Hero.module.css"; // To reuse button styles
 
 interface RouteProps {
   href: string;
@@ -61,7 +62,7 @@ export const Navbar = () => {
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={() => navigate("/login")}
-              className="text-sm font-medium px-4 py-2 rounded-md border border-blue-600 text-blue-600 hover:bg-blue-50 transition-all"
+              className={`${styles.secondaryBtn} text-sm font-medium px-4 py-2 rounded-md transition-all`}
             >
               Club Dashboard
             </button>
@@ -101,7 +102,7 @@ export const Navbar = () => {
                       setIsOpen(false);
                       navigate("/login");
                     }}
-                    className="text-sm font-medium w-full px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 transition-all"
+                    className={`${styles.secondaryBtn} text-sm font-medium w-full px-4 py-2 rounded-md transition-all`}
                   >
                     Club Dashboard
                   </button>

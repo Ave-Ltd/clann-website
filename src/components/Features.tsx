@@ -7,13 +7,11 @@ import {
   Users,
 } from "lucide-react";
 
-// Importing GIFs from src/assets/gifs
 import calendarGif from "../assets/gifs/calendar.gif";
 import moneyGif from "../assets/gifs/money.gif";
 import profitGif from "../assets/gifs/profit.gif";
-import socialGif from "../assets/gifs/social-engagement.gif"; // <== confirm spelling!
+import socialGif from "../assets/gifs/social-engagement.gif";
 import taskGif from "../assets/gifs/task-management.gif";
-
 
 interface ServiceProps {
   title: string;
@@ -59,23 +57,29 @@ const serviceList: ServiceProps[] = [
   },
 ];
 
-
 export const Features = () => {
   return (
     <section className={styles.servicesSection}>
-      <div id="features" className={styles.textCenter}>
-        <p className={styles.subtitle}>Why Choose Clann.App</p>
-        <h2 className={styles.title}>
-          Smart, Simple, and Sustainable Club Management
+      <div id="features" className="text-center max-w-4xl mx-auto mb-16 px-4">
+        {/* Large Heading */}
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">
+          Why Choose Clann.App
         </h2>
-        <p className={styles.description}>
+
+        {/* Subheading */}
+        <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-4">
+          Smart, Simple, and Sustainable Club Management
+        </h3>
+
+        {/* Description */}
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
           Clann.App brings everything you need together — from scheduling and
           communication to payments and passive fundraising — with simplicity
           and style.
         </p>
       </div>
 
-      <div  className={styles.cardWrapper}>
+      <div className={styles.cardWrapper}>
         {serviceList.map((service, index) => (
           <div key={index} className={styles.cardRow}>
             {index % 2 === 0 ? (
