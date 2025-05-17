@@ -1,6 +1,25 @@
-export const LogoIcon = () => {
-  return <img src="./src/assets/app_logo.png" alt="App Logo" width={50} height={50} />;
+import logo from "@/assets/app_logo.png"; // Or from "../../assets/app_logo.png" depending on your setup
+
+export const LogoIcon = ({
+  width = 50,
+  height = 50,
+  className = "",
+}: {
+  width?: number;
+  height?: number;
+  className?: string;
+}) => {
+  return (
+    <img
+      src={logo}
+      alt="App Logo"
+      width={width}
+      height={height}
+      className={className}
+    />
+  );
 };
+
 
 
 export const MedalIcon = () => {

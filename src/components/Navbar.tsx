@@ -42,10 +42,9 @@ export const Navbar = () => {
           {/* LOGO & TITLE */}
           <NavigationMenuItem className="flex items-center gap-2">
             <a href="/" className="flex items-center space-x-2">
-              <span className="h-8 w-8">
-                <LogoIcon />
+              <span className="h-10 w-auto flex items-center">
+                <LogoIcon className="h-10 w-auto" />
               </span>
-              <span className="text-xl font-bold">Clann</span>
             </a>
           </NavigationMenuItem>
 

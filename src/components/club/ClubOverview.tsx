@@ -45,7 +45,7 @@ const ClubOverview = () => {
           },
           {
             amount: "£9,000 / year",
-            label: "Avg. Club Earnings with 100 Active Users",
+            label: "Potential Club Earnings with 100 Active Users",
           },
         ].map(({ amount, label }, idx) => (
           <div
