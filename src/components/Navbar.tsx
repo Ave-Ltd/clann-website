@@ -15,7 +15,6 @@ import {
 import { Menu } from "lucide-react";
 import ModeToggle from "./mode-toggle";
 import { LogoIcon } from "./Icons";
-import heroStyles from "../styles/Hero.module.css";
 import { useNavigate } from "react-router-dom";
 
 interface RouteProps {
@@ -24,9 +23,9 @@ interface RouteProps {
 }
 
 const routeList: RouteProps[] = [
-  // { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#howItWorks", label: "How it works" },
+  { href: "#about", label: "About" },
+  { href: "#features", label: "Features" },
+  { href: "#fundraising", label: "Fundraising" },
   { href: "#contact", label: "Contact" },
   { href: "#faq", label: "FAQ" },
 ];
@@ -40,7 +39,7 @@ export const Navbar = () => {
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between items-center">
 
-          {/* LOGO & TITLE - Ensuring it aligns centrally */}
+          {/* LOGO & TITLE */}
           <NavigationMenuItem className="flex items-center gap-2">
             <a href="/" className="flex items-center space-x-2">
               <span className="h-8 w-8">
@@ -50,7 +49,7 @@ export const Navbar = () => {
             </a>
           </NavigationMenuItem>
 
-          {/* NAVIGATION LINKS - Spaced out */}
+          {/* DESKTOP NAVIGATION */}
           <nav className="hidden lg:flex gap-12 items-center">
             {routeList.map(({ href, label }) => (
               <a key={label} href={href} className="text-lg font-medium hover:underline">
@@ -59,18 +58,18 @@ export const Navbar = () => {
             ))}
           </nav>
 
-          {/* CLUB DASHBOARD BUTTON + LIGHT/DARK MODE TOGGLE (Large screens only) */}
+          {/* CLUB DASHBOARD + TOGGLE */}
           <div className="hidden lg:flex items-center gap-4">
             <button
-              className={heroStyles.secondaryBtn}
               onClick={() => navigate("/login")}
+              className="text-sm font-medium px-4 py-2 rounded-md border border-blue-600 text-blue-600 hover:bg-blue-50 transition-all"
             >
-              Club Dashboard <i className="fas fa-lock" />
+              Club Dashboard
             </button>
             <ModeToggle />
           </div>
 
-          {/* MOBILE MENU (Drawer) */}
+          {/* MOBILE NAVIGATION (Drawer) */}
           <span className="flex lg:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger className="px-2">
@@ -82,7 +81,7 @@ export const Navbar = () => {
                   <SheetTitle className="font-bold text-xl">Navigation</SheetTitle>
                 </SheetHeader>
 
-                <nav className="flex flex-col justify-center items-center gap-3 mt-4">
+                <nav className="flex flex-col justify-start items-center gap-3 mt-4">
                   {routeList.map(({ href, label }) => (
                     <a
                       key={label}
@@ -93,12 +92,21 @@ export const Navbar = () => {
                       {label}
                     </a>
                   ))}
-
-                  {/* LIGHT/DARK TOGGLE (For Mobile Menu Only) */}
-                  <div className="mt-4 block lg:hidden">
-                    <ModeToggle />
-                  </div>
                 </nav>
+
+                {/* BOTTOM SECTION */}
+                <div className="mt-8 flex flex-col items-center gap-3">
+                  <ModeToggle />
+                  <button
+                    onClick={() => {
+                      setIsOpen(false);
+                      navigate("/login");
+                    }}
+                    className="text-sm font-medium w-full px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 transition-all"
+                  >
+                    Club Dashboard
+                  </button>
+                </div>
               </SheetContent>
             </Sheet>
           </span>

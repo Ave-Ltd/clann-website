@@ -7,7 +7,7 @@ import {
   ShieldCheck,
   User,
   Star,
-  CircleDot,
+  CheckCircle,
 } from "lucide-react";
 
 const ClubOverview = () => {
@@ -16,19 +16,21 @@ const ClubOverview = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-6 sm:p-10 bg-background text-foreground space-y-16"
+      className="p-6 sm:p-10 bg-background text-foreground space-y-8"
       id="overview"
     >
       {/* HERO SECTION */}
-      <div className="text-center space-y-3">
-        <h1 className="text-3xl md:text-4xl font-bold text-primary">
+      <div>
+        <h1 className="text-3xl font-bold text-primary mb-2"> 
           Revolutionising Club Management for Every Type of Club
         </h1>
+        <div className="h-1 w-24 bg-yellow-400 rounded"></div>
         <p className="text-lg md:text-xl text-muted-foreground">
           Empowering clubs and communities through innovation, efficiency, and sustainable fundraising.
         </p>
-        <div className="h-1 w-24 bg-yellow-400 mx-auto rounded-full" />
+        
       </div>
+
 
       {/* IMPACT COUNTER */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
@@ -48,7 +50,7 @@ const ClubOverview = () => {
         ].map(({ amount, label }, idx) => (
           <div
             key={idx}
-            className="rounded-xl p-6 bg-gradient-to-br from-yellow-300 to-blue-600 text-white shadow-md"
+            className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden"
           >
             <div className="text-2xl font-bold">{amount}</div>
             <div className="text-sm mt-2">{label}</div>
@@ -67,12 +69,12 @@ const ClubOverview = () => {
             {
               icon: <SlidersHorizontal className="w-6 h-6 text-blue-500" />,
               title: "Effortless Setup",
-              desc: "Set up once—earn automatically, forever.",
+              desc: "Set up once — your Club keeps benefiting, long-term.",
             },
             {
               icon: <Coins className="w-6 h-6 text-yellow-500" />,
               title: "Passive Income",
-              desc: "Earn from members’ everyday spending—automatically.",
+              desc: "Turn everyday spending into new funds for your club",
             },
             {
               icon: <Users className="w-6 h-6 text-green-500" />,
@@ -139,7 +141,7 @@ const ClubOverview = () => {
             },
           ].map(({ title, desc }, i) => (
             <li key={i} className="flex items-start gap-3">
-              <CircleDot className="text-primary mt-1" />
+              <CheckCircle className="text-green-500" />
               <div>
                 <h4 className="font-semibold text-md text-foreground">{title}</h4>
                 <p className="text-sm text-muted-foreground">{desc}</p>

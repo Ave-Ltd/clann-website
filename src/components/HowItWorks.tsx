@@ -30,8 +30,8 @@ const features: FeatureProps[] = [
 
 export const HowItWorks = () => {
   return (
-    <section id="howItWorks" className={styles.section}>
-      <div className={styles.textCenter}>
+    <section  className={styles.section}>
+      <div  id="fundraising"className={styles.textCenter}>
         <p className={styles.subtitle}>Passive Fundraising</p>
         <h2 className={styles.heading}>
           Unlocking New Growth & Funding <span>Opportunities</span>

@@ -1,91 +1,115 @@
-import styles from "../styles/Features.module.css";
-import { Badge } from "../ui/badge";
+import styles from "../styles/Services.module.css";
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+  CalendarCheck,
+  Settings,
+  MessageSquare,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 
-interface FeatureProps {
+// Importing GIFs from src/assets/gifs
+import calendarGif from "../assets/gifs/calendar.gif";
+import moneyGif from "../assets/gifs/money.gif";
+import profitGif from "../assets/gifs/profit.gif";
+import socialGif from "../assets/gifs/social-engagement.gif"; // <== confirm spelling!
+import taskGif from "../assets/gifs/task-management.gif";
+
+
+interface ServiceProps {
   title: string;
   description: string;
-  image: string;
+  icon: JSX.Element;
+  gif: string;
 }
 
-const features: FeatureProps[] = [
+const serviceList: ServiceProps[] = [
   {
-    title: "Seamless Team Management",
+    title: "Seamless Management",
     description:
-      "Effortlessly add players, coaches, and parents to your team. Manage your roster, track attendance, and keep everyone updated in real-time.",
-    image: "./assets/player.png",
+      "Streamline operations with our all-in-one dashboard, saving time and improving consistency.",
+    icon: <Settings className={styles.icon} />,
+    gif: taskGif,
   },
   {
-    title: "Simplified Scheduling",
+    title: "Scheduling & Communication",
     description:
-      "Plan games, training sessions, and tournaments with ease. Share schedules with the whole team instantly, and ensure no one misses an event.",
-    image: "./assets/calander.png",
+      "Stay connected with built-in scheduling, updates, and integrated messaging tools.",
+    icon: <CalendarCheck className={styles.icon} />,
+    gif: calendarGif,
   },
   {
-    title: "Efficient Fundraising Tools",
+    title: "Secure Membership & Event Payment",
+    description: "Simplify finances with easy-to-use payment solutions.",
+    icon: <ShieldCheck className={styles.icon} />,
+    gif: moneyGif,
+  },
+  {
+    title: "Community Engagement & Growth",
     description:
-      "Raise funds for your team with built-in tools that streamline event promotion and track contributions, helping your club grow sustainably.",
-    image: "./assets/donation.png",
+      "Strengthen relationships between organisations and their members.",
+    icon: <Users className={styles.icon} />,
+    gif: socialGif,
+  },
+  {
+    title: "Unlocking Financial Sustainability",
+    description:
+      "Helping clubs and organisations become more self-sufficient.",
+    icon: <MessageSquare className={styles.icon} />,
+    gif: profitGif,
   },
 ];
 
-const featureList: string[] = [
-  "Roster Management",
-  "Event Scheduling",
-  "Fundraising Tools",
-  "Team Messaging",
-  "Custom Notifications",
-  "Attendance Tracking",
-  "Real-time Updates",
-  "User-friendly Design",
-  "Secure Platform",
-];
 
 export const Features = () => {
   return (
-    <section id="features" className={styles.featuresSection}>
-      <h2 className={styles.title}>
-        Many{" "}
-        <span className={styles.gradientText}>
-          Great Features
-        </span>
-      </h2>
-
-      {/* Feature Badges */}
-      <div className={styles.badgeWrapper}>
-        {featureList.map((feature: string) => (
-          <Badge key={feature} variant="secondary" className={styles.badge}>
-            {feature}
-          </Badge>
-        ))}
+    <section className={styles.servicesSection}>
+      <div id="features" className={styles.textCenter}>
+        <p className={styles.subtitle}>Why Choose Clann.App</p>
+        <h2 className={styles.title}>
+          Smart, Simple, and Sustainable Club Management
+        </h2>
+        <p className={styles.description}>
+          Clann.App brings everything you need together — from scheduling and
+          communication to payments and passive fundraising — with simplicity
+          and style.
+        </p>
       </div>
 
-      {/* Feature Cards */}
-      <div className={styles.cardGrid}>
-        {features.map(({ title, description, image }: FeatureProps) => (
-          <Card key={title} className={styles.card}>
-            <CardHeader>
-              <CardTitle>{title}</CardTitle>
-            </CardHeader>
-
-            <CardContent>
-              <p>{description}</p>
-            </CardContent>
-
-            <CardFooter>
-              <img
-                src={image}
-                alt={title}
-                className={styles.image}
-              />
-            </CardFooter>
-          </Card>
+      <div  className={styles.cardWrapper}>
+        {serviceList.map((service, index) => (
+          <div key={index} className={styles.cardRow}>
+            {index % 2 === 0 ? (
+              <>
+                <div className={styles.card}>
+                  {service.icon}
+                  <h3 className={styles.cardTitle}>{service.title}</h3>
+                  <p className={styles.cardDesc}>{service.description}</p>
+                </div>
+                <div className={`${styles.ghostCard} ${styles.desktopOnly}`}>
+                  <img
+                    src={service.gif}
+                    alt={`${service.title} gif`}
+                    className={styles.ghostImage}
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={`${styles.ghostCard} ${styles.desktopOnly}`}>
+                  <img
+                    src={service.gif}
+                    alt={`${service.title} gif`}
+                    className={styles.ghostImage}
+                  />
+                </div>
+                <div className={styles.card}>
+                  {service.icon}
+                  <h3 className={styles.cardTitle}>{service.title}</h3>
+                  <p className={styles.cardDesc}>{service.description}</p>
+                </div>
+              </>
+            )}
+          </div>
         ))}
       </div>
     </section>
