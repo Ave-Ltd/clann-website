@@ -16,52 +16,63 @@ const FAQList: FAQProps[] = [
     question: "What is Clann.App?",
     answer: (
       <>
-        Clann.App is a modern{" "}
-        <span className="font-semibold">club and organisation management platform</span> designed to simplify operations, improve communication, and support{" "}
-        <span className="font-semibold">long-term financial sustainability</span>.
+        Clann is a platform that helps Clubs{" "}
+        <span className="font-semibold">manage their operations</span> and{" "}
+        <span className="font-semibold">generate passive income</span> — without fundraising campaigns or extra admin.
       </>
     ),
     value: "item-1",
   },
   {
-    question: "Who can use Clann.App?",
+    question: "Who can use Clann?",
     answer: (
       <>
-        Clann.App is built for{" "}
-        <span className="font-semibold">clubs, teams, and organisations</span> across all sectors—<span className="font-semibold">sports, community groups, charities</span>, and more. Whether you manage a local football club or a membership-based organisation, Clann.App provides the tools you need.
+        Any <span className="font-semibold">UK-based club, group, or organisation</span> —{" "}
+        <span className="font-semibold">sports, martial arts, youth, or community</span>.
       </>
     ),
     value: "item-2",
   },
   {
-    question: "Is Clann.App free to use?",
+    question: "Is Clann free to use?",
     answer: (
       <>
-        Yes, Clann.App is <span className="font-semibold">completely free</span> for clubs and organisations within our <span className="font-semibold">associated and endorsed networks</span>. These groups receive full access to all features at no cost. For other organisations, access options may vary—{" "}
-        <span className="font-semibold">contact us</span> to learn more.
+        Yes. The <span className="font-semibold">core platform is free</span> for Clubs, with{" "}
+        <span className="font-semibold">optional upgrades</span> in future.
       </>
     ),
     value: "item-3",
   },
   {
-    question: "How does Clann.App help clubs grow financially?",
+    question: "How does Clann help clubs grow financially?",
     answer: (
       <>
-        Clann.App provides <span className="font-semibold">smart financial solutions</span> that help clubs build{" "}
-        <span className="font-semibold">long-term sustainability</span>. Our{" "}
-        <span className="font-semibold">technology-driven approach</span> allows clubs to benefit naturally, without adding extra admin work or fundraising pressure.
+        We help Clubs <span className="font-semibold">unlock recurring income streams</span> —{" "}
+        <span className="font-semibold">without extra admin</span> or{" "}
+        <span className="font-semibold">pressure on volunteers</span>.
       </>
     ),
     value: "item-4",
   },
   {
-    question: "How can my club get started with Clann.App?",
+    question: "Can I try it now?",
     answer: (
       <>
-        Getting started is easy! Simply <span className="font-semibold">contact us</span> to discuss how Clann.App can support your organisation and explore your access options.
+        We’re <span className="font-semibold">not live yet</span>, but you can{" "}
+        <span className="font-semibold">register interest now</span> and we’ll notify you when we launch.
       </>
     ),
     value: "item-5",
+  },
+  {
+    question: "What happens after I register interest?",
+    answer: (
+      <>
+        We’ll <span className="font-semibold">add your Club to the early access list</span> and keep you updated —{" "}
+        <span className="font-semibold">no spam, no obligations</span>.
+      </>
+    ),
+    value: "item-6",
   },
 ];
 
