@@ -8,6 +8,7 @@ import { RegisterInterest } from "@/components/RegisterInterest";
 import { Supporters } from "@/components/Supporters";
 import { WhyClann } from "@/components/WhyClann";
 import { PassiveFundraising } from "@/components/PassiveFundraising";
+import { Benefits } from "@/components/Benefits";
 // import { ContactSection } from "@/components/ui/contact-us";
 // import { Cta } from "../components/Cta";
 // import { Testimonials } from "../components/Testimonials";
@@ -24,6 +25,7 @@ export const Landing = () => {
       <Hero />
       <WhyClann />
       <Supporters />
+      <Benefits />
       <Features />
       <PassiveFundraising />      
       <RegisterInterest />

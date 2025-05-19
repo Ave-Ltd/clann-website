@@ -8,7 +8,7 @@ export const WhyClann = () => {
         </h2>
 
         <p className="text-lg md:text-xl text-muted-foreground">
-          <strong>Clubs don’t need another admin tool.</strong> You’ve already got apps for scheduling and messaging.
+          <strong>Clubs don’t need another admin tool.</strong> There are already got apps for scheduling and messaging.
         </p>
 
         <p className="text-lg md:text-xl text-muted-foreground">
