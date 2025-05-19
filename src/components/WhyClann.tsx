@@ -22,7 +22,7 @@ export const WhyClann = () => {
   ];
 
   return (
-    <section className="bg-white dark:bg-[#1a1a1a] py-24 px-4 sm:px-6 lg:px-8 text-center transition-colors duration-300">
+    <section id="about" className="bg-white dark:bg-[#1a1a1a] py-24 px-4 sm:px-6 lg:px-8 text-center transition-colors duration-300">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4">
           <span className="underline underline-offset-8 decoration-blue-500">Why We Built Clann</span>

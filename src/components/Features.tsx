@@ -67,7 +67,7 @@ export const Features = () => {
   const activeFeature = serviceList[activeIndex];
 
   return (
-    <section className="bg-white dark:bg-[#1a1a1a] py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors duration-300">
+    <section id="features" className="bg-white dark:bg-[#1a1a1a] py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors duration-300">
       <h2 className={styles.featuresTitle}>Features</h2>
 
       <div className={styles.featuresGrid}>
