@@ -30,7 +30,7 @@ const features: FeatureProps[] = [
 
 export const PassiveFundraising = () => {
   return (
-    <section  className={styles.section}>
+    <section className="bg-muted/30 dark:bg-[#1a1a1a] transition-colors duration-300 py-24 sm:py-32">
       <div  id="fundraising"className={styles.textCenter}>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">Passive Fundraising</h2>
         <h2 className={styles.heading}>

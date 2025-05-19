@@ -60,16 +60,16 @@ export const Login = () => {
 
   return (
     <section className="container mx-auto py-20 text-center">
-      <h1 className="text-4xl font-bold">Login</h1>
+      <h1 className="text-4xl font-bold text-foreground">Login</h1>
       <p className="text-muted-foreground mt-2">Access your Clann account</p>
 
       <div className="mt-6">
-        <div className="block w-1/2 mx-auto mb-4">
-          <label className="block mb-2 text-sm font-medium text-left">Select mock user</label>
+        <div className="block w-1/2 mx-auto mb-4 text-left">
+          <label className="block mb-2 text-sm font-medium">Select mock user</label>
           <select
             value={selectedRole}
             onChange={handleRoleSelect}
-            className="w-full p-2 border rounded-md focus:outline-none"
+            className="w-full p-2 border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary dark:bg-background dark:text-foreground"
           >
             <option value="">-- Choose a role --</option>
             <option value="club">Club</option>
@@ -84,14 +84,14 @@ export const Login = () => {
           placeholder="Username"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="block w-1/2 mx-auto p-2 border rounded-md focus:outline-none"
+          className="block w-1/2 mx-auto p-2 border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary dark:bg-background dark:text-foreground"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="block w-1/2 mx-auto p-2 border rounded-md mt-4 focus:outline-none"
+          className="block w-1/2 mx-auto p-2 border rounded-md mt-4 bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary dark:bg-background dark:text-foreground"
         />
 
         {error && <p className="text-red-500 mt-3">{error}</p>}
@@ -100,7 +100,7 @@ export const Login = () => {
           Login
         </Button>
 
-        <p className="mt-4">
+        <p className="mt-4 text-foreground">
           Don't have an account?{" "}
           <span
             className="text-primary cursor-pointer"

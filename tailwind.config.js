@@ -55,6 +55,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        // Optional: Semantic helpers for design flexibility
+        mutedText: "hsl(var(--muted-foreground))",
+        section: "hsl(var(--muted) / 0.6)", // for alternate bg sections
+        highlight: "hsl(var(--accent))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -74,6 +79,14 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      spacing: {
+        section: "8rem", // helpful for consistent section padding
+      },
+      zIndex: {
+        behind: "-1",
+        default: "1",
+        modal: "999",
       },
     },
   },

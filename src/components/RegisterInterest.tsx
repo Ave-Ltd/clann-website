@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import SuccessModal from "./ui/success-modal";
+import backgroundImage from "../assets/grass-bg.jpg"; // Replace with your actual image path
 
 export const RegisterInterest: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -44,7 +45,7 @@ export const RegisterInterest: React.FC = () => {
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
         {
           email,
-          interest_only: true, // Add a tag for your EmailJS template logic
+          interest_only: true,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
       );
@@ -64,16 +65,27 @@ export const RegisterInterest: React.FC = () => {
   };
 
   return (
-    <section id="registerinterest" className="container py-16 sm:py-24">
-      <div className="max-w-2xl mx-auto text-center space-y-6">
-        <h2 className="text-2xl sm:text-3xl font-bold">
-          Want to Stay in the Loop?
+    <section
+      id="registerinterest"
+      className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-white/70 dark:bg-black/60 backdrop-blur-sm z-0"></div>
+
+      {/* Content Box */}
+      <div className="relative z-10 max-w-xl mx-auto bg-white dark:bg-[#1a1a1a] border border-blue-400 rounded-2xl shadow-xl text-center p-8 space-y-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+          Ready to empower your Club?
         </h2>
         <p className="text-muted-foreground text-lg">
-          Be the first to hear about Clann.App’s launch, updates, and early access opportunities.
+          Join the interest list while we build Clann.
         </p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4 justify-center max-w-xl mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col sm:flex-row items-center gap-4 justify-center"
+        >
           <input
             type="email"
             name="email"
@@ -87,7 +99,7 @@ export const RegisterInterest: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className={`w-full sm:w-auto py-2 px-6 rounded-md font-semibold transition flex items-center justify-center ${
+            className={`w-full sm:w-auto py-2 px-6 rounded-full font-semibold transition flex items-center justify-center ${
               isLoading
                 ? "bg-muted text-muted-foreground cursor-not-allowed"
                 : "bg-[hsl(var(--primary-accessible))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary-hover))]"
@@ -124,6 +136,7 @@ export const RegisterInterest: React.FC = () => {
         </form>
       </div>
 
+      {/* Modal */}
       <SuccessModal
         isOpen={isModalOpen}
         isError={isError}

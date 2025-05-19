@@ -59,7 +59,7 @@ const demoFeatures: Feature[] = [
   },
   {
     icon: "🪙",
-    title: "Advanced Fundraising & Passive Revenuen",
+    title: "Advanced Fundraising & Passive Revenue",
     desc: "Innovative club-specific revenue generation models including cashback conversion to gift cards.",
   },
   {
@@ -108,7 +108,11 @@ const statusTable: [string, string][] = [
   ["Club Growth Analytics", "Planned"],
 ];
 
-const renderFeatureCard = (feature: Feature, status: string) => {
+const renderFeatureCard = (
+  feature: Feature,
+  status: string,
+  borderColorClass: string
+) => {
   const badgeColor =
     status === "Live"
       ? "bg-green-100 text-green-700"
@@ -126,13 +130,20 @@ const renderFeatureCard = (feature: Feature, status: string) => {
   return (
     <div
       key={feature.title}
-      className="bg-card border-l-4 p-4 rounded-lg shadow-md"
+      className={`relative bg-card rounded-xl shadow-sm p-6 border border-border`}
     >
-      <div className="text-3xl mb-2">{feature.icon}</div>
-      <h3 className="text-lg font-semibold text-primary">{feature.title}</h3>
-      <p className="text-muted-foreground text-sm">{feature.desc}</p>
+      <div
+        className={`absolute top-0 left-0 w-full h-1 rounded-t-xl ${borderColorClass}`}
+      />
+      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-muted mb-4 text-xl">
+        {feature.icon}
+      </div>
+      <h3 className="text-md font-semibold text-primary mb-1">
+        {feature.title}
+      </h3>
+      <p className="text-sm text-muted-foreground mb-3">{feature.desc}</p>
       <span
-        className={`inline-block mt-2 text-xs font-semibold px-3 py-1 rounded-full ${badgeColor}`}
+        className={`inline-block text-xs font-semibold px-3 py-1 rounded-full ${badgeColor}`}
       >
         {label}
       </span>
@@ -149,7 +160,7 @@ const ClubAboutClann = () => {
       className="p-6 bg-card shadow-lg rounded-lg space-y-12"
       id="aboutClann"
     >
-      {/* Page Heading */}
+      {/* Heading */}
       <div>
         <h1 className="text-3xl font-bold text-primary mb-2">About Clann</h1>
         <div className="h-1 w-24 bg-yellow-400 rounded"></div>
@@ -157,8 +168,12 @@ const ClubAboutClann = () => {
 
       {/* Hero */}
       <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
-        <h2 className="text-3xl font-bold mb-2">A Complete Club & Organisation Management Platform</h2>
-        <p className="text-white/90">Live, Interactive, and Built for the Future.</p>
+        <h2 className="text-3xl font-bold mb-2">
+          A Complete Club & Organisation Management Platform
+        </h2>
+        <p className="text-white/90">
+          Live, Interactive, and Built for the Future.
+        </p>
       </div>
 
       {/* Overview */}
@@ -168,46 +183,50 @@ const ClubAboutClann = () => {
           Platform Overview
         </div>
         <p className="text-muted-foreground">
-        Clann is a modern, all-in-one management platform built to support sports clubs, 
-        private academies, and community organisations. 
-        From grassroots teams and martial arts clubs to private training groups and local 
-        community setups, Clann simplifies admin, improves communication, and unlocks new revenue 
-        through passive fundraising and integrated tools. This section outlines which features 
-        are currently live, available for demo, or in development. Explore how Clann can help your 
-        club save time, reduce admin, and generate sustainable income.
+          Clann is a modern, all-in-one management platform built to support sports clubs,
+          private academies, and community organisations. From grassroots teams and martial arts
+          clubs to private training groups and local community setups, Clann simplifies admin,
+          improves communication, and unlocks new revenue through passive fundraising and integrated
+          tools.
         </p>
       </div>
 
       {/* Live Features */}
       <div className="space-y-4">
-        <div className="flex items-center gap-2 text-lg font-semibold border-l-4 border-green-500 pl-3">
+        <div className="flex items-center gap-2 text-lg font-semibold text-foreground">
           <CheckCircle className="text-green-500" />
           Live & Functional Features
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {liveFeatures.map((feature) => renderFeatureCard(feature, "Live"))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {liveFeatures.map((feature) =>
+            renderFeatureCard(feature, "Live", "bg-green-500")
+          )}
         </div>
       </div>
 
       {/* Demo Features */}
       <div className="space-y-4">
-        <div className="flex items-center gap-2 text-lg font-semibold border-l-4 border-yellow-400 pl-3">
+        <div className="flex items-center gap-2 text-lg font-semibold text-foreground">
           <FlaskConical className="text-yellow-500" />
           Demonstration Features
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {demoFeatures.map((feature) => renderFeatureCard(feature, "Demo"))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {demoFeatures.map((feature) =>
+            renderFeatureCard(feature, "Demo", "bg-yellow-400")
+          )}
         </div>
       </div>
 
-      {/* Future Development */}
+      {/* Future Features */}
       <div className="space-y-4">
-        <div className="flex items-center gap-2 text-lg font-semibold border-l-4 border-blue-400 pl-3">
+        <div className="flex items-center gap-2 text-lg font-semibold text-foreground">
           <Rocket className="text-blue-500" />
           Future Development
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {futureFeatures.map((feature) => renderFeatureCard(feature, "Planned"))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {futureFeatures.map((feature) =>
+            renderFeatureCard(feature, "Planned", "bg-blue-400")
+          )}
         </div>
       </div>
 

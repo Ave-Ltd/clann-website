@@ -1,130 +1,107 @@
-.servicesSection {
-  padding: 6rem 1rem;
+.featuresSection {
+  padding: 0.5rem 1rem;
   text-align: center;
-  position: relative;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  overflow-x: hidden;
 }
 
-.textCenter {
-  max-width: 700px;
-  margin: 0 auto 4rem auto;
+.featuresTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
 }
 
-.subtitle {
-  text-transform: uppercase;
-  font-weight: 600;
-  color: hsl(var(--primary));
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: hsl(var(--foreground));
-}
-
-@media (min-width: 768px) {
-  .title {
-    font-size: 2.75rem;
-  }
-}
-
-.description {
-  font-size: 1.125rem;
-  color: hsl(var(--muted-foreground));
-  margin-top: 1rem;
-}
-
-.cardWrapper {
+.featuresGrid {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.cardRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-
-  background-color: hsl(var(--card));
-  border-radius: 1.25rem;
-  padding: 2rem;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid hsl(var(--border));
-  text-align: center;
-  z-index: 2;
-  transition: transform 0.3s ease;
-  min-height: 100px;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-}
-
-.cardTitle {
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: hsl(var(--primary));
-  margin-top: 1rem;
-}
-
-.cardDesc {
-  margin-top: 0.5rem;
-  color: hsl(var(--muted-foreground));
-  font-size: 0.95rem;
-}
-
-.ghostCard {
-  width: 100%;
-  height: 280px;
-  border-radius: 1.25rem;
-  background: linear-gradient(to bottom right, #ccc, #e2e2e2);
-  opacity: 0.6;
-  position: relative;
-  overflow: hidden;
-}
-
-/* New: GIF styling inside ghostCard */
-.ghostImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* <- was cover before */
-  border-radius: 1.25rem;
-  opacity: 1;
-}
-
-/* Icon size */
-.icon {
-  width: 2.25rem;
-  height: 2.25rem;
+  gap: 3rem;
+  max-width: 1000px;
   margin: 0 auto;
-  color: hsl(var(--primary));
 }
 
-/* Hide ghost cards on mobile */
-.desktopOnly {
-  display: block;
+@media (min-width: 1024px) {
+  .featuresGrid {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
-@media (max-width: 768px) {
-  .cardRow {
-    display: flex;
-    flex-direction: column;
-  }
+.featuresButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
 
-  .desktopOnly {
-    display: none !important;
-  }
+.featureButton {
+  padding: 0.75rem 1.5rem;
+  background-color: white;
+  color: black;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.featureButton:hover {
+  background-color: #dbeafe;
+}
+
+.dark .featureButton {
+  background-color: #111827;
+  color: white;
+}
+
+.activeButton {
+  background-color: #2563eb;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.phoneMockupWrapper {
+  max-width: 300px;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phoneMockupImage {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  border: 1px solid white;
+}
+
+.dark .phoneMockupImage {
+  border: 1px solid #2d2d2d;
+}
+
+.featureDescriptionBox {
+  margin-top: 0.75rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.dark .featureDescriptionBox {
+  background-color: #111827;
+  color: white;
+}
+
+.featureDescriptionText {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
 }

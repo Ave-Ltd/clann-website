@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "../styles/Services.module.css";
 import {
   CalendarCheck,
@@ -62,63 +63,44 @@ const serviceList: ServiceProps[] = [
 ];
 
 export const Features = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeFeature = serviceList[activeIndex];
+
   return (
-    <section className={styles.servicesSection}>
-      <div id="features" className="text-center max-w-4xl mx-auto mb-16 px-4">
-        {/* Large Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">
-          Why Choose Clann.App
-        </h2>
+    <section className="bg-white dark:bg-[#1a1a1a] py-12 px-4 sm:px-6 lg:px-8 text-center transition-colors duration-300">
+      <h2 className={styles.featuresTitle}>Features</h2>
 
-        {/* Subheading */}
-        <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-4">
-          Smart, Simple, and Sustainable Club Management
-        </h3>
+      <div className={styles.featuresGrid}>
+        {/* Button list */}
+        <div className={styles.featuresButtons}>
+          {serviceList.map((service, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={`${styles.featureButton} ${
+                activeIndex === index ? styles.activeButton : ""
+              }`}
+            >
+              {service.title}
+            </button>
+          ))}
+        </div>
 
-        {/* Description */}
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-          Clann.App brings everything you need together — from scheduling and
-          communication to payments and passive fundraising — with simplicity
-          and style.
-        </p>
+        {/* Phone image */}
+        <div className={styles.phoneMockupWrapper}>
+          <img
+            src={activeFeature.gif}
+            alt={activeFeature.title}
+            className={styles.phoneMockupImage}
+          />
+        </div>
       </div>
 
-      <div className={styles.cardWrapper}>
-        {serviceList.map((service, index) => (
-          <div key={index} className={styles.cardRow}>
-            {index % 2 === 0 ? (
-              <>
-                <div className={styles.card}>
-                  {service.icon}
-                  <h3 className={styles.cardTitle}>{service.title}</h3>
-                  <p className={styles.cardDesc}>{service.description}</p>
-                </div>
-                <div className={`${styles.ghostCard} ${styles.desktopOnly}`}>
-                  <img
-                    src={service.gif}
-                    alt={`${service.title} gif`}
-                    className={styles.ghostImage}
-                  />
-                </div>
-              </>
-            ) : (
-              <>
-                <div className={`${styles.ghostCard} ${styles.desktopOnly}`}>
-                  <img
-                    src={service.gif}
-                    alt={`${service.title} gif`}
-                    className={styles.ghostImage}
-                  />
-                </div>
-                <div className={styles.card}>
-                  {service.icon}
-                  <h3 className={styles.cardTitle}>{service.title}</h3>
-                  <p className={styles.cardDesc}>{service.description}</p>
-                </div>
-              </>
-            )}
-          </div>
-        ))}
+      {/* Feature description box */}
+      <div className={styles.featureDescriptionBox}>
+        <p className={styles.featureDescriptionText}>
+          {activeFeature.description}
+        </p>
       </div>
     </section>
   );

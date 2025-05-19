@@ -50,7 +50,7 @@ const ClubOverview = () => {
         ].map(({ amount, label }, idx) => (
           <div
             key={idx}
-            className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden"
+            className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg"
           >
             <div className="text-2xl font-bold">{amount}</div>
             <div className="text-sm mt-2">{label}</div>
