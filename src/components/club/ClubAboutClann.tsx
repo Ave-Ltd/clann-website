@@ -5,42 +5,55 @@ import {
   Rocket,
   Star,
   ClipboardList,
+  Smartphone,
+  Users,
+  CalendarClock,
+  ShieldCheck,
+  Megaphone,
+  Target,
+  MessageCircle,
+  Link2,
+  PiggyBank,
+  Store,
+  CreditCard,
+  BarChart3,
+  ShoppingBag,
 } from "lucide-react";
 
 interface Feature {
-  icon: string;
+  icon: JSX.Element;
   title: string;
   desc: string;
 }
 
 const liveFeatures: Feature[] = [
   {
-    icon: "📱",
+    icon: <Smartphone className="w-5 h-5" />,
     title: "App & Browser Extension",
     desc: "Seamless access across all devices, allowing management on the go or from your computer.",
   },
   {
-    icon: "👥",
+    icon: <Users className="w-5 h-5" />,
     title: "Create & Manage Clubs & Teams",
     desc: "Set up and oversee teams efficiently with comprehensive management tools.",
   },
   {
-    icon: "📅",
+    icon: <CalendarClock className="w-5 h-5" />,
     title: "Member & Player Management",
     desc: "Invite, approve, and organise members with intuitive tools designed for club administrators.",
   },
   {
-    icon: "🛡️",
+    icon: <ShieldCheck className="w-5 h-5" />,
     title: "Event Scheduling & RSVP Management",
     desc: "Coordinate training, matches, and club events with built-in attendance tracking.",
   },
   {
-    icon: "📢",
+    icon: <Megaphone className="w-5 h-5" />,
     title: "Parent/Guardian Controls",
     desc: "Manage children's participation and permissions with secure, family-friendly controls.",
   },
   {
-    icon: "🎯",
+    icon: <Target className="w-5 h-5" />,
     title: "Club Feed & Communications",
     desc: "Keep members informed and engaged with news, updates, and important notifications.",
   },
@@ -48,27 +61,27 @@ const liveFeatures: Feature[] = [
 
 const demoFeatures: Feature[] = [
   {
-    icon: "💬",
+    icon: <MessageCircle className="w-5 h-5" />,
     title: "Live Messaging",
     desc: "Real-time chat for club members, teams, and groups to enhance communication.",
   },
   {
-    icon: "🔗",
+    icon: <Link2 className="w-5 h-5" />,
     title: "Integrated Payment Handling",
     desc: "Designed to streamline membership and event transactions with secure processing.",
   },
   {
-    icon: "🪙",
+    icon: <PiggyBank className="w-5 h-5" />,
     title: "Advanced Fundraising & Passive Revenue",
     desc: "Innovative club-specific revenue generation models including cashback conversion to gift cards.",
   },
   {
-    icon: "🏪",
+    icon: <CreditCard className="w-5 h-5" />,
     title: "Card Linking & Cashback System",
     desc: "Showcasing how users generate club revenue through everyday spending at partner retailers.",
   },
   {
-    icon: "🏪",
+    icon: <Store className="w-5 h-5" />,
     title: "Club Marketplace",
     desc: "Interactive preview of the second-hand equipment buy-and-sell platform for members.",
   },
@@ -76,17 +89,17 @@ const demoFeatures: Feature[] = [
 
 const futureFeatures: Feature[] = [
   {
-    icon: "💳",
+    icon: <Store className="w-5 h-5" />,
     title: "Club Shop & Merchandise Hub",
     desc: "Selling apparel, kits, and branded items directly through the platform.",
   },
   {
-    icon: "📊",
+    icon: <BarChart3 className="w-5 h-5" />,
     title: "Expanded Financial Tools",
     desc: "Enhancing payment and club finance management with advanced reporting.",
   },
   {
-    icon: "🛍️",
+    icon: <ShoppingBag className="w-5 h-5" />,
     title: "Club Growth Analytics",
     desc: "Providing clubs with financial and performance tracking tools for data-driven decisions.",
   },
@@ -135,7 +148,7 @@ const renderFeatureCard = (
       <div
         className={`absolute top-0 left-0 w-full h-1 rounded-t-xl ${borderColorClass}`}
       />
-      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-muted mb-4 text-xl">
+      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-muted mb-4">
         {feature.icon}
       </div>
       <h3 className="text-md font-semibold text-primary mb-1">

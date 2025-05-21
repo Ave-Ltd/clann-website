@@ -16,7 +16,6 @@ import { Menu } from "lucide-react";
 import ModeToggle from "./mode-toggle";
 import { LogoIcon } from "./Icons";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/Hero.module.css"; // To reuse button styles
 
 interface RouteProps {
   href: string;
@@ -35,11 +34,11 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background border-b-[1px]">
+    <header className="sticky top-0 z-40 w-full bg-white dark:bg-[#1a1a1a] border-b border-border">
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between items-center">
 
-          {/* LOGO & TITLE */}
+          {/* LOGO */}
           <NavigationMenuItem className="flex items-center gap-2">
             <a href="/" className="flex items-center space-x-2">
               <span className="h-10 w-auto flex items-center">
@@ -51,24 +50,28 @@ export const Navbar = () => {
           {/* DESKTOP NAVIGATION */}
           <nav className="hidden lg:flex gap-12 items-center">
             {routeList.map(({ href, label }) => (
-              <a key={label} href={href} className="text-lg font-medium hover:underline">
+              <a
+                key={label}
+                href={href}
+                className="text-lg font-medium hover:underline text-foreground"
+              >
                 {label}
               </a>
             ))}
           </nav>
 
-          {/* CLUB DASHBOARD + TOGGLE */}
+          {/* CLUB DASHBOARD + THEME TOGGLE */}
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={() => navigate("/login")}
-              className={`${styles.secondaryBtn} text-sm font-medium px-4 py-2 rounded-md transition-all`}
+              className="text-sm font-medium px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition-all"
             >
               Club Dashboard
             </button>
             <ModeToggle />
           </div>
 
-          {/* MOBILE NAVIGATION (Drawer) */}
+          {/* MOBILE DRAWER NAVIGATION */}
           <span className="flex lg:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger className="px-2">
@@ -86,14 +89,13 @@ export const Navbar = () => {
                       key={label}
                       href={href}
                       onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium hover:underline"
+                      className="text-lg font-medium hover:underline text-foreground"
                     >
                       {label}
                     </a>
                   ))}
                 </nav>
 
-                {/* BOTTOM SECTION */}
                 <div className="mt-8 flex flex-col items-center gap-3">
                   <ModeToggle />
                   <button
@@ -101,7 +103,7 @@ export const Navbar = () => {
                       setIsOpen(false);
                       navigate("/login");
                     }}
-                    className={`${styles.secondaryBtn} text-sm font-medium w-full px-4 py-2 rounded-md transition-all`}
+                    className="text-sm font-medium w-full px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition-all"
                   >
                     Club Dashboard
                   </button>

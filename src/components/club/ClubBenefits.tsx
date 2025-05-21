@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Timer, Users, Coins } from "lucide-react";
 
 const ClubBenefits = () => {
   return (
@@ -39,7 +40,7 @@ const ClubBenefits = () => {
           <div className="relative bg-card rounded-lg shadow-md p-6 overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-yellow-400 rounded-t-md" />
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 font-bold">
-              ⏱
+              <Timer className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-semibold text-primary mb-3">
               Less Admin, More Time for What Matters
@@ -62,7 +63,7 @@ const ClubBenefits = () => {
           <div className="relative bg-card rounded-lg shadow-md p-6 overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-yellow-400 rounded-t-md" />
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 font-bold">
-              👥
+              <Users className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-semibold text-primary mb-3">
               Stronger Community Engagement
@@ -85,7 +86,7 @@ const ClubBenefits = () => {
           <div className="relative bg-card rounded-lg shadow-md p-6 overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-yellow-400 rounded-t-md" />
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 font-bold">
-              💰
+              <Coins className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-semibold text-primary mb-3">
               Financial Sustainability and Growth
