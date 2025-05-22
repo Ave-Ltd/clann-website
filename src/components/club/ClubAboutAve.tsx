@@ -117,13 +117,13 @@ const ClubAboutAve = () => {
         <p className="text-muted-foreground">
           We believe clubs and members should retain the majority of their revenue—free from high platform fees and hidden charges.
         </p>
-        <div className="flex flex-col md:flex-row justify-between bg-muted/10 p-4 rounded-lg mt-4 shadow-lg border border-border/60">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
           {[
             { percent: "37.5%", label: "For Clubs" },
             { percent: "37.5%", label: "For Members" },
             { percent: "25%", label: "Platform Share" },
           ].map((item, idx) => (
-            <div key={idx} className="flex-1 text-center">
+            <div key={idx} className="bg-muted/10 p-4 rounded-lg shadow-lg border border-border/60 text-center">
               <div className="text-3xl font-bold text-primary">{item.percent}</div>
               <div className="text-sm text-muted-foreground">{item.label}</div>
             </div>
