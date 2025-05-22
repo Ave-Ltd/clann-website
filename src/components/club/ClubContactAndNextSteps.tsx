@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ContactSection } from "../ui/contact-us";
+import { MessageCircle, MailCheck } from "lucide-react";
 
 const ClubAndNextSteps = () => {
   return (
@@ -16,27 +17,29 @@ const ClubAndNextSteps = () => {
         <div className="h-1 w-24 bg-accent rounded" />
       </div>
 
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary to-primary-accessible text-primary-foreground p-8 rounded-xl shadow-lg relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-36 h-36 bg-primary-foreground/10 rounded-full -mt-20 -mr-20 z-0" />
-        <div className="relative z-10 space-y-4">
-          <h2 className="text-2xl font-bold">Register your interest or find out more — join Clann today.</h2>
-          <p className="text-base text-primary-foreground/90">
-            Be part of something bigger—help shape the future for Scottish grassroots football.
-          </p>
-        </div>
+      {/* Hero */}
+      <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
+        <h2 className="text-3xl font-bold mb-2">
+          Register your interest or find out more — join Clann today.
+        </h2>
+        <p className="text-white/90">
+          Be part of something bigger—help shape the future for clubs and communities.
+        </p>
+        <p className="text-white/90">
+          Register your interest or find out more — join Clann today.
+        </p>
       </div>
 
-      {/* Join Section Grid */}
-      <div className="grid md:grid-cols-2 gap-8">
+      {/* Join Section - Stacked */}
+      <div className="flex flex-col gap-8">
         {/* Info Column */}
         <div className="bg-card p-6 rounded-lg shadow-md border-l-4 border-primary">
           <h2 className="text-xl font-bold text-primary flex items-center gap-2 mb-4">
-            <i className="fas fa-users text-accent" />
+            <MessageCircle className="w-5 h-5 text-blue-600 dark:text-yellow-400" />
             How You Can Get Involved
           </h2>
           <p className="text-muted-foreground mb-6">
-            Whether you have questions, feedback, or want to explore how this platform can benefit your network, we'd love to hear from you.
+            Whether you have questions, feedback, or want to explore how this platform can support your club or organisation, we'd love to hear from you.
           </p>
 
           <ul className="space-y-5">
@@ -51,7 +54,7 @@ const ClubAndNextSteps = () => {
               <i className="fas fa-comment-dots text-green-500 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-primary">Provide Feedback</h4>
-                <p className="text-muted-foreground">Share your thoughts on how Clann can better support Scottish football.</p>
+                <p className="text-muted-foreground">Share your thoughts on how Clann can better support your club or organisation.</p>
               </div>
             </li>
             <li className="flex items-start gap-4">
@@ -64,10 +67,10 @@ const ClubAndNextSteps = () => {
           </ul>
         </div>
 
-        {/* Contact Form from shared ContactSection component */}
+        {/* Contact Form */}
         <div className="bg-card p-6 rounded-lg shadow-md border border-border">
           <h2 className="text-xl font-bold text-primary flex items-center gap-2 mb-4">
-            <i className="fas fa-paper-plane text-accent" />
+            <MailCheck className="w-5 h-5 text-blue-600 dark:text-yellow-400" />
             Register Your Interest
           </h2>
           <ContactSection />

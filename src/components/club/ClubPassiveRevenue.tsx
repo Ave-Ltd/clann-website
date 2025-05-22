@@ -11,7 +11,10 @@ import {
   Star,
   CheckCircle,
   HandCoins,
-  PiggyBank
+  PiggyBank,
+  UsersRound,
+  ScanSearch,
+  LineChart
 } from "lucide-react";
 
 const ClubPassiveRevenue = () => {
@@ -43,7 +46,7 @@ const ClubPassiveRevenue = () => {
       {/* Traditional Funding Complement */}
       <div className="bg-card p-6 rounded-lg shadow-md">
         <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2">
-          <HandCoins className="w-5 h-5 text-blue-600 dark:text-yellow-400" /> Supporting, Not Replacing Existing Club Funding
+          <HandCoins className="w-5 h-5 text-primary" /> Supporting, Not Replacing Existing Club Funding
         </h3>
         <p className="text-muted-foreground">
           Clann isn’t here to replace your current income — it’s here to boost it. Whether your club relies on memberships,
@@ -55,7 +58,7 @@ const ClubPassiveRevenue = () => {
       {/* Passive Revenue Model */}
       <div className="bg-card p-6 rounded-lg shadow-md">
         <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2">
-          <PiggyBank className="w-5 h-5 text-blue-600 dark:text-yellow-400" /> How Clubs Generate Revenue — Passive Fundraising
+          <PiggyBank className="w-5 h-5 text-primary" /> How Clubs Generate Revenue — Passive Fundraising
         </h3>
         <p className="text-muted-foreground">
           Clubs benefit financially from <strong>everyday transactions</strong>, rather than extra fundraising efforts.
@@ -104,7 +107,9 @@ const ClubPassiveRevenue = () => {
 
       {/* Who Contributes */}
       <div className="space-y-6">
-        <h3 className="text-xl font-semibold text-primary">Who Contributes?</h3>
+        <h3 className="text-xl font-semibold text-primary flex items-center gap-2">
+          <UsersRound className="w-5 h-5 text-primary" /> Who Contributes?
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {[
             {
@@ -145,7 +150,9 @@ const ClubPassiveRevenue = () => {
 
       {/* Eligible Spending */}
       <div className="space-y-4">
-        <h3 className="text-xl font-semibold text-primary">What Kind of Spending Qualifies?</h3>
+        <h3 className="text-xl font-semibold text-primary flex items-center gap-2">
+          <ScanSearch className="w-5 h-5 text-primary" /> What Kind of Spending Qualifies?
+        </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
           {[
             "Supermarkets & Grocery",
@@ -187,7 +194,9 @@ const ClubPassiveRevenue = () => {
 
       {/* Coming Soon */}
       <div className="space-y-4">
-        <h3 className="text-xl font-semibold text-primary">Coming Soon: Additional Revenue Streams</h3>
+        <h3 className="text-xl font-semibold text-primary flex items-center gap-2">
+          <LineChart className="w-5 h-5 text-primary" /> Coming Soon: Additional Revenue Streams
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
             {
