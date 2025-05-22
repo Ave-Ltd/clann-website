@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   LayoutDashboard,
   BookOpen,
@@ -9,8 +9,8 @@ import {
   LogOut,
   Moon,
   Sun,
-  Award,         // ⬅️ New import
-  BadgeCheck
+  Award,
+  BadgeCheck,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/useTheme";
@@ -44,6 +44,21 @@ const ClubSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
   const toggleDarkMode = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
+  useEffect(() => {
+    const trigger = document.querySelector("#club-dashboard-section-trigger");
+
+    const handleSwitch = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail) {
+        setLocalActive(customEvent.detail);
+        setActiveSection(customEvent.detail);
+      }
+    };
+
+    trigger?.addEventListener("switch-section", handleSwitch);
+    return () => trigger?.removeEventListener("switch-section", handleSwitch);
+  }, [setActiveSection]);
 
   return (
     <nav className="h-full bg-card text-card-foreground p-4 lg:border-r border-border flex flex-col justify-between shadow-none">
