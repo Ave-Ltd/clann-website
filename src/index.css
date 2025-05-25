@@ -1,102 +1,132 @@
-/* Load Montserrat from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+import {
+  LayoutDashboard,
+  BookOpen,
+  TrendingUp,
+  Users,
+  HelpCircle,
+  UserPlus,
+  LogOut,
+  Moon,
+  Sun,
+  Award,
+  BadgeCheck,
+} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../context/useTheme";
 
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden; /* ✅ Prevent horizontal scroll */
-  scroll-behavior: smooth;
-  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+interface SidebarProps {
+  setActiveSection: (section: string) => void;
+  closeSidebar: () => void;
 }
 
-/* Inherit box-sizing globally */
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+const sections = [
+  { id: "overview", label: "Overview", icon: <LayoutDashboard className="w-5 h-5" /> },
+  { id: "aboutClann", label: "About Clann", icon: <BookOpen className="w-5 h-5" /> },
+  { id: "benefits", label: "Club Benefits", icon: <Award className="w-5 h-5" /> },
+  { id: "memberBenefits", label: "Member Benefits", icon: <BadgeCheck className="w-5 h-5" /> },
+  { id: "passiveRevenue", label: "Club Revenue", icon: <TrendingUp className="w-5 h-5" /> },
+  { id: "aboutAve", label: "About us", icon: <Users className="w-5 h-5" /> },
+  { id: "faqs", label: "FAQs", icon: <HelpCircle className="w-5 h-5" /> },
+  { id: "contact", label: "Join the Clann", icon: <UserPlus className="w-5 h-5" /> },
+];
 
-/* HeroCards background shadow */
-.shadow {
-  position: absolute;
-  background: hsl(var(--primary) / 0%);
-  border-radius: 24px;
-  rotate: 35deg;
-  z-index: -1;
-  width: 260px;
-  top: 200px;
-  height: 400px;
-  filter: blur(150px);
-  will-change: transform;
-  animation: shadow-slide infinite 4s linear alternate;
-}
+const ClubSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
+  const [localActive, setLocalActive] = useState<string>("overview");
+  const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
 
-@keyframes shadow-slide {
-  from {
-    background: hsl(var(--primary) / 20%);
-    right: 460px;
-  }
-  to {
-    background: hsl(var(--primary) / 80%);
-    right: 160px;
-  }
-}
+  const handleLogout = () => {
+    localStorage.removeItem("user-auth-token");
+    navigate("/login");
+  };
 
-@media (max-width: 1024px) {
-  .shadow {
-    top: 70px;
-  }
+  const toggleDarkMode = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
-  @keyframes shadow-slide {
-    from {
-      background: hsl(var(--primary) / 20%);
-      right: 460px;
-    }
-    to {
-      background: hsl(var(--primary) / 50%);
-      right: 160px;
-    }
-  }
-}
+  useEffect(() => {
+    const trigger = document.querySelector("#club-dashboard-section-trigger");
+    const handleSwitch = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail) {
+        setLocalActive(customEvent.detail);
+        setActiveSection(customEvent.detail);
+      }
+    };
+    trigger?.addEventListener("switch-section", handleSwitch);
+    return () => trigger?.removeEventListener("switch-section", handleSwitch);
+  }, [setActiveSection]);
 
-@media (max-width: 768px) {
-  .shadow {
-    top: 70px;
-    width: 100px;
-    height: 350px;
-    filter: blur(60px);
-  }
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node) &&
+        window.innerWidth < 1024
+      ) {
+        closeSidebar();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [closeSidebar]);
 
-  @keyframes shadow-slide {
-    from {
-      background: hsl(var(--primary) / 20%);
-      right: 280px;
-    }
-    to {
-      background: hsl(var(--primary) / 30%);
-      right: 100px;
-    }
-  }
-}
+  return (
+    <nav
+      ref={sidebarRef}
+      className="h-full p-4 flex flex-col justify-between shadow-none bg-white dark:bg-muted text-foreground lg:border-r lg:border-border/0"
+    >
+      {/* Header Row with Dark Mode Toggle */}
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-lg lg:text-xl font-bold">Club Dashboard</h2>
+        <button
+          onClick={toggleDarkMode}
+          className="p-2 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          {theme === "dark" ? (
+            <Sun className="w-5 h-5 text-primary" />
+          ) : (
+            <Moon className="w-5 h-5 text-primary" />
+          )}
+        </button>
+      </div>
 
-@keyframes scroll {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
+      {/* Navigation Links */}
+      <ul className="space-y-2">
+        {sections.map(({ id, label, icon }) => (
+          <li
+            key={id}
+            onClick={() => {
+              setLocalActive(id);
+              setActiveSection(id);
+              closeSidebar();
+            }}
+            className={`flex items-center gap-3 p-3 rounded-md cursor-pointer transition-colors ${
+              localActive === id
+                ? "bg-yellow-400 text-black dark:bg-primary dark:text-primary-foreground"
+                : "hover:bg-accent hover:text-accent-foreground"
+            }`}
+          >
+            {icon}
+            {label}
+          </li>
+        ))}
+      </ul>
 
-.animate-scroll {
-  display: flex;
-  width: max-content;
-  animation: scroll 60s linear infinite;
-}
+      {/* Logout Button */}
+      <button
+        onClick={handleLogout}
+        className="mt-auto w-full flex items-center gap-3 justify-center text-lg font-semibold p-3 rounded-md transition-colors bg-destructive text-destructive-foreground hover:bg-red-700 shadow-md"
+      >
+        <LogOut className="w-6 h-6" />
+        Logout
+      </button>
+    </nav>
+  );
+};
+
+export default ClubSidebar;
