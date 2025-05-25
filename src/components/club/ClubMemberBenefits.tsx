@@ -43,7 +43,7 @@ const ClubMemberBenefits = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <div className="relative bg-card rounded-lg shadow-md p-6 overflow-hidden">
+          <div className="relative bg-card dark:bg-muted/60 rounded-lg shadow-md p-6 border border-border overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-accent rounded-t-md" />
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
               <PiggyBank className="w-7 h-7 text-blue-600 dark:text-accent" />
@@ -67,7 +67,7 @@ const ClubMemberBenefits = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="relative bg-card rounded-lg shadow-md p-6 overflow-hidden">
+          <div className="relative bg-card dark:bg-muted/60 rounded-lg shadow-md p-6 border border-border overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-accent rounded-t-md" />
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
               <SlidersHorizontal className="w-7 h-7 text-blue-600 dark:text-accent" />
@@ -91,7 +91,7 @@ const ClubMemberBenefits = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="relative bg-card rounded-lg shadow-md p-6 overflow-hidden">
+          <div className="relative bg-card dark:bg-muted/60 rounded-lg shadow-md p-6 border border-border overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-accent rounded-t-md" />
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
               <HeartHandshake className="w-7 h-7 text-blue-600 dark:text-accent" />
@@ -162,7 +162,7 @@ const ClubMemberBenefits = () => {
       </div>
 
       {/* Feature Highlight Section */}
-      <div className="bg-card p-6 rounded-lg shadow-md space-y-4">
+      <div className="bg-card dark:bg-muted/60 p-6 rounded-lg border border-border shadow-md space-y-4">
         <h3 className="text-lg md:text-xl font-semibold text-primary">
           Designed for Clubs, Their Members, and Their Communities
         </h3>

@@ -143,7 +143,7 @@ const renderFeatureCard = (
   return (
     <div
       key={feature.title}
-      className={`relative bg-card rounded-xl shadow-sm p-6 border border-border`}
+      className={`relative bg-card dark:bg-muted/60 border border-border rounded-xl shadow-md p-6`}
     >
       <div className={`absolute top-0 left-0 w-full h-1 rounded-t-xl ${borderColorClass}`} />
       <div className="flex items-center justify-center w-10 h-10 rounded-full bg-muted mb-4">

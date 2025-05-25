@@ -1,11 +1,11 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion"
-import { Headphones } from "lucide-react"
+} from "../ui/accordion";
+import { Headphones } from "lucide-react";
 
 const FAQList = [
   {
@@ -87,7 +87,7 @@ const FAQList = [
       <>
         <ul className="mt-2 list-disc list-inside space-y-2">
           <li className="font-semibold">If a member is associated with <span className="text-primary">more than one club</span>, the 37.5% of revenue allocated to the clubs is <span className="text-primary">divided equally</span> among all clubs linked to that member.</li>
-          <li className="font-semibold">The member <span className="text-primary">always retains </span>their 37.5% shared as "balance available", ensuring they bendift fully regardless of how many clubs they are part of.</li>
+          <li className="font-semibold">The member <span className="text-primary">always retains</span> their 37.5% shared as "balance available", ensuring they benefit fully regardless of how many clubs they are part of.</li>
         </ul>
       </>
     ),
@@ -105,15 +105,15 @@ const FAQList = [
       </>
     ),
   },
-]
+];
 
 const ClubFAQs = () => {
   const handleContactClick = () => {
-    const trigger = document.querySelector<HTMLDivElement>("#club-dashboard-section-trigger")
+    const trigger = document.querySelector<HTMLDivElement>("#club-dashboard-section-trigger");
     if (trigger) {
-      trigger.dispatchEvent(new CustomEvent("switch-section", { detail: "contact" }))
+      trigger.dispatchEvent(new CustomEvent("switch-section", { detail: "contact" }));
     }
-  }
+  };
 
   return (
     <motion.div
@@ -130,16 +130,15 @@ const ClubFAQs = () => {
       </div>
 
       {/* Hero */}
-        <div className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg">
-          <h2 className="text-3xl font-bold mb-2">Your Questions Answered</h2>
-          <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
-            Clear answers to ensure confidence in the platform and its benefits.
-          </p>
-        </div>
-
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg">
+        <h2 className="text-3xl font-bold mb-2">Your Questions Answered</h2>
+        <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
+          Clear answers to ensure confidence in the platform and its benefits.
+        </p>
+      </div>
 
       {/* FAQ Accordion Container */}
-      <div className="bg-card p-6 rounded-lg shadow-md">
+      <div className="bg-card dark:bg-muted/60 p-6 rounded-lg shadow-md border border-border">
         <Accordion type="single" collapsible className="w-full">
           {FAQList.map(({ question, answer, value }) => (
             <AccordionItem key={value} value={value} className="mb-4">
@@ -155,7 +154,7 @@ const ClubFAQs = () => {
       </div>
 
       {/* Contact CTA */}
-      <div className="bg-card border border-border p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-card dark:bg-muted/60 border border-border p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-3 md:max-w-xl">
           <h2 className="text-xl font-bold text-primary">Still Have Questions?</h2>
           <p className="text-muted-foreground">
@@ -171,7 +170,7 @@ const ClubFAQs = () => {
         <Headphones className="w-12 h-12 text-blue-600 dark:text-yellow-400" />
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default ClubFAQs
+export default ClubFAQs;

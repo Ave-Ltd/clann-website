@@ -25,13 +25,12 @@ const ClubAndNextSteps = () => {
         <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
           Be part of something bigger—help shape the future for clubs and communities.
         </p>
-        </div>
-
+      </div>
 
       {/* Two-Column Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         {/* Info Column */}
-        <div className="bg-card p-6 rounded-lg shadow-md border-l-4 border-primary h-fit">
+        <div className="bg-card dark:bg-muted/60 p-6 rounded-lg shadow-md border border-border border-l-4 border-l-primary h-fit">
           <h2 className="text-xl font-bold text-primary flex items-center gap-2 mb-4">
             <Users className="w-5 h-5 text-yellow-500" />
             How You Can Get Involved
@@ -66,7 +65,7 @@ const ClubAndNextSteps = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-card px-6 py-4 rounded-lg shadow-md border border-border h-fit">
+        <div className="bg-card dark:bg-muted/60 px-6 py-4 rounded-lg shadow-md border border-border h-fit">
           <h2 className="text-xl font-bold text-primary flex items-center gap-2 mb-4">
             <MailCheck className="w-5 h-5 text-yellow-500" />
             Register Your Interest

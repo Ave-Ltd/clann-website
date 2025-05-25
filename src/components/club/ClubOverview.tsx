@@ -82,7 +82,7 @@ const ClubOverview = () => {
           ].map(({ icon, title, desc }, i) => (
             <div
               key={i}
-              className="bg-card dark:bg-muted/60 p-5 rounded-lg border border-border shadow-sm text-center"
+              className="bg-card dark:bg-muted/60 border border-border shadow-md p-5 rounded-lg text-center"
             >
               <div className="mb-3 flex justify-center">{icon}</div>
               <h3 className="font-semibold text-lg text-foreground">{title}</h3>
@@ -94,7 +94,7 @@ const ClubOverview = () => {
 
       {/* REVENUE BREAKDOWN */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-card dark:bg-muted/60 p-6 rounded-lg border-l-4 border-yellow-400 shadow-sm">
+        <div className="bg-card dark:bg-muted/60 border border-border p-6 rounded-lg border-l-4 border-yellow-400 shadow-md">
           <h3 className="text-primary font-semibold text-lg flex items-center gap-2">
             <ShieldCheck className="w-5 h-5" /> Club Revenue Per User
           </h3>
@@ -106,7 +106,7 @@ const ClubOverview = () => {
             Based on revenue from adult users. Not generated from youth participants.
           </p>
         </div>
-        <div className="bg-card dark:bg-muted/60 p-6 rounded-lg border-l-4 border-blue-500 shadow-sm">
+        <div className="bg-card dark:bg-muted/60 border border-border p-6 rounded-lg border-l-4 border-blue-500 shadow-md">
           <h3 className="text-primary font-semibold text-lg flex items-center gap-2">
             <User className="w-5 h-5" /> Member Benefit Per User
           </h3>
@@ -118,7 +118,7 @@ const ClubOverview = () => {
       </div>
 
       {/* FINAL FEATURE LIST */}
-      <div className="bg-card dark:bg-muted/60 p-6 rounded-lg shadow-sm">
+      <div className="bg-card dark:bg-muted/60 border border-border p-6 rounded-lg shadow-md">
         <h2 className="text-lg font-bold text-primary flex items-center gap-2 mb-4">
           <Star className="text-yellow-400 w-5 h-5" />
           Built for Clubs, Designed for Growth

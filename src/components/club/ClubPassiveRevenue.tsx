@@ -14,7 +14,7 @@ import {
   PiggyBank,
   UsersRound,
   ScanSearch,
-  LineChart
+  LineChart,
 } from "lucide-react";
 
 const ClubPassiveRevenue = () => {
@@ -41,7 +41,7 @@ const ClubPassiveRevenue = () => {
       </div>
 
       {/* Traditional Funding Complement */}
-      <div className="bg-card p-6 rounded-lg shadow-md">
+      <div className="bg-card dark:bg-muted/60 p-6 rounded-lg shadow-md border border-border">
         <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2">
           <HandCoins className="w-5 h-5 text-blue-600 dark:text-accent" />
           Supporting, Not Replacing Existing Club Funding
@@ -54,7 +54,7 @@ const ClubPassiveRevenue = () => {
       </div>
 
       {/* Passive Revenue Model */}
-      <div className="bg-card p-6 rounded-lg shadow-md">
+      <div className="bg-card dark:bg-muted/60 p-6 rounded-lg shadow-md border border-border">
         <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2">
           <PiggyBank className="w-5 h-5 text-blue-600 dark:text-accent" />
           How Clubs Generate Revenue — Passive Fundraising
@@ -75,16 +75,16 @@ const ClubPassiveRevenue = () => {
           {[
             {
               title: "Make a regular purchase",
-              desc: "A user makes a normal purchase (e.g., a £50 grocery shop)."
+              desc: "A user makes a normal purchase (e.g., a £50 grocery shop).",
             },
             {
               title: "Earn Cashback",
-              desc: "A small percentage (e.g., 1–5%) is earned as cashback from the retailer."
+              desc: "A small percentage (e.g., 1–5%) is earned as cashback from the retailer.",
             },
             {
               title: "Automatic Allocation",
-              desc: "The cashback is automatically allocated: 25% to Clann, 37.5% to the club, and 37.5% to the member."
-            }
+              desc: "The cashback is automatically allocated: 25% to Clann, 37.5% to the club, and 37.5% to the member.",
+            },
           ].map((step, index) => (
             <div
               key={index}
@@ -114,25 +114,28 @@ const ClubPassiveRevenue = () => {
             {
               icon: <User2 className="w-6 h-6 text-blue-600 dark:text-accent" />,
               title: "Club Members",
-              list: ["Participants", "Coaches", "Volunteers"]
+              list: ["Participants", "Coaches", "Volunteers"],
             },
             {
               icon: <Users className="w-6 h-6 text-blue-600 dark:text-accent" />,
               title: "Families and Guardians",
-              list: ["Supporting youth participation"]
+              list: ["Supporting youth participation"],
             },
             {
               icon: <HeartHandshake className="w-6 h-6 text-blue-600 dark:text-accent" />,
               title: "Family and Supporters",
-              list: ["Extended family", "Friends"]
+              list: ["Extended family", "Friends"],
             },
             {
               icon: <Store className="w-6 h-6 text-blue-600 dark:text-accent" />,
               title: "Club Partners",
-              list: ["Local businesses", "Sponsors"]
-            }
+              list: ["Local businesses", "Sponsors"],
+            },
           ].map(({ icon, title, list }, i) => (
-            <div key={i} className="bg-card p-4 rounded-lg shadow-md text-center">
+            <div
+              key={i}
+              className="bg-card dark:bg-muted/60 p-4 rounded-lg border border-border shadow-md text-center"
+            >
               <div className="text-2xl mb-2 flex justify-center">{icon}</div>
               <h4 className="text-primary font-semibold">{title}</h4>
               <ul className="text-sm text-muted-foreground space-y-1 mt-2">
@@ -159,11 +162,11 @@ const ClubPassiveRevenue = () => {
             "Online Retail",
             "Dinning & Takeaways",
             "Fuel & Travel",
-            "Entertainment"
+            "Entertainment",
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-card text-center p-4 rounded-lg shadow-md hover:shadow-lg transition"
+              className="bg-card dark:bg-muted/60 text-center p-4 rounded-lg border border-border shadow-md hover:shadow-lg transition"
             >
               <ShoppingCart className="mx-auto mb-2 w-6 h-6 text-blue-600 dark:text-accent" />
               <p className="text-sm font-semibold text-primary">{item}</p>
@@ -173,7 +176,7 @@ const ClubPassiveRevenue = () => {
       </div>
 
       {/* Key Points */}
-      <div className="bg-card p-6 rounded-lg shadow-md border-t-4 border-accent space-y-4">
+      <div className="bg-card dark:bg-muted/60 p-6 rounded-lg shadow-md border-t-4 border-accent space-y-4 border border-border">
         <h3 className="text-xl font-semibold text-primary flex items-center gap-2">
           <Star className="text-blue-600 dark:text-accent w-5 h-5" /> Key Points
         </h3>
@@ -182,7 +185,7 @@ const ClubPassiveRevenue = () => {
             "Fully passive — No selling, no extra effort.",
             "Supports clubs without additional fundraising.",
             "Clann is the only platform to combine club tools with fully passive fundraising.",
-            "If a club decides to stop using Clann, all accumulated member balances will remain fully accessible to the members. Members will be prompted to convert these balances into vouchers before the club’s account is closed."
+            "If a club decides to stop using Clann, all accumulated member balances will remain fully accessible to the members. Members will be prompted to convert these balances into vouchers before the club’s account is closed.",
           ].map((point, idx) => (
             <li key={idx} className="flex items-start gap-2">
               <CheckCircle className="text-green-500 w-4 h-4 mt-1" />
@@ -203,18 +206,18 @@ const ClubPassiveRevenue = () => {
               icon: <CreditCard className="w-6 h-6 text-blue-600 dark:text-accent" />,
               title: "Card-Linked Offers",
               status: "Planned",
-              desc: "Users securely link their card once and automatically earn cashback at participating retailers. No need for vouchers, QR codes, or manual tracking. Cashback is instantly processed and credited to clubs."
+              desc: "Users securely link their card once and automatically earn cashback at participating retailers. No need for vouchers, QR codes, or manual tracking. Cashback is instantly processed and credited to clubs.",
             },
             {
               icon: <Tag className="w-6 h-6 text-blue-600 dark:text-accent" />,
               title: "Club Marketplace & Shop",
               status: "Planned",
-              desc: "Second-hand marketplace for members to buy and sell equipment, kit, and other club-related items."
-            }
+              desc: "Second-hand marketplace for members to buy and sell equipment, kit, and other club-related items.",
+            },
           ].map(({ icon, title, status, desc }, idx) => (
             <div
               key={idx}
-              className="relative bg-card p-6 rounded-lg shadow-md border-l-4 border-accent"
+              className="relative bg-card dark:bg-muted/60 p-6 rounded-lg shadow-md border-l-4 border-accent border border-border"
             >
               <div className="text-2xl mb-2">{icon}</div>
               <h4 className="font-semibold text-primary mb-1">

@@ -16,16 +16,15 @@ const ClubBenefits = () => {
         <div className="h-1 w-24 bg-yellow-400 rounded"></div>
       </div>
 
-      {/* Hero Section */}        
-        <div className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg">
-          <h2 className="text-3xl font-bold">
-            Helping Clubs Save Time, Reduce Costs, and Grow Financially
-          </h2>
-          <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
-            The free platform built to streamline operations, enhance community engagement, and generate sustainable income for clubs.
-          </p>
-        </div>
-
+      {/* Hero Section */}
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg">
+        <h2 className="text-3xl font-bold">
+          Helping Clubs Save Time, Reduce Costs, and Grow Financially
+        </h2>
+        <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
+          The free platform built to streamline operations, enhance community engagement, and generate sustainable income for clubs.
+        </p>
+      </div>
 
       {/* Key Benefits Section */}
       <div className="space-y-6">
@@ -35,7 +34,7 @@ const ClubBenefits = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <div className="relative bg-card rounded-lg shadow-md p-6 overflow-hidden">
+          <div className="relative bg-card dark:bg-muted/60 rounded-lg p-6 border border-border shadow-md overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-yellow-400 rounded-t-md" />
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 font-bold">
               <Timer className="w-6 h-6" />
@@ -58,7 +57,7 @@ const ClubBenefits = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="relative bg-card rounded-lg shadow-md p-6 overflow-hidden">
+          <div className="relative bg-card dark:bg-muted/60 rounded-lg p-6 border border-border shadow-md overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-yellow-400 rounded-t-md" />
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 font-bold">
               <Users className="w-6 h-6" />
@@ -81,7 +80,7 @@ const ClubBenefits = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="relative bg-card rounded-lg shadow-md p-6 overflow-hidden">
+          <div className="relative bg-card dark:bg-muted/60 rounded-lg p-6 border border-border shadow-md overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-yellow-400 rounded-t-md" />
             <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 font-bold">
               <Coins className="w-6 h-6" />
@@ -106,7 +105,7 @@ const ClubBenefits = () => {
       </div>
 
       {/* Feature Highlight Section */}
-      <div className="bg-card p-6 rounded-lg shadow-md space-y-4">
+      <div className="bg-card dark:bg-muted/60 p-6 rounded-lg border border-border shadow-md space-y-4">
         <h3 className="text-lg md:text-xl font-semibold text-primary">
           Building a Stronger Future for Local Clubs
         </h3>
