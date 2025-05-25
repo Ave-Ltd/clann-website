@@ -130,15 +130,13 @@ const ClubFAQs = () => {
       </div>
 
       {/* Hero */}
-      <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-36 h-36 bg-white/10 rounded-full -mt-20 -mr-20 z-0" />
-        <div className="relative z-10 space-y-4">
+        <div className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg">
           <h2 className="text-3xl font-bold mb-2">Your Questions Answered</h2>
-          <p className="text-base text-white/90">
+          <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
             Clear answers to ensure confidence in the platform and its benefits.
           </p>
         </div>
-      </div>
+
 
       {/* FAQ Accordion Container */}
       <div className="bg-card p-6 rounded-lg shadow-md">

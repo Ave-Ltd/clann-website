@@ -18,14 +18,15 @@ const ClubAndNextSteps = () => {
       </div>
 
       {/* Hero */}
-      <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg">
         <h2 className="text-3xl font-bold mb-2">
           Register your interest or find out more — join Clann today.
         </h2>
-        <p className="text-white/90">
+        <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
           Be part of something bigger—help shape the future for clubs and communities.
         </p>
-      </div>
+        </div>
+
 
       {/* Two-Column Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">

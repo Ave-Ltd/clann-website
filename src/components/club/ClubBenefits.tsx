@@ -16,18 +16,16 @@ const ClubBenefits = () => {
         <div className="h-1 w-24 bg-yellow-400 rounded"></div>
       </div>
 
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-36 h-36 bg-white/10 rounded-full -mt-20 -mr-20 z-0" />
-        <div className="relative z-10 space-y-4">
+      {/* Hero Section */}        
+        <div className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg">
           <h2 className="text-3xl font-bold">
             Helping Clubs Save Time, Reduce Costs, and Grow Financially
           </h2>
-          <p className="text-base md:text-lg text-white/90 max-w-3xl leading-relaxed">
+          <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
             The free platform built to streamline operations, enhance community engagement, and generate sustainable income for clubs.
           </p>
         </div>
-      </div>
+
 
       {/* Key Benefits Section */}
       <div className="space-y-6">

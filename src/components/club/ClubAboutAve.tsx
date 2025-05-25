@@ -24,17 +24,15 @@ const ClubAboutAve = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-36 h-36 bg-white/10 rounded-full -mt-20 -mr-20 z-0" />
-        <div className="relative z-10 space-y-4">
-          <h2 className="text-3xl font-bold">
-            A Trusted, Purpose-Driven Company Supporting Clubs of All Sizes
-          </h2>
-          <p className="text-base md:text-lg text-white/90 max-w-3xl leading-relaxed">
-            Building solutions that help clubs operate more efficiently, strengthen financial independence, and grow their communities.
-          </p>
-        </div>
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg">
+        <h2 className="text-3xl font-bold">
+          A Trusted, Purpose-Driven Company Supporting Clubs of All Sizes
+        </h2>
+        <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
+          Building solutions that help clubs operate more efficiently, strengthen financial independence, and grow their communities.
+        </p>
       </div>
+
 
       {/* Who We Are */}
       <div className="bg-card p-6 rounded-lg shadow-md space-y-4">

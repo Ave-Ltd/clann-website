@@ -30,12 +30,11 @@ const ClubPassiveRevenue = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary to-blue-900 text-white p-8 rounded-xl shadow-lg relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-36 h-36 bg-white/10 rounded-full -mt-20 -mr-20 z-0" />
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl shadow-lg">
         <div className="relative z-10 space-y-4">
-          <h2 className="text-3xl font-bold mb-2">Unlocking Sustainable Funding for Clubs</h2>
-          <p className="text-white/90 text-lg">
-            Helping clubs grow financially without increasing fees or relying solely on traditional fundraising.
+          <h2 className="text-3xl font-bold mb-2">Helping Members Save, Earn, and Support Their Club</h2>
+          <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl leading-relaxed">
+            Clann is completely free to use — helping members earn cashback, reduce their costs, and support their club through everyday spending.
           </p>
         </div>
       </div>
