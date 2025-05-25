@@ -7,7 +7,7 @@ const ClubBenefits = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-6 bg-background space-y-8"
+      className="p-6 bg-card shadow-lg rounded-lg space-y-12"
       id="benefits"
     >
       {/* Section Heading */}
