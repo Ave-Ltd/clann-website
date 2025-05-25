@@ -22,13 +22,14 @@ import {
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
+import { useTheme } from "@/context/useTheme"
 
 export const ClubDashboard = () => {
   const [activeSection, setActiveSection] = useState("overview")
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const sectionRef = useRef<HTMLDivElement | null>(null)
+  const { theme } = useTheme()
 
-  // Programmatic switching
   useEffect(() => {
     if (!sectionRef.current) return
     const el = sectionRef.current
@@ -45,9 +46,6 @@ export const ClubDashboard = () => {
 
   const handleSetActiveSection = (section: string) => {
     setActiveSection(section)
-  }
-
-  const handleCloseSidebar = () => {
     setIsSidebarOpen(false)
   }
 
@@ -90,30 +88,32 @@ export const ClubDashboard = () => {
         />
       </div>
 
-      {/* Mobile Sidebar */}
-      <div className="lg:hidden absolute top-4 left-4 z-50">
+      {/* Mobile Burger Button */}
+      <div className="lg:hidden fixed top-4 right-4 z-50">
         <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
-          <SheetTrigger className="p-2 rounded-md border border-border bg-white dark:bg-muted">
+          <SheetTrigger
+            className={`p-2 rounded-md border-2 border-black shadow-md transition
+              ${theme === "dark"
+                ? "bg-accent text-black hover:bg-accent/80"
+                : "bg-white text-black hover:bg-muted/70"}`}
+          >
             <Menu className="w-6 h-6" />
           </SheetTrigger>
 
           <SheetContent
             side="left"
-            className="w-64 p-4 flex flex-col justify-between border-none shadow-none bg-white dark:bg-muted"
+            className="w-64 p-4 flex flex-col justify-between border-none shadow-none bg-white dark:bg-background"
           >
             <VisuallyHidden>
               <SheetTitle>Club Dashboard</SheetTitle>
               <SheetDescription>
-                Navigate through Club-related sections in the Clann App.
+                Navigate through Clann sections
               </SheetDescription>
             </VisuallyHidden>
 
             <ClubSidebar
-              setActiveSection={(section) => {
-                handleSetActiveSection(section)
-                handleCloseSidebar()
-              }}
-              closeSidebar={handleCloseSidebar}
+              setActiveSection={handleSetActiveSection}
+              closeSidebar={() => setIsSidebarOpen(false)}
             />
           </SheetContent>
         </Sheet>
