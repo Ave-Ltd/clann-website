@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ContactSection } from "../ui/contact-us";
-import { MessageCircle, MailCheck } from "lucide-react";
+import { MailCheck, HelpCircle, MessageCircle, Hand, Users } from "lucide-react";
 
 const ClubAndNextSteps = () => {
   return (
@@ -25,17 +25,14 @@ const ClubAndNextSteps = () => {
         <p className="text-white/90">
           Be part of something bigger—help shape the future for clubs and communities.
         </p>
-        <p className="text-white/90">
-          Register your interest or find out more — join Clann today.
-        </p>
       </div>
 
-      {/* Join Section - Stacked */}
-      <div className="flex flex-col gap-8">
+      {/* Two-Column Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         {/* Info Column */}
-        <div className="bg-card p-6 rounded-lg shadow-md border-l-4 border-primary">
+        <div className="bg-card p-6 rounded-lg shadow-md border-l-4 border-primary h-fit">
           <h2 className="text-xl font-bold text-primary flex items-center gap-2 mb-4">
-            <MessageCircle className="w-5 h-5 text-blue-600 dark:text-yellow-400" />
+            <Users className="w-5 h-5 text-yellow-500" />
             How You Can Get Involved
           </h2>
           <p className="text-muted-foreground mb-6">
@@ -44,21 +41,21 @@ const ClubAndNextSteps = () => {
 
           <ul className="space-y-5">
             <li className="flex items-start gap-4">
-              <i className="fas fa-question-circle text-green-500 mt-1" />
+              <HelpCircle className="w-5 h-5 text-green-600 dark:text-yellow-400 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-primary">Ask a Question</h4>
                 <p className="text-muted-foreground">Need more information? We're happy to clarify.</p>
               </div>
             </li>
             <li className="flex items-start gap-4">
-              <i className="fas fa-comment-dots text-green-500 mt-1" />
+              <MessageCircle className="w-5 h-5 text-green-600 dark:text-yellow-400 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-primary">Provide Feedback</h4>
                 <p className="text-muted-foreground">Share your thoughts on how Clann can better support your club or organisation.</p>
               </div>
             </li>
             <li className="flex items-start gap-4">
-              <i className="fas fa-hand-pointer text-green-500 mt-1" />
+              <Hand className="w-5 h-5 text-green-600 dark:text-yellow-400 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-primary">Express Your Interest</h4>
                 <p className="text-muted-foreground">If this aligns with your organisation, let us know how it could benefit your network of clubs.</p>
@@ -68,12 +65,14 @@ const ClubAndNextSteps = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-card p-6 rounded-lg shadow-md border border-border">
+        <div className="bg-card px-6 py-4 rounded-lg shadow-md border border-border h-fit">
           <h2 className="text-xl font-bold text-primary flex items-center gap-2 mb-4">
-            <MailCheck className="w-5 h-5 text-blue-600 dark:text-yellow-400" />
+            <MailCheck className="w-5 h-5 text-yellow-500" />
             Register Your Interest
           </h2>
-          <ContactSection />
+          <div className="space-y-4">
+            <ContactSection />
+          </div>
         </div>
       </div>
     </motion.div>

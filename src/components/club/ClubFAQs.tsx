@@ -86,8 +86,8 @@ const FAQList = [
     answer: (
       <>
         <ul className="mt-2 list-disc list-inside space-y-2">
-          <li className="font-semibold">The <span className="text-primary">37.5% club share</span> is split equally among all clubs the member is linked to.</li>
-          <li className="font-semibold">The member always keeps <span className="text-primary">their full 37.5% balance</span>.</li>
+          <li className="font-semibold">If a member is associated with <span className="text-primary">more than one club</span>, the 37.5% of revenue allocated to the clubs is <span className="text-primary">divided equally</span> among all clubs linked to that member.</li>
+          <li className="font-semibold">The member <span className="text-primary">always retains </span>their 37.5% shared as "balance available", ensuring they bendift fully regardless of how many clubs they are part of.</li>
         </ul>
       </>
     ),

@@ -34,7 +34,8 @@ export const ContactSection: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, type, value } = e.target;
-    const fieldValue = type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
+    const fieldValue =
+      type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
 
     setFormData((prev) => ({
       ...prev,
@@ -115,111 +116,73 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="container py-24 sm:py-32">
-      <div className="max-w-2xl mx-auto text-center mb-10">
-        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
-          Let’s Connect & Build the Future Together
-        </h2>
-        <p className="text-muted-foreground text-lg">
-          Clann.App is transforming how clubs and organisations operate—seamlessly, efficiently, and sustainably. <br />
-          Whether you’re looking for better management tools or long-term financial solutions, we’d love to discuss how we can help.
-        </p>
-      </div>
-
-      <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6">
-        {[ 
-          { id: "fullName", label: "Full Name", type: "text" },
-          { id: "email", label: "Email", type: "email" },
-          { id: "organisation", label: "Organisation/Club Name (optional)", type: "text" },
-        ].map(({ id, label, type }) => (
-          <div key={id}>
-            <input
-              type={type}
-              id={id}
-              name={id}
-              placeholder={label}
-              value={formData[id as StringFieldKeys]}
-              onChange={handleChange}
-              required={id !== "organisation"}
-              className="w-full border border-border rounded-md p-3 bg-input text-foreground focus:ring-2 focus:ring-[hsl(var(--primary))] focus:outline-none placeholder:text-muted-foreground"
-            />
-          </div>
-        ))}
-
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Message"
-          value={formData.message}
+    <form onSubmit={handleSubmit} className="space-y-5">
+      {[ 
+        { id: "fullName", label: "Full Name", type: "text" },
+        { id: "email", label: "Email", type: "email" },
+        { id: "organisation", label: "Organisation/Club Name (optional)", type: "text" },
+      ].map(({ id, label, type }) => (
+        <input
+          key={id}
+          type={type}
+          id={id}
+          name={id}
+          placeholder={label}
+          value={formData[id as StringFieldKeys]}
           onChange={handleChange}
-          required
-          rows={5}
+          required={id !== "organisation"}
           className="w-full border border-border rounded-md p-3 bg-input text-foreground focus:ring-2 focus:ring-[hsl(var(--primary))] focus:outline-none placeholder:text-muted-foreground"
         />
+      ))}
 
-        {/* Checkboxes */}
-        <div className="space-y-4">
-          <label className="flex items-center space-x-2 text-sm">
-            <input
-              type="checkbox"
-              name="newsletter"
-              checked={formData.newsletter}
-              onChange={handleChange}
-              className="accent-[hsl(var(--primary))]"
-            />
-            <span>Sign me up for updates & platform news</span>
-          </label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Questions / Feedback"
+        value={formData.message}
+        onChange={handleChange}
+        required
+        rows={5}
+        className="w-full border border-border rounded-md p-3 bg-input text-foreground focus:ring-2 focus:ring-[hsl(var(--primary))] focus:outline-none placeholder:text-muted-foreground"
+      />
 
-          <label className="flex items-center space-x-2 text-sm">
-            <input
-              type="checkbox"
-              name="followup"
-              checked={formData.followup}
-              onChange={handleChange}
-              className="accent-[hsl(var(--primary))]"
-            />
-            <span>I’d like to request a follow-up meeting</span>
-          </label>
-        </div>
-
-        <button
-          type="submit"
-          disabled={isLoading}
-          className={`w-full py-2 px-4 rounded-md font-semibold transition flex items-center justify-center ${
-            isLoading
-              ? "bg-muted text-muted-foreground cursor-not-allowed"
-              : "bg-[hsl(var(--primary-accessible))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary-hover))]"
-          }`}
-        >
-          {isLoading ? (
-            <span className="flex items-center gap-2">
-              <svg
-                className="animate-spin h-4 w-4 text-foreground"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                ></path>
-              </svg>
-              Sending...
-            </span>
-          ) : (
-            "Submit"
-          )}
-        </button>
-      </form>
+      <button
+        type="submit"
+        disabled={isLoading}
+        className={`w-full py-2 px-4 rounded-md font-semibold transition flex items-center justify-center ${
+          isLoading
+            ? "bg-muted text-muted-foreground cursor-not-allowed"
+            : "bg-[hsl(var(--primary-accessible))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary-hover))]"
+        }`}
+      >
+        {isLoading ? (
+          <span className="flex items-center gap-2">
+            <svg
+              className="animate-spin h-4 w-4 text-foreground"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+              ></path>
+            </svg>
+            Sending...
+          </span>
+        ) : (
+          "Submit"
+        )}
+      </button>
 
       <SuccessModal
         isOpen={isModalOpen}
@@ -227,6 +190,6 @@ export const ContactSection: React.FC = () => {
         message={errorMessage}
         onClose={() => setModalOpen(false)}
       />
-    </section>
+    </form>
   );
 };
