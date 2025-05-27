@@ -1,4 +1,4 @@
-import styles from "../styles/Hero.module.css";
+import styles from "../styles/hero.module.css";
 import { useRef, useEffect, useState } from "react";
 import heroImage from "/src/assets/hero-image.png";
 import businessGateway from "/src/assets/business-gateway.png";
