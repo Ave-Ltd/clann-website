@@ -22,12 +22,14 @@ import {
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
+import { useTheme } from "@/context/useTheme"
 
 export const ClubDashboard = () => {
   const [activeSection, setActiveSection] = useState("overview")
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const sectionRef = useRef<HTMLDivElement | null>(null)
+  const { theme } = useTheme()
 
-  // Allow programmatic section switching via CustomEvent
   useEffect(() => {
     if (!sectionRef.current) return
     const el = sectionRef.current
@@ -42,9 +44,9 @@ export const ClubDashboard = () => {
     return () => el.removeEventListener("switch-section", handleSectionSwitch)
   }, [])
 
-
   const handleSetActiveSection = (section: string) => {
     setActiveSection(section)
+    setIsSidebarOpen(false)
   }
 
   const renderSection = () => {
@@ -78,43 +80,46 @@ export const ClubDashboard = () => {
 
   return (
     <div id="club-dashboard-section-trigger" ref={sectionRef}>
-      {/* Desktop Pinned Sidebar */}
+      {/* Desktop Sidebar */}
       <div className="hidden lg:block fixed inset-y-0 left-0 w-64 z-50">
         <ClubSidebar
           setActiveSection={handleSetActiveSection}
-          closeSidebar={() => { }}
+          closeSidebar={() => {}}
         />
       </div>
 
-      {/* Mobile Sidebar Drawer */}
-      <div className="lg:hidden absolute top-4 left-4 z-50">
-        <Sheet>
-          <SheetTrigger className="p-2 rounded-md border border-border bg-secondary">
+      {/* Mobile Burger Button */}
+      <div className="lg:hidden fixed top-4 right-4 z-50">
+        <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
+          <SheetTrigger
+            className={`p-2 rounded-md border-2 border-black shadow-md transition
+              ${theme === "dark"
+                ? "bg-accent text-black hover:bg-accent/80"
+                : "bg-white text-black hover:bg-muted/70"}`}
+          >
             <Menu className="w-6 h-6" />
           </SheetTrigger>
 
           <SheetContent
             side="left"
-            className="w-64 p-4 flex flex-col justify-between border-none shadow-none bg-secondary"
+            className="w-64 p-4 flex flex-col justify-between border-none shadow-none bg-white dark:bg-background"
           >
             <VisuallyHidden>
               <SheetTitle>Club Dashboard</SheetTitle>
-            </VisuallyHidden>
-            <VisuallyHidden>
               <SheetDescription>
-                Navigate through Club-related sections in the Clann App.
+                Navigate through Clann sections
               </SheetDescription>
             </VisuallyHidden>
 
             <ClubSidebar
               setActiveSection={handleSetActiveSection}
-              closeSidebar={() => { }}
+              closeSidebar={() => setIsSidebarOpen(false)}
             />
           </SheetContent>
         </Sheet>
       </div>
 
-      {/* Main Content: offset by sidebar on desktop */}
+      {/* Main Content */}
       <main className="lg:ml-64 h-full overflow-y-auto p-6">
         {renderSection()}
       </main>
