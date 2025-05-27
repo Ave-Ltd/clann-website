@@ -1,4 +1,4 @@
-import styles from "../styles/HowItWorks.module.css";
+import styles from "../styles/howitworks.module.css";
 import { Medal, Map, Plane } from "lucide-react";
 
 interface FeatureProps {

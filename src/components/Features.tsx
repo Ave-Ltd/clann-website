@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/Services.module.css";
+import styles from "../styles/services.module.css";
 import {
   CalendarCheck,
   MessageSquare,
