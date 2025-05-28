@@ -58,11 +58,12 @@ export const Hero = () => {
 
             <div className={styles.heroButtons}>
               <button
-                className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition"
                 onClick={scrollToRegisterInterest}
+                className="btn-primary-lg"
               >
                 Register Interest
               </button>
+
             </div>
 
             <div className={styles.supportedByBlock}>

@@ -104,4 +104,3 @@ body,
 .sheet-content[data-state="closed"] {
   transition-duration: 200ms !important;
 }
-

@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 220 100% 97%;          /* #f5f7fa - light gray */
-    --foreground: 0 0% 20%;              /* #333 - dark text */
+    --background: 220 100% 97%;
+    --foreground: 0 0% 20%;
 
-    --card: 0 0% 100%;                   /* #fff */
+    --card: 0 0% 100%;
     --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
 
-    --primary: 205 77% 43%;              /* #137DC5 - main blue */
-    --primary-foreground: 0 0% 100%;     /* white text */
+    --primary: 210 100% 60%;            /* soft mid blue: #60a5fa */
+--primary-foreground: 0 0% 100%;    /* white text */
 
-    --primary-accessible: 205 100% 36%;  /* #0f5f96 - third blue */
-    --primary-hover: 205 100% 33%;       /* darker hover */
+    --primary-accessible: 210 100% 45%; /* for strong contrast areas */
+    --primary-hover: 210 100% 50%;      /* hover: #3b82f6 */
 
-    --secondary: 205 82% 52%;            /* #2199ea - secondary blue */
+    --secondary: 205 82% 52%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 48 96% 61%;                /* #FACF39 - yellow accent */
+    --accent: 48 96% 61%;
     --accent-foreground: 0 0% 20%;
 
     --muted: 0 0% 94%;
@@ -33,25 +33,26 @@
 
     --border: 0 0% 88%;
     --input: 0 0% 100%;
-    --ring: 205 77% 43%; /* match primary */
+    --ring: 205 77% 43%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 240 5% 15%;            /* #262627 */
-    --foreground: 0 0% 100%;             /* #FFFFFF */
-    --card: 0 0% 12%;                    /* #1E1E1E */
+    --background: 240 5% 15%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 12%;
     --card-foreground: 0 0% 100%;
     --popover: 0 0% 15%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 43 100% 73%;              /* #FFD573 */
+    --primary: 43 100% 73%;               /* warm yellow */
     --primary-foreground: 0 0% 0%;
     --primary-accessible: 43 100% 73%;
     --primary-hover: 43 89% 60%;
 
-    --secondary: 0 0% 57%;               /* #919191 */
+    --secondary: 0 0% 57%;
     --secondary-foreground: 0 0% 0%;
 
     --accent: 43 100% 73%;
@@ -76,5 +77,27 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 rounded-md font-medium transition-all;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+
+    &:hover {
+      background-color: hsl(var(--primary-hover));
+    }
+  }
+
+  .btn-primary-lg {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all text-base;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+
+    &:hover {
+      background-color: hsl(var(--primary-hover));
+    }
   }
 }

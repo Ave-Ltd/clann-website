@@ -93,8 +93,8 @@ const ClubSidebar = ({ currentSection, setActiveSection, closeSidebar }: Sidebar
               closeSidebar();
             }}
             className={`flex items-center gap-3 p-3 rounded-md cursor-pointer transition-colors ${currentSection === id
-                ? "bg-yellow-400 text-black dark:bg-primary dark:text-primary-foreground"
-                : "hover:bg-accent hover:text-accent-foreground"
+              ? "bg-yellow-400 text-black dark:bg-primary dark:text-primary-foreground"
+              : "hover:bg-accent hover:text-accent-foreground"
               }`}
           >
             {icon}

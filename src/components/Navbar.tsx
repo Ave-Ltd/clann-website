@@ -34,25 +34,25 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   const handleAnchorClick = (hash: string) => {
-  const id = hash.replace("#", "");
-  const el = document.getElementById(id);
+    const id = hash.replace("#", "");
+    const el = document.getElementById(id);
 
-  if (!el) return;
+    if (!el) return;
 
-  // Get the element's top position relative to page before layout shifts
-  const y = el.getBoundingClientRect().top + window.scrollY;
+    // Get the element's top position relative to page before layout shifts
+    const y = el.getBoundingClientRect().top + window.scrollY;
 
-  // Close the drawer first
-  setIsOpen(false);
+    // Close the drawer first
+    setIsOpen(false);
 
-  // Scroll to exact Y after drawer has closed
-  setTimeout(() => {
-    window.scrollTo({
-      top: y,
-      behavior: "smooth",
-    });
-  }, 300); // Adjust based on Sheet close animation duration
-};
+    // Scroll to exact Y after drawer has closed
+    setTimeout(() => {
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }, 300); // Adjust based on Sheet close animation duration
+  };
 
 
 
@@ -87,7 +87,7 @@ export const Navbar = () => {
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={() => navigate("/login")}
-              className="text-sm font-medium px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition-all"
+              className="btn-primary text-sm"
             >
               Club Dashboard
             </button>
