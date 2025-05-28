@@ -63,7 +63,7 @@ export const Footer = () => {
             href="https://www.linkedin.com/"
             className="text-primary transition-all border-primary hover:border-b-2"
           >
-            Jamie King
+            Clann
           </a>
         </h3>
       </section>
