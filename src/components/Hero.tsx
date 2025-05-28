@@ -32,7 +32,7 @@ export const Hero = () => {
           <div className="relative w-[260px] md:w-[290px] aspect-[9/19.5] bg-black border-[6px] border-neutral-700 rounded-[2rem] shadow-xl overflow-hidden">
             {/* Camera hole */}
             <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-black rounded-full z-10" />
-            
+
             {/* App screenshot */}
             <img
               src={heroImage}
@@ -43,10 +43,9 @@ export const Hero = () => {
 
           {/* RIGHT: Text */}
           <div className="text-center md:text-left max-w-xl" ref={textRef}>
-            <h1 className={`${styles.heroTitleGradient} text-gray-900 dark:text-white`}>
-              Club <span className="text-blue-700 dark:text-blue-400">Funding</span>
-              <br /> Reinvented
-            </h1>
+            <h1 className={`${styles.heroTitleGradient} ${styles.flagText}`}>
+  Club Funding<br />Reinvented
+</h1>
             <p className={`${styles.heroSubtitle} text-gray-700 dark:text-gray-300 mt-4`}>
               Clann helps Clubs unlock new income streams.
             </p>
