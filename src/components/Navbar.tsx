@@ -33,6 +33,29 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useNavigate();
 
+  const handleAnchorClick = (hash: string) => {
+  const id = hash.replace("#", "");
+  const el = document.getElementById(id);
+
+  if (!el) return;
+
+  // Get the element's top position relative to page before layout shifts
+  const y = el.getBoundingClientRect().top + window.scrollY;
+
+  // Close the drawer first
+  setIsOpen(false);
+
+  // Scroll to exact Y after drawer has closed
+  setTimeout(() => {
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
+  }, 300); // Adjust based on Sheet close animation duration
+};
+
+
+
   return (
     <header className="sticky top-0 z-40 w-full bg-white dark:bg-[#1a1a1a] border-b border-border">
       <NavigationMenu className="mx-auto">
@@ -85,14 +108,13 @@ export const Navbar = () => {
 
                 <nav className="flex flex-col justify-start items-center gap-3 mt-4">
                   {routeList.map(({ href, label }) => (
-                    <a
+                    <button
                       key={label}
-                      href={href}
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => handleAnchorClick(href)}
                       className="text-lg font-medium hover:underline text-foreground"
                     >
                       {label}
-                    </a>
+                    </button>
                   ))}
                 </nav>
 

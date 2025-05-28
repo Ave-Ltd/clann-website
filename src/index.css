@@ -100,3 +100,8 @@ body,
   width: max-content;
   animation: scroll 60s linear infinite;
 }
+
+.sheet-content[data-state="closed"] {
+  transition-duration: 200ms !important;
+}
+
