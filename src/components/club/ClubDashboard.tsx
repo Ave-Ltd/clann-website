@@ -1,17 +1,17 @@
-import { useState, useEffect, useRef } from "react"
-import ClubSidebar from "./ClubSidebar"
-import ClubRoadmap from "./ClubRoadmap"
-import ClubOverview from "./ClubOverview"
-import ClubGrowth from "./ClubGrowth"
-import ClubFinancials from "./ClubFinancials"
-import ClubSecurity from "./ClubSecurity"
-import ClubBenefits from "./ClubBenefits"
-import ClubMemberBenefits from "./ClubMemberBenefits"
-import ClubPassiveRevenue from "./ClubPassiveRevenue"
-import ClubAboutAve from "./ClubAboutAve"
-import ClubFAQs from "./ClubFAQs"
-import ClubContactAndNextSteps from "./ClubContactAndNextSteps"
-import ClubAboutClann from "./ClubAboutClann"
+import { useState, useEffect, useRef } from "react";
+import ClubSidebar from "./ClubSidebar";
+import ClubRoadmap from "./ClubRoadmap";
+import ClubOverview from "./ClubOverview";
+import ClubGrowth from "./ClubGrowth";
+import ClubFinancials from "./ClubFinancials";
+import ClubSecurity from "./ClubSecurity";
+import ClubBenefits from "./ClubBenefits";
+import ClubMemberBenefits from "./ClubMemberBenefits";
+import ClubPassiveRevenue from "./ClubPassiveRevenue";
+import ClubAboutAve from "./ClubAboutAve";
+import ClubFAQs from "./ClubFAQs";
+import ClubContactAndNextSteps from "./ClubContactAndNextSteps";
+import ClubAboutClann from "./ClubAboutClann";
 
 import {
   Sheet,
@@ -19,70 +19,71 @@ import {
   SheetTrigger,
   SheetTitle,
   SheetDescription,
-} from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
-import { useTheme } from "@/context/useTheme"
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { useTheme } from "@/context/useTheme";
 
 export const ClubDashboard = () => {
-  const [activeSection, setActiveSection] = useState("overview")
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const sectionRef = useRef<HTMLDivElement | null>(null)
-  const { theme } = useTheme()
+  const [activeSection, setActiveSection] = useState("overview");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
-    if (!sectionRef.current) return
-    const el = sectionRef.current
+    if (!sectionRef.current) return;
+    const el = sectionRef.current;
 
     const handleSectionSwitch = (e: Event) => {
-      const customEvent = e as CustomEvent<string>
-      const next = customEvent.detail
-      if (typeof next === "string") setActiveSection(next)
-    }
+      const customEvent = e as CustomEvent<string>;
+      const next = customEvent.detail;
+      if (typeof next === "string") setActiveSection(next);
+    };
 
-    el.addEventListener("switch-section", handleSectionSwitch)
-    return () => el.removeEventListener("switch-section", handleSectionSwitch)
-  }, [])
+    el.addEventListener("switch-section", handleSectionSwitch);
+    return () => el.removeEventListener("switch-section", handleSectionSwitch);
+  }, []);
 
   const handleSetActiveSection = (section: string) => {
-    setActiveSection(section)
-    setIsSidebarOpen(false)
-  }
+    setActiveSection(section);
+    setIsSidebarOpen(false);
+  };
 
   const renderSection = () => {
     switch (activeSection) {
       case "roadmap":
-        return <ClubRoadmap />
+        return <ClubRoadmap />;
       case "aboutClann":
-        return <ClubAboutClann />
+        return <ClubAboutClann />;
       case "benefits":
-        return <ClubBenefits />
+        return <ClubBenefits />;
       case "memberBenefits":
-        return <ClubMemberBenefits />
+        return <ClubMemberBenefits />;
       case "growth":
-        return <ClubGrowth />
+        return <ClubGrowth />;
       case "financials":
-        return <ClubFinancials />
+        return <ClubFinancials />;
       case "security":
-        return <ClubSecurity />
+        return <ClubSecurity />;
       case "passiveRevenue":
-        return <ClubPassiveRevenue />
+        return <ClubPassiveRevenue />;
       case "aboutAve":
-        return <ClubAboutAve />
+        return <ClubAboutAve />;
       case "faqs":
-        return <ClubFAQs />
+        return <ClubFAQs />;
       case "contact":
-        return <ClubContactAndNextSteps />
+        return <ClubContactAndNextSteps />;
       default:
-        return <ClubOverview />
+        return <ClubOverview />;
     }
-  }
+  };
 
   return (
     <div id="club-dashboard-section-trigger" ref={sectionRef}>
       {/* Desktop Sidebar */}
       <div className="hidden lg:block fixed inset-y-0 left-0 w-64 z-50">
         <ClubSidebar
+          currentSection={activeSection}
           setActiveSection={handleSetActiveSection}
           closeSidebar={() => {}}
         />
@@ -112,6 +113,7 @@ export const ClubDashboard = () => {
             </VisuallyHidden>
 
             <ClubSidebar
+              currentSection={activeSection}
               setActiveSection={handleSetActiveSection}
               closeSidebar={() => setIsSidebarOpen(false)}
             />
@@ -124,5 +126,5 @@ export const ClubDashboard = () => {
         {renderSection()}
       </main>
     </div>
-  )
-}
+  );
+};

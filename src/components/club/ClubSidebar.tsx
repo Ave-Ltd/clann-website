@@ -11,11 +11,12 @@ import {
   Award,
   BadgeCheck,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/useTheme";
 
 interface SidebarProps {
+  currentSection: string;
   setActiveSection: (section: string) => void;
   closeSidebar: () => void;
 }
@@ -31,8 +32,7 @@ const sections = [
   { id: "contact", label: "Join the Clann", icon: <UserPlus className="w-5 h-5" /> },
 ];
 
-const ClubSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
-  const [localActive, setLocalActive] = useState<string>("overview");
+const ClubSidebar = ({ currentSection, setActiveSection, closeSidebar }: SidebarProps) => {
   const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
   const sidebarRef = useRef<HTMLDivElement | null>(null);
@@ -46,19 +46,7 @@ const ClubSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  useEffect(() => {
-    const trigger = document.querySelector("#club-dashboard-section-trigger");
-    const handleSwitch = (e: Event) => {
-      const customEvent = e as CustomEvent;
-      if (customEvent.detail) {
-        setLocalActive(customEvent.detail);
-        setActiveSection(customEvent.detail);
-      }
-    };
-    trigger?.addEventListener("switch-section", handleSwitch);
-    return () => trigger?.removeEventListener("switch-section", handleSwitch);
-  }, [setActiveSection]);
-
+  // Close sidebar on outside click (mobile)
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -101,12 +89,11 @@ const ClubSidebar = ({ setActiveSection, closeSidebar }: SidebarProps) => {
           <li
             key={id}
             onClick={() => {
-              setLocalActive(id);
               setActiveSection(id);
               closeSidebar();
             }}
             className={`flex items-center gap-3 p-3 rounded-md cursor-pointer transition-colors ${
-              localActive === id
+              currentSection === id
                 ? "bg-yellow-400 text-black dark:bg-primary dark:text-primary-foreground"
                 : "hover:bg-accent hover:text-accent-foreground"
             }`}
