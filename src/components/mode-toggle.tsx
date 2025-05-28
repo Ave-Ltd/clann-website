@@ -1,20 +1,21 @@
-import { Button } from "../ui/button";
-import { useTheme } from "../context/useTheme";
 import { Moon, Sun } from "lucide-react";
+import { Button } from "../ui/button";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function ModeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
     <Button
       variant="ghost"
       size="icon"
-      className="relative flex items-center justify-center"
       onClick={toggleTheme}
+      className="relative flex items-center justify-center"
     >
       <Sun
         className={`absolute h-[1.2rem] w-[1.2rem] transition-all ${
