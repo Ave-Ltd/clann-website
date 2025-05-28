@@ -92,11 +92,10 @@ const ClubSidebar = ({ currentSection, setActiveSection, closeSidebar }: Sidebar
               setActiveSection(id);
               closeSidebar();
             }}
-            className={`flex items-center gap-3 p-3 rounded-md cursor-pointer transition-colors ${
-              currentSection === id
+            className={`flex items-center gap-3 p-3 rounded-md cursor-pointer transition-colors ${currentSection === id
                 ? "bg-yellow-400 text-black dark:bg-primary dark:text-primary-foreground"
                 : "hover:bg-accent hover:text-accent-foreground"
-            }`}
+              }`}
           >
             {icon}
             {label}
@@ -107,11 +106,16 @@ const ClubSidebar = ({ currentSection, setActiveSection, closeSidebar }: Sidebar
       {/* Logout Button */}
       <button
         onClick={handleLogout}
-        className="mt-auto w-full flex items-center gap-3 justify-center text-lg font-semibold p-3 rounded-md transition-colors bg-destructive text-destructive-foreground hover:bg-red-700 shadow-md"
+        className={`mt-auto w-full flex items-center justify-center gap-2 rounded-xl px-4 py-3
+    text-sm font-medium transition-colors
+    bg-red-100 text-red-700 hover:bg-red-200
+    dark:bg-red-900 dark:text-red-300 dark:hover:bg-red-800 shadow-sm`}
       >
-        <LogOut className="w-6 h-6" />
+        <LogOut className="w-5 h-5" />
         Logout
       </button>
+
+
     </nav>
   );
 };
