@@ -1,27 +1,18 @@
 import styles from "../styles/hero.module.css";
-import { useRef, useEffect, useState } from "react";
-import heroImage from "/src/assets/hero-image.png";
-import businessGateway from "/src/assets/business-gateway.png";
-import codeBase from "/src/assets/codebase.png";
-import techScaler from "/src/assets/techscaler.png";
+import { useRef } from "react";
+import { useTheme } from "@/context/useTheme";
+
+import heroImageLight from "../assets/hero-image-light.png";
+import heroImageDark from "../assets/hero-image-dark.png";
+
+import businessGateway from "../assets/business-gateway.png";
+import codeBase from "../assets/codebase.png";
+import techScaler from "../assets/techscaler.png";
 
 export const Hero = () => {
   const textRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
-  const [imageHeight, setImageHeight] = useState<number | undefined>(undefined);
-
-  useEffect(() => {
-    const updateImageHeight = () => {
-      if (textRef.current && imageRef.current) {
-        const textHeight = textRef.current.offsetHeight;
-        setImageHeight(textHeight * 1.1);
-      }
-    };
-
-    updateImageHeight();
-    window.addEventListener("resize", updateImageHeight);
-    return () => window.removeEventListener("resize", updateImageHeight);
-  }, []);
+  const { theme } = useTheme();
+  const heroImage = theme === "dark" ? heroImageDark : heroImageLight;
 
   const scrollToRegisterInterest = () => {
     const section = document.getElementById("registerinterest");
@@ -35,38 +26,41 @@ export const Hero = () => {
       id="home"
       className={`${styles.heroSection} bg-gradient-to-br from-blue-100 to-blue-300 dark:from-[#0a0a0a] dark:to-[#1a1a1a] text-gray-900 dark:text-white transition-colors duration-300`}
     >
-      <div className={styles.container}>
-        <div className={styles.heroContent}>
-          <div className={styles.heroImage}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20 py-10 md:py-16">
+          {/* LEFT: Phone Shell */}
+          <div className="relative w-[260px] md:w-[290px] aspect-[9/19.5] bg-black border-[6px] border-neutral-700 rounded-[2rem] shadow-xl overflow-hidden">
+            {/* Camera hole */}
+            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-black rounded-full z-10" />
+            
+            {/* App screenshot */}
             <img
-              ref={imageRef}
               src={heroImage}
               alt="Clann app in action"
-              className={styles.heroImageResponsive}
-              style={{ height: imageHeight }}
+              className="w-full h-full object-cover"
             />
           </div>
 
-          <div className={styles.heroText} ref={textRef}>
+          {/* RIGHT: Text */}
+          <div className="text-center md:text-left max-w-xl" ref={textRef}>
             <h1 className={`${styles.heroTitleGradient} text-gray-900 dark:text-white`}>
               Club <span className="text-blue-700 dark:text-blue-400">Funding</span>
               <br /> Reinvented
             </h1>
-            <p className={`${styles.heroSubtitle} text-gray-700 dark:text-gray-300`}>
+            <p className={`${styles.heroSubtitle} text-gray-700 dark:text-gray-300 mt-4`}>
               Clann helps Clubs unlock new income streams.
             </p>
 
-            <div className={styles.heroButtons}>
+            <div className={`${styles.heroButtons} mt-6`}>
               <button
                 onClick={scrollToRegisterInterest}
                 className="btn-primary-lg"
               >
                 Register Interest
               </button>
-
             </div>
 
-            <div className={styles.supportedByBlock}>
+            <div className={`${styles.supportedByBlock} mt-8`}>
               <p className="font-semibold text-gray-700 dark:text-gray-300">
                 Proudly Supported By:
               </p>
