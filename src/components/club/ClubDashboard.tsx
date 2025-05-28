@@ -28,6 +28,7 @@ export const ClubDashboard = () => {
   const [activeSection, setActiveSection] = useState("overview");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const mainRef = useRef<HTMLElement | null>(null);
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -43,6 +44,12 @@ export const ClubDashboard = () => {
     el.addEventListener("switch-section", handleSectionSwitch);
     return () => el.removeEventListener("switch-section", handleSectionSwitch);
   }, []);
+
+  // Scroll to top of main content when activeSection changes
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}, [activeSection]);
+
 
   const handleSetActiveSection = (section: string) => {
     setActiveSection(section);
@@ -122,7 +129,10 @@ export const ClubDashboard = () => {
       </div>
 
       {/* Main Content */}
-      <main className="lg:ml-64 h-full overflow-y-auto p-6">
+      <main
+        ref={mainRef}
+        className="lg:ml-64 h-full overflow-y-auto p-6"
+      >
         {renderSection()}
       </main>
     </div>
